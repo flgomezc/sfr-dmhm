@@ -1,0 +1,139 @@
+\documentclass[manuscript]{aastex}
+%\documentclass[preprint2]{aastex}
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand{\myemail}{skywalker@galaxy.far.far.away}
+
+\shorttitle{A Connection Between Star Formation Rate and Dark Matter Halos at Z \~ 6}
+\shortauthors{G\'omez-Cort\'es}
+
+\begin{document}
+
+\title{A Connection Between Star Formation Rate and Dark Matter Halos at $Z\sim6$ Using 2013 Plank Cosmology.}
+
+\author{F.L. G\'omez-Cort\'es\altaffilmark{1} }
+\affil{Departamento de Física, Universidad de los Andes, Colombia}
+
+\begin{abstract}
+This work relates baryonic matter and dark matter at high redshift using observational data
+from the HST and results of the Multidark Simulation.
+Luminosity Function - Dark Matter Halos, Star Formation Rate - Dark Matter Halos.
+\end{abstract}
+
+\keywords{LF, SFR, high redshift galaxies, reionization}
+
+\section{Introduction}
+\subsection{Halo Mass Function (HMF)}
+The HMF is created using the DMH catalog from the Multidark Database.
+\subsection{Cosmic Variance}
+Is important to know and understand the existence of local fluctuations
+or inhomogeneities due the observed scale.
+
+For this part is necesary to study the HMF on smaller boxes
+
+\section{Relationship between Galaxy Luminosity Function (GLF) and
+Dark Matter Halo (DMH) mass}
+
+In one hand we have observational results: the GLF for star-forming galaxies at high redshift (z=5.9)\citep{bouwens06,willott07}
+expressed in terms of magnitude in the ultraviolet range (M1350). In the other hand we have a DMH 
+catalog, result from the Multidark Simulation with Plank Cosmology. %\citep{Multidark}
+
+A $1000 \textrm{ Mpc} ^3 \textrm{h}^{−3}$ cubic box containing near to $11\times10^6$ dark matter halos.
+
+The idea is to connect the observed GLF with the DMH catalog. We assume that each halo contains one and just one galaxy, and its luminosity is given by:
+\begin{equation}
+L_\textrm{galaxy}=\alpha M_\textrm{halo}^\beta 
+\end{equation}
+but this function is given in magnitude units. Is necesary to convert magnitude to luminosity.
+
+\section{Magnitude to Luminosity}
+The Luminosity is an intrinsic propertie of the stars. It doesn't deppends of the distance. 
+It's directly related to the energy flux emmited. The luminosity $L_\nu$ at a given frecuency 
+$\nu$ is has $[\textrm{W}\textrm{Hz}^{-1}]$ or $[\textrm{erg }\textrm{s}^{-1}\textrm{Hz}^{-1}]$ units.
+
+The magnitude is brightnes star classification inherited from ancient Greeks. It deppends of 
+the stellar distance. The absolute magnitude is a modern classification independent of 
+distance. Taking the Sun as reference, the absolute magnitud at a given wavelengt is given by: 
+\[ M_{\lambda} = M_{\lambda \odot} - 2.5 \log_{10}\left( \frac{L_\lambda}{L_{\lambda \odot}} \right) \]
+The solar absolute magnitude in the U filter is:
+\[ M_{\textrm{U} \odot} = 5.61\]
+and the luminosity:
+\[ 1 L_{\textrm{U} \odot} = 10^{18.48} \textrm{ergs s}^{-1}\textrm{Hz}^{-1}\]
+\[ 1 L_{\textrm{U} \odot} = 3.02 \times 10^{18} \textrm{ergs s}^{-1}\textrm{Hz}^{-1}\]
+Replacing in the absolute magnitude equation:
+\[ M_{\textrm{U}} = 5.61 - 2.5 \log_{10}(L_{\textrm{U}}) + 25\times18.48\]
+gives:
+\[ M_{\textrm{U}} = 51.82 - 2.5 \log_{10}(L_{\textrm{U}}) \]
+
+\subsection{Best Fitting Parameters}
+
+\huge
+A big mistake.
+
+\[\log \neq \log_{10}\]
+\normalsize
+
+--Here comes the fitting graph--
+
+And the fitting parameters
+
+$\alpha = ?$
+
+$\beta = ?$
+
+\section{Stelar Formation Rate}
+
+\subsection{The UV Continuum}
+The UV region is dominated by big blue young stars, is possible to make an extrapolation to small young stars.
+
+On stellar-formation galaxies the spectrum has a UV continuum nearly flat. This is a good approximation:
+
+$ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) = 1.4 \times 10^{28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} \right)$
+
+With Initial Mass Function (IMF) between $0.1 M_\odot$ and $100 M_\odot$, in the range of $1250-2500 \mathring{\textrm{A}} $
+
+
+\subsection{The Fitting Model}
+
+This fitting model contains four parameters: $\left(m/M\right)_0$, $M_1$, $\beta$ and $\gamma$, 
+where $m:=$ Stellar mass, and $M :=$ Dark Matter Halo mass.
+\begin{equation}
+\frac{m}{M} = 2 \left( \frac{m}{M} \right)_{0} 
+		  \left[ \left(\frac{M}{M_1}\right)^{-\beta} + \left(\frac{M}{M_1}\right)^{\gamma} \right]^{-1} 
+\end{equation}
+Another model cited in the article contains five parameters: $m_0$, $M_1$, $\beta$, $\gamma_1$ and $\gamma_2$.
+\[ m(M) = m_0 \frac{ (M/M_1)^{\gamma_1}}{ \left[ 1 + (M/M_1)^\beta \right]^{ (\gamma_1-\gamma_2)/\beta}} \]
+
+
+\section{Observations}
+
+Willott
+
+Bowens
+
+McLure
+
+
+\section{Discussion}
+
+\section{Summary}
+
+
+\acknowledgments
+Gracias Totales
+
+
+\appendix
+
+\section{Appendix material}
+
+
+\begin{thebibliography}{}
+\bibitem[Bouwens(2006)]{bouwens06} Bouwens, R. J. et al. 2006, \apj, 653, 53
+\bibitem[Willot(2007)]{willott07} Willott, Chris J. et al. 2013, \aj, 145, 4
+\end{thebibliography}
+
+
+\end{document}
+
+%%
+%% End of file `sample.tex'.
