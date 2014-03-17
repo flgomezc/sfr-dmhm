@@ -1,9 +1,5 @@
-%\documentclass[manuscript]{aastex}
-\documentclass[preprint2]{aastex}
-%\usepackage{graphicx}
-%\usepackage{graphics}
-%\usepackage[dvips]{epsfig}
-\usepackage{epstopdf}
+\documentclass[manuscript]{aastex}
+%\documentclass[preprint2]{aastex}
 
 \newcommand{\vdag}{(v)^\dagger}
 \newcommand{\myemail}{skywalker@galaxy.far.far.away}
@@ -168,12 +164,6 @@ Cosmic variance effects are studied on smaller boxes of $250 \textrm{Mpc h}^{-1}
     (Bouwens et al. 2007). The main contribution of our study is
     to determine the space density of very rare, highly luminous
     LBGs.''\cite{willott13}.
-
-\begin{figure}
-\epsscale{.90}
-\plotone{fig.pdf}
-\caption{Observational data from \cite{willott13}.}
-\end{figure}
 
 
   \subsection{HUDF09}
