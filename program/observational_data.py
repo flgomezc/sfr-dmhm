@@ -1,20 +1,30 @@
 from pylab import *
 # Observations from Willot et al 2013
-Obs_data = np.array( [# Mag,LumFunct, low_err, upp_err #
-                     [-22.5, 2.66E-8, 9.08E-9, 7.78E-8],
-                     [-22.0, 2.18E-6, 8.70E-7, 9.70E-6],
-                     [-21.5, 1.45E-5, 2.88E-6, 2.92E-5],
-                     [-21.0, 1.29E-4, 7.06E-5, 2.19E-4],
-                     [-20.5, 2.30E-4, 9.34E-5, 5.77E-4]])                  
-Obs_data_log10 = array([  # Magnitude,log10_LumFunct
-[ -22.5, -7.57511836, -8.04191415, -7.1090204 ],
-[ -22.0, -5.66154351, -6.06048075, -5.01322827],
-[ -21.5, -4.838632  , -5.54060751, -4.53461715],
-[ -21.0, -3.88941029, -4.1511953 , -3.65955589],
-[ -20.5, -3.63827216, -4.02965312, -3.23882419]])
+HIST1_bins=[-22.75,-22.25,-21.75,-21,25,-20,75,-20,25]
+Willott = np.array( 
+[# Mag,LumFunct, low_err, upp_err #
+[-22.5, 2.66E-8, 9.08E-9, 7.78E-8],
+[-22.0, 2.18E-6, 8.70E-7, 9.70E-6],
+[-21.5, 1.45E-5, 2.88E-6, 2.92E-5],
+[-21.0, 1.29E-4, 7.06E-5, 2.19E-4],
+[-20.5, 2.30E-4, 9.34E-5,5.77E-4]])  
 
-Obs_data1 = Obs_data
-Obs_data1_log10 = Obs_data_log10
+Obs_data1 = np.zeros([5,4])
+Obs_data1_log10 = np.zeros([5,4])
+Obs_data1yerror = [array(Willott[:,1]-Willott[:,2]),array(Willott[:,3]-Willott[:,1])]
+for i in range(5):
+    Obs_data1[i,0]=Willott[i,0]
+    Obs_data1[i,1]=Willott[i,1]
+    Obs_data1[i,2]=0
+    Obs_data1[i,3]=0.25
+    Obs_data1_log10[i,0]=Willott[i,0]
+    Obs_data1_log10[i,1]=log10(Willott[i,1])
+    Obs_data1_log10[i,2]=0
+    Obs_data1_log10[i,3]=0.25
+Obs_data1_log10yerror = [array(log10(Willott[:,1]/Willott[:,2])),array(log10(Willott[:,3]/Willott[:,1]))]
+
+
+
 
 # Observations from Bouwens et al 2006
 Obs_data2= np.array([#  Mag,LumFunct, low_err, upp_err #
