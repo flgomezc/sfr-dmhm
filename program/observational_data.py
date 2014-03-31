@@ -26,7 +26,7 @@ for i in range(5):
     Obs_data1_log10[i,3]=0.25
     
 Obs_data1_log10yerror = [array(log10(Willott[:,1]/Willott[:,2])),array(log10(Willott[:,3]/Willott[:,1]))]
-
+sigma1 = (Obs_data1_log10yerror[:][0] +  Obs_data1_log10yerror[:][0])/2
 
 HIST2_bins=[-22.70,-22.27,-21.77,-21.27,-20.77,-20.27,-19.77,-19.27,-18.27,-17.27,-16.27]
 Bouwens = array( 
@@ -58,8 +58,9 @@ Obs_data2_log10[:,2]=0
 Obs_data2_log10[:,3]=0.25
 Obs_data2yerror[0][0]=0.00000199
 
-Obs_data2_log10yerror = [array(log10(Bouwens[:,2])),array(log10(Bouwens[:,2]))]
-
+Obs_data2_log10yerror = [array(log10(Bouwens[:,1]/(Bouwens[:,1]-Bouwens[:,2]))),
+                         array(log10((Bouwens[:,1]+Bouwens[:,2])/Bouwens[:,1]))]
+sigma2 = (Obs_data2_log10yerror[:][0] + Obs_data2_log10yerror[:][1] )/2
 
 
 HIST3_bins=[-22.38,-21.87,-21.62,-21.37,-21.12,-20.87,-20.63]
@@ -88,3 +89,4 @@ Obs_data3_log10[:,2]=0
 Obs_data3_log10[:,3]=0.25
     
 Obs_data3_log10yerror = [array(log10(McLure[:,1]/McLure[:,2])),array(log10(McLure[:,3]/McLure[:,1]))]
+sigma3 = ( Obs_data3_log10yerror[:][0]+Obs_data3_log10yerror[:][1])/2
