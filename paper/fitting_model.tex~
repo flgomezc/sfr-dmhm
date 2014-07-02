@@ -1,0 +1,35 @@
+\subsection{The Luminosity Model}
+
+In this model we have made two assumptions:
+\begin{enumerate}
+ \item Each halo in the catalog hosts one galaxy. There are not empty
+halos, also none of halos has two or more galaxies.
+ \item The UV luminosity of each galaxy is function of one variable: the mass of
+the DMH in wich is located.
+\end{itemize}
+
+The simplest relation we can have is a powerlaw:
+ \begin{equation}
+  L = L_0 M^\alpha
+ \end{equation}
+but has not well agreement with observed luminosity functions.
+
+A better model is a four parameter function. Each galaxy has a luminosity given
+by:
+  \begin{equation}
+  L = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
+where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
+mass to light relation \citep{vandenbosch03} and the mean relation between
+stellar mas of a galaxy and the mas of its halo used by \cite{moster10}.
+
+There are more complex models\citep{lee09} that includes a random behavior:
+galaxies has not synchronization on the beginning of star forming stage, also
+this stage may be time limited. This is called duty cycle. It is probable to
+have in the observations some invisible galaxies in the UV continuum due their
+duty cycle may has not started as well it may ended. Also may be present a
+normal distribution of the luminosity around the expected values.

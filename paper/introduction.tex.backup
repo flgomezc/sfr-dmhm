@@ -1,0 +1,79 @@
+\section{Introduction}
+
+Dark matter is a significative component of the universe.
+
+\citep{trimble87}
+
+Hierarchy Structure Evolution: Early formation of small structures
+merging on major structures after.
+
+From simulations, Halo Mass Function as function of redshift (or time).
+
+Star formation rate as function of time. Peak at $z\sim 2$.
+
+Main Objetive: Reproduce the observed luminosity function at redshift $z=5.9$
+from a DMH catalog from simulations. 
+
+  \subsection{Halo Mass Function (HMF)}
+  
+%  The HMF is created using the DMH catalog from the Multidark Database 
+%\citep{riebe13}.
+  
+  
+  \subsection{Cosmic Variance}
+  
+%  Is important to know and understand the existence of local fluctuations   or 
+%inhomogeneities due the observed scale.  For this part is necesary to study the 
+%HMF on smaller boxes
+
+\section{Linking Galaxy Luminosity Function (GLF) and
+  Dark Matter Halo (DMH) mass}
+
+%  In one hand we have observational results: the GLF for star-forming galaxies 
+%at high redshift (z=5.9)\citep{bouwens06,willott13}  expressed in terms of 
+%magnitude in the ultraviolet range (M1350). In the other hand we have a DMH  
+%atalog, result from the Multidark Simulation with Plank Cosmology. 
+%\citep{Multidark}
+
+ % A $1000 \textrm{ Mpc} ^3 \textrm{h}^{−3}$ cubic box containing near to  
+%$11\times10^6$ dark matter halos.
+
+%  The idea is to connect the observed GLF with the DMH catalog. We assume that  
+%each halo contains one and just one galaxy, and its luminosity is given by:
+%  \begin{equation}
+%  L_\textrm{galaxy}=\alpha M_\textrm{halo}^\beta 
+%  \end{equation}
+%but this function is given in magnitude units. Is necesary to convert 
+%magnitude to luminosity.
+
+\subsection{Magnitude to Luminosity}
+
+Luminosity Functions (LF) are usually expressed in terms of magnitude instead 
+luminosity. Luminosity is the energy emmited by a source in a given wavelengt range, 
+is a physical quantity. 
+%The luminosity 
+%$L_\nu$ at a given frecuency $\nu$ has $[\textrm{W}\textrm{Hz}^{-1}]$ or 
+%$[\textrm{erg}\textrm{s}^{-1}\textrm{Hz}^{-1}]$ units.
+Magnitude is a classification inherited from ancient Greeks, this
+quantifies the response of the first astrometric device: the human eye, this
+perception grows loarithmically with the retrieved radiation.
+
+Luminosity of any object can be compared with Sun Luminosity $(L_{\lambda
+\odot})$ at any wavelengt. With the Sun Magnitude as reference
+$(M_{\lambda \odot})$, the absolute magnitud of the objet  at an specific
+wavelengt is given by: 
+ \[ M_{\lambda} = M_{\lambda \odot} - 2.5 \log_{10}\left( 
+\frac{L_\lambda}{L_{\lambda \odot}} \right) \]
+  The solar absolute magnitude in the U filter is $M_{U\odot} = 5.61$,
+and the solar luminosity in the same filter is $L_{U\odot} = 10^{18.48} 
+\textrm{ergs s}^{-1}\textrm{Hz}^{-1}$ or $ L_{U\odot} = 3.02 \times 10^{18} 
+\textrm{ergs s}^{-1}\textrm{Hz}^{-1}$. The solar luminosity can be used as
+refference unit, in this fashion, the typical luminosity of a galaxy can be expresed in
+terms of $10^{8}-10^{11}$ times the sun luminosity.
+
+  The absolute magnitude of a galaxy equation in the U filter:
+  %\[ M_{U} = 5.61 - 2.5 \log_{10}(L_{U}) + 2.5\times18.48\]
+  %gives the magnitude in the U filter of an astrophysical source:
+  \[ M_{U} = 51.82 - 2.5 \log_{10}(L_{U}) \]
+
+ %\subsection{Best Fitting Parameters}

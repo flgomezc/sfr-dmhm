@@ -1,0 +1,17 @@
+\section{The Fitting Model}
+The model links dark matter and U-luminosity by a four parameter function.
+
+For each galaxy we have the luminosity:
+  \begin{equation}
+  L = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
+where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are the slopes.
+This relation can reproduce the luminosity function with best agreement than the classical Schechter function wich works good for low redshift galaxies.
+
+This equation has a similar fashion to the mass to light relation \citep{vandenbosch03} and the mean relation between stellar mas of a galaxy and the mas of its halo used by \cite{moster10}.
+
+A most realistic model includes a normal distribution in the Mass-Luminosity relation and galaxy Duty Cycle. \citep{lee09}
