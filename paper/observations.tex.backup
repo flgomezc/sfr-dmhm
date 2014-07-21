@@ -1,21 +1,30 @@
 \section{Observations}
 
-This paper is based on three main observation sets. The most recent is from the
-Hubble Space Telescope, this observations where performed by \cite{bouwens14}.
-The second set is from the Canada-France Hawaii Telescope, \cite{mclure09} and
-the last one by the UK Infrared Telescope, the Subaru Telescope 
-\cite{mclure09}.
+This paper is based on three main observational data sets. The most recent is
+from the Hubble Space Telescope Legacy plus ground telescopes \citep{bouwens14}.
+The second set is from the Canada-France Hawaii Telescope\citep{willott13} and
+the last one by the UK Infrared Telescope and the Subaru Telescope
+\cite{mclure09}. Those observations where made using the Drop-out technique.
 
-The data from the HST is a compilation of previous works since
+The data from the HSTL is a compilation of previous works since
 2006 \citep{bouwens06}, wich includes also observations after the 2009
-upgrade mission\citep{bouwens12, bouwens14}. 
+upgrade mission\citep{bouwens12}. They estimate the uncertainty in their LF due
+to cosmic variance. Taking account they used five independent surveys, they get
+jus $\sigma\sim 10\%$ using the Cosmic Variance Calculator developed by Trenti
+\& Stiavelli (2008).
 
-CFHTLS observations where made using Lyman Break Galaxies and the Drop-out
-thecnique
+``We estimate that the overall uncertainty in our LF results to
+be just 10\%, by using the Trenti \& Stiavelli (2008) cos-
+mic variance calculator and considering the observational
+constraints we have over 5 independent ∼150 arcmin2
+search fields.'' \citep{bouwens14}
+
+
 
 The dataset was retrieved from graphs for \cite{bouwens14} and \cite{mclure09} 
-using DEXTER
-\url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}
+using
+GAVO-DEXTER\footnote{\url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}}.
+
 
 
 \begin{figure}
@@ -25,75 +34,7 @@ using DEXTER
 \label{graph_observational_data}
 \end{figure}
 
-  \subsection{CFHTLS}
-  
-  CFHTLS - Canada-France-Hawaii Telescope Legacy Survey - 
-MegaCam\citep{willott13}
-
-  ``We identify a sample of 40 Lyman break galaxies brighter than
-    magnitude z ′ = 25.3 across an area of almost 4 square degrees. 
-    Sensitive spectroscopic observations of seven galaxies provide 
-    redshifts for four, of which only two have moderate to strong 
-    Lyα emission lines. All four have clear continuum breaks in 
-    their spectra.'' \cite{willott13}.
-
-  ``The imaging data used to select high-redshift galax-
-    ies come primarily from the 3.6 m Canada-France-Hawaii
-    Telescope. Optical observations with MegaCam in the
-    u ∗ g ′ r ′ i ′ z ′ filters are from CFHTLS Deep which covered
-    four ≈ 1 square degree fields with typical total integra-
-    tion time of 75 ks in u ∗ , 85 ks in g ′ , 145 ks in r ′ , 230 ks in
-    i ′ and 175 ks in z ′ . The seeing in the final stacks at i ′ and
-    z ′ range from 0.66 to 0.76 arcsec. The data used here are
-    from the 6th data release, T0006, which contains all the
-    data acquired over the five years of the project '' \cite{willott13}.
-
-  ``These optical data are complemented by near-IR data
-    from the WIRCam Deep Survey (WIRDS; Bielby et al.
-    2012). WIRDS used the WIRCam near-IR imager at
-    the CFHT'' \cite{willott13}.
-
-   About the Luminosity function: sect 6.3
-   ``Because our LBG sample covers only a limited range of
-    apparent and absolute magnitudes, we cannot use it to determine
-    the full galaxy luminosity function at z = 6. The luminosity
-    function at the break and at fainter magnitudes has already
-    been well studied from deep HST surveys over small sky areas
-    (Bouwens et al. 2007). The main contribution of our study is
-    to determine the space density of very rare, highly luminous
-    LBGs.''\cite{willott13}.
-
-  \subsection{UKIDSS \& SDXS}
-    ``The UDS is the deepest of five near-IR surveys currently underway
-      at the UK InfraRed Telescope (UKIRT) with the new WFCAM
-      imager (Casali et al. 2007) which together comprise the UKIDSS
-      (Lawrence et al. 2007). The UDS covers an area of 0.8 deg 2 cen-
-      tred on RA = 02:17:48, Dec. = −05:05:57 (J2000) and is already
-      the deepest, large area, near-IR survey ever undertaken. The data
-      utilized in this paper were taken from the first UKIDSS Data Re-
-      lease (DR1; Warren et al. 2007), which included JK imaging of the
-      entire UDS field to 5σ depths of J = 23.9, K = 23.8 (1.6 arcsec
-      diameter apertures). The UKIDSS DR1 became publicly available
-      to the world wide astronomical community in 2008 January and can
-      be downloaded from the WFCAM Science Archive. 2
-      The UDS field is covered by a wide variety of deep, multiwave-
-      length observations ranging from the X-ray through to the radio (see
-      Cirasuolo et al. 2008 for a recent summary). However, for this study
-      the most important multiwavelength observations are the deep op-
-      tical imaging of the field taken with Suprime-Cam (Miyazaki et al.
-      2002) on Subaru as part of the Subaru/XMM–Newton Deep Survey
-      (Sekiguchi et al. 2005). The optical imaging consists of five over-
-      lapping Suprime-Cam pointings, and covers an area of 1.3 deg 2 .
-      The whole field has been imaged in the BV Ri z filters, to typical
-      5σ depths of B = 27.9, V = 27.4, R = 27.2, i = 27.2 and z = 26.2
-      (1.6 arcsec diameter apertures). The reduced optical imaging of the
-      SXDS is now publicly available 3 and full details of the observations,
-      data reduction and calibration procedures are provided in Furusawa
-      et al. (2008). The high-redshift galaxies investigated in this study
-      were selected from a contiguous area of 0.63 deg 2 (excluding areas
-      contaminated by bright stars and CCD blooming) covered by both
-      the UDS near-IR and SXDS optical imaging.'' \cite{mclure09}
-      
+     
 \subsection{The Drop-out Technique - Lyman Break Technique}
 
 \cite{steidel03}

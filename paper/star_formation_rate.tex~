@@ -1,30 +1,47 @@
 \subsection{Star Formation Rate}
 
-On the study of far galaxies individual stellar spectrum is unresolved, is not 
+The age of a star can be estimated by analyzing its spectrum. But when far
+galaxies are studied, individual stars can not be resolved. Is not 
 possible to make a detailed census of the galaxy popullation. Only is possible 
 to get information from the whole stellar population, an integrated spectrum.
 
-Kennicutt pruposed a method in wich a linear relation between luminosity and 
-SFR can be assumed. This model allows to estimate the young stars fraction and 
-the mean SFR over periods of $10^8 - 10^9 \textrm{yr}$. The luminosity in the 
-modfel, comes from the UV and the FIR broadband, also from speciffic 
-recombination lines. 
+There is a  method\citep{madau98} in wich a linear relation between SFR
+and luminosity in specific wavelength ranges can be assumed. This model allows
+to estimate the young stars fraction and the mean SFR over periods of $10^8 -
+10^9 \textrm{yr}$\citep{kennicutt98}. The luminosity in the model, comes from
+the UV and the FIR broadband, also from speciffic recombination lines.
+
+%``The UV continuum emission from a galaxy with significant ongoing star
+%formation is entirely dominated by late-O/early-B stars on the main sequence.
+%As these have masses $>10 M_\odot$ and lifetimes $t_{ms} 2\times 10^7 yr$, the
+%measured luminosity becomes proportional to the stellar birthrate and
+%independent of the galaxy history for $t\gg t_{ms}$ .'' MADAU 1998
+%\citep{madau98}
+
 
 In a typical galaxy spectrum the visible wavelengths are dominated by the main 
 sequence stars (A to early F) and G-K giants. In few wavelength ranges we have 
 a significative contribution from the young stars rather than the old stars. 
 The infrared and far infrared wavelengths emission is dominated by dust, this 
 dust is  heated by the whole stellar popullation, in particular by young, 
-UV-bright stars \citep{law11}.The UV broadband emission is dominated by blue 
-stars with temperature near to 40.000K. These hot and massive stars has a 
-lifetime of $10^8\textrm{Gyr}$, they spend their nuclear fuel faster than smaller 
-and cooler sunlike stars.
+UV-bright stars \citep{law11}.
 
-The relation between UV luminosity and Star Formation Rate \citep{kennicutt98} 
+On active galaxies the UV broadband emission is dominated by late-O
+and early-B type stars, with temperature near to 40.000K. These hot and massive
+stars has a 
+lifetime below $10^7\textrm{Gyr}$, they spend their nuclear fuel faster than
+smaller and cooler sunlike stars.
+
+The relation between UV luminosity and Star Formation Rate
+\citep{madau98,kennicutt98} 
 is given by:
-  $ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
-      = 1.4 \times 10^{28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
-\right)$
+\begin{equation}
+ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
+      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
+	\right)
+\end{equation}
+
+
   With Initial Mass Function (IMF) between $0.1 M_\odot$ 
  and $100 M_\odot$, in the range of $1250-2500 \mathring{\textrm{A}} $
 
@@ -39,8 +56,6 @@ The UV dust absorption \citep{kennicutt09} is not taken account in this work.
 
 DUST EXTINTION ALSO STUDIED by 002-TACCHELLA-A Physical Model for ---
 
-
-
 %Synthesis Models:
 %1) Study individual star spectra, star atmospheres. Creation of spectral 
 %libraries.
@@ -52,8 +67,3 @@ DUST EXTINTION ALSO STUDIED by 002-TACCHELLA-A Physical Model for ---
 %metal abundance, and IMF). The colors of normal galaxies are well represented 
 %by a one-parameter sequence with fixed age, composition and IMF, varying in the 
 %time dependence of the SFR****
-
-
-
-
-

@@ -1,7 +1,16 @@
 \section{Introduction}
+Cosmological simulations still playing an important role on astrophysics and
+cosmology. They have become the bridge between observations and theory, a
+laboratory where is possible to create universes with different parameters and
+new physics.
 
+This is an important tool in the study of dark matter. Since its existence was
+purposed, DM has been not observed directly neither on telescopes or high energy
+particle colliders, there exists many other theories explaining the observed
+universe behavior modifying the gravity itself.
+
+The most successful and accepted cosmological model is the Lambda-CDM. 
 Dark matter is a significative component of the universe.
-
 \citep{trimble87}
 
 Hierarchy Structure Evolution: Early formation of small structures
@@ -9,12 +18,41 @@ merging on major structures after.
 
 From simulations, Halo Mass Function as function of redshift (or time).
 
+
+In this paper is established a relation between dark matter and galaxy
+luminosity functions at high redshifrt. This relation is a direct
+connection between the Lambda-CDM model and the farthest galaxy observations
+made with space and grounded telescopes.
+
+
 Star formation rate as function of time. Peak at $z\sim 2$.
+
+
+``An important frontier in the study of very high redshift
+galaxies remains the study of their stellar populations.
+Galaxies within a few hundred million years of the Big
+Bang are expected to be quite different from galaxies at
+lower redshift, with significantly younger ages and lower
+metallicities. For very young and chemically immature
+systems, changes in the stellar population could include a
+transition to a more top-heavy IMF (e.g., Bromm \& Lar-
+son 2004), evolution in the dust composition (e.g., due to
+changes in the dust production mechanism: Maiolino et
+al. 2004), as well as a much lower dust extinction overall
+(e.g., Bouwens et al. 2009; Finlator et al. 2011; Dayal \&
+Ferrara 2012).'' BOWENS 2014
+
+
+
 
 Main Objetive: Reproduce the observed luminosity function at redshift $z=5.9$
 from a DMH catalog from simulations. 
 
+This paper is organized as follows: In section 2... in section 3...
+
   \subsection{Halo Mass Function (HMF)}
+
+
   
 %  The HMF is created using the DMH catalog from the Multidark Database 
 %\citep{riebe13}.
@@ -26,8 +64,86 @@ from a DMH catalog from simulations.
 %inhomogeneities due the observed scale.  For this part is necesary to study the 
 %HMF on smaller boxes
 
+``One of the most fundamental properties of galaxy sub-
+populations at any epoch is their number density. However,
+observational estimates of galaxy number densities in finite
+volumes are subject to uncertainty due to cosmic variance,
+arising from underlying large-scale density fluctuations and
+leading to uncertainties in excess of naïve Poisson errors.
+Note that this source of uncertainty is referred to as ‘sample
+variance’ in other branches of cosmology. For sampling vol-
+umes much larger than the typical clustering scale of the ob-
+served objects, cosmic variance is not significant.''A COSMIC VARIANCE COOKBOOK
+
+``However many important existing surveys have a sampling volume that
+is small enough that cosmic variance may dominate the un-
+certainties. This may be particularly true at high redshift,
+where galaxies are expected to be much more strongly clus-
+tered than dark matter (Kauffmann et al. 1999; Baugh et al.
+1999; Coil et al. 2004; Moster et al. 2009). Still, many pub-
+lished quantities which are based on number density (e.g. lu-
+minosity functions, stellar mass functions, etc.) are quoted
+with error budgets that do not properly account for cosmic
+variance. As shown by Trenti \& Stiavelli (2008), the normal-
+ization and the slope of high-redshift luminosity functions can
+be affected by cosmic variance errors.''A COSMIC VARIANCE COOKBOOK
+
+``Somerville et al. (2004) provided predictions that could be
+used to estimate cosmic variance as a function of mean red-
+shift and survey volume, using the number density of the pop-
+ulation to estimate the bias, assuming one galaxy per halo.'' A COSMIC VARIANCE
+COOKBOOK
+
+
+===========>>>>>>>>> COSMIC VARIANCE CALCULATOR <<<<<<<<<===============
+Results obtained using CosmicVarianceCalculator v1.02 
+Developed by Michele Trenti \& Massimo Stiavelli 
+If you use these results in scientific papers, please refer to:  
+Trenti \& Stiavelli (2008), ApJ, 676, 767 
+
+
 \section{Linking Galaxy Luminosity Function (GLF) and
   Dark Matter Halo (DMH) mass}
+
+READ THIS PAPER
+Vale - Ostriker
+arXiv:astro-ph/0402500v2 6 Jul 2004
+Mon. Not. R. Astron. Soc.
+Linking halo mass to galaxy luminosity
+
+``In recent years, N-body numerical simulations have given us
+a good understanding of dark matter structure for standard
+cosmological scenarios, while large scale observational
+surveys have done the same for the distribution of galaxies'' arXiv:0402500v2
+
+``More indirect approaches have also been studied.
+The halo occupation distribution (HOD) model (Seljak
+2000; Benson 2001; Bullock, Wechsler, \& Somerville 2002;
+Zheng et al. 2002; Berlind \& Weinberg 2002; Berlind et al.
+2003; Magliocchetti \& Porciani 2003) is based on the prob-
+ability P(N|M) that a halo of mass M is host to N galax-
+ies. By specifying the P(N|M) function, along with some
+form for the distribution of dark matter and galaxies within
+each halo, it is then possible to relate different statistical
+indicators of the dark matter and galaxy distributions, such
+as correlation functions, to each other. This fully specifies
+the bias between the galaxy and the underlying matter dis-
+tributions. '' arXiv:0402500v2
+
+
+``Other authors have used a slightly different method.
+Instead of trying to specify the number of galaxies in each
+halo, they treat the halo as a whole and identify it with
+a galaxy group. Then, by comparing the group luminosity
+function with the halo mass function, they obtain the lu-
+minosity associated with each halo (Peacock \& Smith 2000;
+Marinoni \& Hudson 2002), '' arXiv:0402500v2
+
+============>>>>>>>>> Check Peacock \& Smith 2000; Marioni \& Hudson 202
+
+
+
+
 
 %  In one hand we have observational results: the GLF for star-forming galaxies 
 %at high redshift (z=5.9)\citep{bouwens06,willott13}  expressed in terms of 

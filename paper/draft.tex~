@@ -1,0 +1,66 @@
+\documentclass[manuscript]{aastex}
+%\documentclass[preprint2]{aastex}
+%\usepackage{graphicx}
+%\usepackage{graphics}
+%\usepackage[dvips]{epsfig}
+\usepackage{epstopdf}
+
+\newcommand{\vdag}{(v)^\dagger}
+\newcommand{\myemail}{skywalker@galaxy.far.far.away}
+
+\shorttitle{A Connection Between Star Formation Rate and Dark Matter Halos at Z 
+\~ 6}
+\shortauthors{G\'omez-Cort\'es}
+
+\begin{document}
+
+\title{A Connection Between Star Formation Rate and Dark Matter Halos at 
+$Z\sim6$ In 2013 Planck Cosmology.}
+
+\author{F.L. G\'omez-Cort\'es\altaffilmark{1} }
+\affil{Departamento de Física, Universidad de los Andes, Colombia}
+
+\begin{abstract}
+This work relates baryonic matter and dark matter at redshift $z=5.9$ using 
+observational data from CFHTLS \citep{willott13}, HUDF09 
+\citep{bouwens06,bouwens12}, UKIDSS and SDXS \citep{mclure09}, and results of 
+the Multidark Simulation \citep{riebe13} in a cubic box of $1000 \textrm{Mpc 
+h}^{-1}$ length with 2013 Planck Cosmology. The Luminosity Function (LF) is 
+fitted via four parameters with the Markov Chain Monte Carlo method. The 
+relationship between the Dark Matter Halos Mass and Star Formation Rate is 
+obtained using the relationship between the UV  continuum (from the fitted LF) 
+and Star Formation Rate (SFR) by \cite{kennicutt98}.Cosmic variance effects are 
+studied on smaller boxes of $250 \textrm{Mpc h}^{-1}$ length.
+
+%Luminosity Function - Dark Matter Halos, Star Formation Rate - Dark Matter 
+Halos.
+\end{abstract}
+\keywords{Dark Matter, LF, SFR, High Redshift Galaxies, Reionization}
+
+\include{introduction}
+
+\include{fitting_model}
+
+\include{star_formation_rate}
+
+\include{observations}
+
+\include{discussion}
+
+\section{Summary}
+
+
+\acknowledgments
+%Gracias Totales
+%
+\appendix
+
+%\section{Appendix material}
+%DEXTER \url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}
+
+\include{the_bibliography}
+
+\end{document}
+
+%%
+%% End of file `sample.tex'.
