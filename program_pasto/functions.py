@@ -152,7 +152,7 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
         # L_0, M_0, beta, gamma, chi_sqr
 
 ############################################### 2014-oct-11
-#   If chi_squ grows without limit, return to the original parameters
+#   If chi_squ grows without limit, then return to the original parameters
         if (chi_sqr > 20):
             L_0    = L_0Panic
             M_0    = M_0Panic

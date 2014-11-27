@@ -29,7 +29,7 @@ for DATA in NB:
     beta  =  0.8
     gamma =  0.1424
 
-    Obs_Data = ['Obs_data1','Obs_data2']
+    Obs_Data = [OD1,OD2]
     
     MCMC( BoxLength, MS, M, L_0, M_0, beta, gamma,MCMC_reg[i],Obs_Data)
     i+=1

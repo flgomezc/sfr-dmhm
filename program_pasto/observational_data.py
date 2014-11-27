@@ -1,11 +1,9 @@
-# Last modification: 2014-ago-09 - Bogota
-# The last three points in Bouwens have been rejected.
-
+# Last modification: 2014-nov-26 - Bogota
+# New lists created
 
 from numpy import *
 
 HIST1_bins=[-22.75,-22.25,-21.75,-21.25,-20.75,-20.25]
-
 Willott = array( 
 [# Mag,LumFunct, low_err, upp_err #
 [-22.5, 2.66E-8, 9.08E-9, 7.78E-8],
@@ -14,11 +12,9 @@ Willott = array(
 [-21.0, 1.29E-4, 7.06E-5, 2.19E-4],
 [-20.5, 2.30E-4, 9.34E-5,5.77E-4]
 ])  
-
 Obs_data1 = zeros([5,4])
 Obs_data1_log10 = zeros([5,4])
 Obs_data1yerror = [array(Willott[:,1]-Willott[:,2]),array(Willott[:,3]-Willott[:,1])]
-
 for i in range(5):
     Obs_data1[i,0]=Willott[i,0]
     Obs_data1[i,1]=Willott[i,1]
@@ -27,10 +23,13 @@ for i in range(5):
     Obs_data1_log10[i,0]=Willott[i,0]
     Obs_data1_log10[i,1]=log10(Willott[i,1])
     Obs_data1_log10[i,2]=0
-    Obs_data1_log10[i,3]=0.25
-    
+    Obs_data1_log10[i,3]=0.25   
 Obs_data1_log10yerror = [array(log10(Willott[:,1]/Willott[:,2])),array(log10(Willott[:,3]/Willott[:,1]))]
 sigma1 = (Obs_data1_log10yerror[:][0] +  Obs_data1_log10yerror[:][0])/2
+
+OD1 = [Obs_data1.transpose(), HIST1_bins,sigma1,"Willott"]
+
+###########################################################################
 
 HIST2_bins=[-22.70,-22.27,-21.77,-21.27,-20.77,-20.27,-19.77,-19.27]
 Bouwens = array( 
@@ -43,10 +42,8 @@ Bouwens = array(
 [-20.02,0.000296,0.000045],
 [-19.52,0.000611,0.000081]
 ])  
-
 Obs_data2 = zeros([7,4])
 Obs_data2_log10 = zeros([7,4])
-
 Obs_data2yerror = [array(Bouwens[:,2]),array(Bouwens[:,2])]
 Obs_data2xerror = [0.25,0.25,0.25,0.25,0.25,0.25,0.25]
 Obs_data2[:,0]=Bouwens[:,0]
@@ -58,13 +55,14 @@ Obs_data2_log10[:,1]=log10(Bouwens[:,1])
 Obs_data2_log10[:,2]=0
 Obs_data2_log10[:,3]=0.25
 Obs_data2yerror[0][0]=0.00000199
-
 Obs_data2_log10yerror = [array(log10(Bouwens[:,1]/(Bouwens[:,1]-Bouwens[:,2]))),
                          array(log10((Bouwens[:,1]+Bouwens[:,2])/Bouwens[:,1]))]
 Obs_data2_log10yerror[0][0]=0.30103
-
 sigma2 = (Obs_data2_log10yerror[:][0] + Obs_data2_log10yerror[:][1] )/2
 
+OD2 = [Obs_data2.transpose(), HIST2_bins,sigma2,"Bouwens"]
+
+###########################################################################
 
 HIST3_bins=[-22.38,-21.87,-21.62,-21.37,-21.12,-20.87,-20.63]
 McLure = array( 
@@ -93,3 +91,7 @@ Obs_data3_log10[:,3]=0.25
     
 Obs_data3_log10yerror = [array(log10(McLure[:,1]/McLure[:,2])),array(log10(McLure[:,3]/McLure[:,1]))]
 sigma3 = ( Obs_data3_log10yerror[:][0]+Obs_data3_log10yerror[:][1])/2
+
+OD3 = [Obs_data3.transpose(), HIST3_bins,sigma3,"McLure"]
+
+###########################################################################
