@@ -5,7 +5,7 @@ from functions import *
 import numpy as np
 
 # Number of boxes
-NB = range(0,1)
+NB = range(0,8)
 
 # Box Size in Mpc. Must be divided by the hubble parameter in 
 # the 2013 Planck cosmology. (hpl defined in "constants.py")

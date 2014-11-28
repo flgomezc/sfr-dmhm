@@ -47,12 +47,13 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
 
     ### Create histograms & Normalize the histograms    
     HISTO = []
+
     for DS in DataSets:
-        aux = 1.0 * np.histogram(Magnitude_UV_galaxy_list, bins= DS[1] )[0]
+        aux = 1.0 * np.histogram(Magnitude_UV_galaxy_list, bins= array(DS[1]) )[0]
         for i in range(len(aux)):
             aux[i] = aux[i]/( (DS[1][i+1] - DS[1][i] ) * BoxLength**3)
         HISTO.append(aux)
-    
+   
     ### Calcule Chi Square using number of Degrees of Freedom
     NOB = 0
     chi_sqr = 0.0
@@ -61,7 +62,11 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
             if( HISTO[i][j] != 0.0 ):
                 chi_sqr = chi_sqr + 0.5*( log10(HISTO[i][j]/DataSets[i][0][1][j]) / DataSets[i][2][j])**2
                 NOB = NOB + 1
-    chi_sqr /= abs(NOB-4)
+#        print "Cal ", HISTO[i]
+#        print "Obs ", DataSets[i][0][1]
+    
+    chi_sqr /= NOB
+#    print "ChiSqr= ", chi_sqr, "Number of Bins= ", NOB
 
     MCMC_reg.write("# L_0 \t M_0 \t beta \t gamma \t chi_sqr \t Number of Bins\n")
     MCMC_reg.write(str(log10(L_0))+"\t"+
@@ -70,7 +75,7 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
                    str(gamma)+"\t"+
                    str(chi_sqr)+"\t"+
                    str(NOB)+"\n")
-
+ 
     ###################################
     # Markov Chain Monte Carlo Starts #
     ###################################
@@ -83,6 +88,7 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
         M_0R   = M_0  *10**(gauss(0.0,K1))
         betaR  = beta + gauss(0.0,K2)
         gammaR = gamma+ gauss(0.0,K3)
+        
         ### Some constraints over parameters
         while (L_0R <10**(16.75)) or (L_0R >10**(20.0)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
@@ -106,14 +112,15 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
         ### Create histograms & Normalize the histograms    
         HISTO_R = []
         for DS in DataSets:
-            aux = 1.0 * np.histogram(Magnitude_UV_galaxy_list, bins= DS[1] )[0]
+            aux = 1.0 * np.histogram(Magnitude_UV_galaxy_list_R, bins= DS[1] )[0]
             for i in range(len(aux)):
                 aux[i] = aux[i]/( (DS[1][i+1] - DS[1][i] ) * BoxLength**3)
             HISTO_R.append(aux)
-    
+
         ### Calcule Chi Square using number of Degrees of Freedom
         NOB = 0
         chi_sqr_R = 0.0
+        FLAG = " "
         for i in range(len(HISTO_R)):
             for j in range(HISTO_R[i].size):
                 if( HISTO_R[i][j] != 0.0 ):
@@ -121,7 +128,10 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
                     NOB = NOB + 1
                 else:
                     chi_sqr_R = chi_sqr_R + DeltaChi
-        chi_sqr_R /= abs(NOB-4)
+#            print "Cal ", HISTO[i]
+#            print "Obs ", DataSets[i][0][1]
+#        print "ChiSqr= ", chi_sqr, "Number of Bins= ", NOB
+        chi_sqr_R /= NOB
 
         # If the new chi2 is better, then the new set of parameters is accepted
         Delta_chi = chi_sqr_R - chi_sqr
@@ -130,9 +140,7 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
             M_0    = M_0R
             beta   = betaR
             gamma  = gammaR
-            HIST1   = HIST1_R
-            HIST2   = HIST2_R
-            HIST3   = HIST3_R 
+            HISTO  = HISTO_R
             chi_sqr= chi_sqr_R
             print chi_sqr, NOB , " ", COUNTER
         else:
@@ -143,30 +151,29 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
                 M_0    = M_0R
                 beta   = betaR
                 gamma  = gammaR
-                HIST1   = HIST1_R
-                HIST2   = HIST2_R
-                HIST3   = HIST3_R
+                HISTO  = HISTO_R
                 chi_sqr= chi_sqr_R
                 print chi_sqr, NOB , "*", COUNTER
-        # Storing all the good points.
-        # L_0, M_0, beta, gamma, chi_sqr
+                FLAG = "*"
 
-############################################### 2014-oct-11
-#   If chi_squ grows without limit, then return to the original parameters
+        #   If chi_squ grows without limit, then return to the original parameters
         if (chi_sqr > 20):
             L_0    = L_0Panic
             M_0    = M_0Panic
             beta   = betaPanic
             gamma  = gammaPanic
 
+        # Storing all the good points.
+        # L_0, M_0, beta, gamma, chi_sqr
         MCMC_reg.write(
                             str(log10(L_0))+"\t"+
                             str(log10(M_0))+"\t"+
                             str(beta)      +"\t"+
                             str(gamma)     +"\t"+
-                            str(chi_sqr)  +"\t"+
-                            str(NOB)        +"\n")
-        # End of the loop
+                            str(chi_sqr)   +"\t"+
+                            str(NOB)       +"\t"+
+                            str(FLAG)      +"\n")
+    # End of the loop
     MCMC_reg.close()
 
 
@@ -188,7 +195,6 @@ def SingleHistogram( BoxLength, BOX, L_0, M_0, beta, gamma):
         Mag = Magnitude_UV_galaxy_list
         Mag[Mag< Mag0] = ( Mag[Mag< Mag0]-4.61455)/1.2587
         Magnitude_UV_galaxy_list = Mag
-
 
     ### Create Histograms
     HISTO = []
@@ -228,4 +234,3 @@ def FullHistograms():
     Dust_Extinction()
         
     return   histo0
-
