@@ -1,5 +1,6 @@
 pdflatex draft.tex
 pdflatex draft.tex
+rm *.backup
 rm *.tex~
 rm *.log
 rm *.aux
