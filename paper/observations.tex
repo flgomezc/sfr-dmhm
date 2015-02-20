@@ -1,31 +1,62 @@
 \section{Observations}
 
-This paper is based on four main observational data sets. The most recent is
-from the Hubble Space Telescope Legacy plus ground telescopes \citep{bouwens14}.
-The second set is from the Canada-France Hawaii Telescope\citep{willott13} and
-the last one by the UK Infrared Telescope and the Subaru Telescope
-\cite{mclure09}. Those observations where made using the Drop-out technique.
+This paper is based on four main observational data sets from the Hubble Space Telescope 
+and three ground-based telescopes. All $z\sim 6$ LBG candidates where discovered using using 
+the drop-out technique\citep{steidel03}. All magnitudes are in AB system.
 
-The data from the HSTL is a compilation of previous works since
-2006 \citep{bouwens06}, wich includes also observations after the 2009
-upgrade mission\citep{bouwens12}. They estimate the uncertainty in their LF due
-to cosmic variance. Taking account they used five independent surveys, they get
-jus $\sigma\sim 10\%$\citep{bouwens14} using the Cosmic Variance Calculator
-developed by Trenti \& Stiavelli (2008).
+The data from the Hubble Space Telescope Legacy (HSTL) \citep{bouwens14} is a compilation 
+of observations since the installation of the Advanced Camera for Surveys (ACS) in 2002, 
+through the near-infrared Wide Field Camera 3 (WFC3/IR) installed in 2009, up to 2012. 
+The HST fields of view are: XDF, HUDF09-1, HUDF09-2, CANDELS-S/Deep, 
+CANDELS-S/Wide, ERS, CANDELS-N/Deep, CANDELS-N/Wide, CANDELS-UDS, 
+CANDELS-COSMOS and CANDELS-EGS, with areas of 4.7, 4.7, 4.7, 64.5, 34.2, 
+40.5, 62.9, 60.9, 151.2, 151.9 and 150.7 arcmin$^2$ respectively. The total area corresponds 
+to $\sim 0.7 \deg^2$ over five different lines of sight, reducing cosmic variance effects. 
+Two cameras performed the observations: ACS and WFC3/IR, using 
+$B_{435} V_{606} i_{814} z_{850} I_{814} Y_{098} Y_{105} J{125} JH_{140}$ and $H_{160}$ filters.
+The limit magnitude is between $\sim27.5$mag in CANDELS-EGS and$\sim30 $mag in the 
+deepest field (XDF). Total number of z=6 LBG candidates is 940, most of them in the faint 
+end of the LF, magnitudes in the rest frame are in the range $-22.52\leq M_{1600} \leq -16.77$
+The Schechter parameters derived are: $\phi^* / \textrm{Mpc}^{-3} =(0.33_{-0.10}^{+0.15}) \times 10 ^{-3}$, $M^*_{1600} = -21.16\pm 0.20$ and $\alpha = -1.91 \pm 0.09$. \citet{bouwens14} reported that using just few fields of view, UVLF has a slightly non-Schechter-like form. 
 
+\citet{willott13} presented the sixth release of the Canada-France-Hawaii 
+Telescope Legacy Survey CFHTLS. The observations where performed over four 
+separated fields covering a total area $\sim 4 \deg^2$ (a large area), it gives this 
+survey great robustness. Optical observations used MegaCam 
+[CITE REQUIRED] with $u^* g' r' i' z'$ filters. The main selection criteria: all the 
+objects must be brighter than magnitude $z' = 25.3$. The final 
+number of LBGs founded was 40. Moreover, they get spectroscopic confirmation 
+for 7 candidates using GMOS spectrograph on the Gemini Telescopes, which 
+has a $\ll 5.5$-square arcmin field of view . They show incompleteness in the sample due to 
+foreground contamination and the detection algorithm; there is no warranty to 
+have every object brighter than the limit magnitude on the faint limit. The full 
+galaxy LF at $z=6$ cannot be obtained as in other studies. Nevertheless, this survey 
+was focussed on the highly luminous LBGs. LF is calculated using the stepwise 
+maximum likelihood method of Efstathiu et al. [MNRAS 1998 Cite required!!!], within 
+magnitudes 
+from $M_{1350} = -22.5$ up to $-20.5$. The luminosity function of $z=5.9$ shows 
+an exponential decline at the bright end, where feedback processes and inefficient 
+last cooling limites star forming in bright galaxies hosted in the most massive halos.
 
+\citet{mclure09} build the luminosity function for $z=5$ and $z=6$ using data from two ground-based
+ telescopes: the United Kingdom Infrared Telescope in the near-IR imaging and Subaru 
+ Telescope for the optical imaging. They use the first data release of the UKIRT Infrared 
+ DeepSky Survey Ultra Deep Survey (UDS), together with the Subaru XMM-Newton 
+ Survey (SXDS). Total observed area is $0.63 \deg^2$ uniformly covered by booth catalogues.
+The UKIRT was equipped with the WFCAM using $J K$ filters. The Subaru was equipped 
+with the Suprime-Cam with the $B V R i' z'$ filters. All candidates where brighter than 
+$z'=26$. The UV rest frame magnitude range is $-22.4\leq M_{1500} \leq-20.6$. The LF 
+was calculated using the maximum likelihood estimator of Schmidt (1968). [Cite Required!!!!]. 
+Their analysis gave a total number of 104 LBG candidates in the redshift range 
+$5.7\leq z \leq 6.3$. LF was parameterized according to the Schechter function with 
+$\phi^* / \textrm{Mpc}^{-3} =(1.8 \pm 0.5) \times 10 ^{-3}$, $M^*_{1500} = -20.04\pm 0.12$ 
+and $\alpha = -1.71 \pm 0.11$. 
 
-The dataset was retrieved from graphs for \cite{bouwens14} and \cite{mclure09} 
-using
+The dataset was retrieved from \cite{mclure09} graph using
 GAVO-DEXTER\footnote{\url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}}.
 
-
-
-
-Willott et al. \cite{willott13} presented the sixth release of the Canada-France-Hawaii Telescope Legacy Survey CFHTLS. The observations where performed over four separated fields covering a total area $\sim 4 \deg^2$ (a large area), it gives this survey great robustness.
-Optical observations used MegaCam with $u^* g' r' i' z'$ filters. The main selection criteria: all the objects must be brighter than magnitude $z' = 25.3$. The final number of LBGs founded was 40. Moreover, they get spectroscopic confirmation for 7 candidates using GMOS spectrograph on the Gemini Telescopes, which has a field of view $\ll 1 \deg^2$. They show incompleteness in the sample due to foreground contamination and the detection algorithm; there is no warranty to have every object brighter than the limit magnitude on the faint limit. The full galaxy LF at $z=6$ cannot be obtained as in other studies. Nevertheless, this survey was focussed on the highly luminous LBGs. LF is calculated using the stepwise maximum likelihood method of Efstathiu et al. [Cite required!!!], within magnitudes from $M_{1350} = -22.5$ up to $-20.5$. The luminosity function of $z=5.9$ shows an exponential decline at the bright end, where feedback processes and inefficient last cooling limites star forming in bright galaxies hosted in the most massive halos.
-
-
+Finkelstein
+HST using CANDELS/GOODS fields, HUDF and Hubble Frontier Field deep parallel observations near the Abell 2744 and MACS J0416.1-2403 clusters. (Unlensend fields)
 
 
 
@@ -37,7 +68,7 @@ Optical observations used MegaCam with $u^* g' r' i' z'$ filters. The main selec
 \label{graph_observational_data}
 \end{figure}
 
-     
-\subsection{The Drop-out Technique - Lyman Break Technique}
-
-\cite{steidel03}
+%They estimate the uncertainty in their LF due
+%to cosmic variance. Taking account they used five independent surveys, they get
+%#jus $\sigma\sim 10\%$\citep{bouwens14} using the Cosmic Variance Calculator
+%developed by Trenti \& Stiavelli (2008).
