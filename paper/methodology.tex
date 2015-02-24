@@ -1,16 +1,76 @@
 \section{Methodology}
 
-The first goal in this paper is reproduce the observed UVLF from DMH, from
- simulations at redshift $z=6$. The observational datasets where aforementioned.
+The key element to connect SFR with halo mass from simulations is the observed UVLF. 
+If there exist a function whom gives to each halo a UV luminosity then is posible to 
+reproduce UVLF from DMH catalogs. The fitting parameters can be explored using a 
+Markov Chain Monte-Carlo (MCMC) implementation. Once the parameters are found, 
+the SFR-Halo Mass relation have been found.
 
-Bolshoi Simulation \citep{riebe13} was performed by the MuldiDark consortium
-MultiDark Database is 
+We use the dark matter halo catalog from the Big MultiDark Plank 1 (MDPL) Simulation 
+\citep{klypin14} with 2013 Planck cosmology \citep{planck1}. MDPL is quite similar to the 
+Big Bolshoi ($1 \textrm{Gpc h}^{-1}$) \citep{prada12} and 
+its predecesor Bolshoi \citep{klypin11} ($250 \textrm{Mpc h}^{-1}$), booth of them with 
+WMAP5 cosmology, but MDPL has bigger mass resolution.  Those halo catalogs are 
+available at the MultiDark Database\footnote{\url{http://www.multidark.org}} 
+\citep{riebe13}.
 
-UV Luminosity as function of DMH mass. 
-Parameters.
-Dust Extinction
+The MDPL run is a N-body dark matter only simulation based on the L-Gadget2 
+code. The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ side length. 
+It has $3840^3$ dark matter particles of 
+$1.51\times 9 \textrm{M}_{\odot} \textrm{h}^{-1}$ mass each one.
+The 2013 Planck cosmology is defined by the following parameters: $\Sigma_M = 0.307$, 
+$\Sigma_B = 0.048$, $\Sigma_\Lambda = 0.730$, $\sigma_8 = 0.829$, $n_s = 0.96$ and 
+$H_0 = 67.8$. The DMH Catalog at $z=6$ contains $\sim 10.9 \times 10^7$ 
+halos, to avoid incompleteness in the low mass end, halos with mass below 
+$10^{10.3} \textrm{M}_{\odot} \textrm{h}^{-1}$ are rejected. In order to study how 
+cosmic variance can affect measurements, the original catalog is divided into 64 small 
+cubic boxes, with a similar volume to the observations.
+
+The following treatment is applied to every one small box.
+
+The halo abundance matching technique has been widely used \citep{colin99, kravtsov04}
+resulting in good reproduction of the observed galaxy clustering. \citep{conroy06, lee09}. 
+Here we use the simplest case with few premises: 
+\begin{enumerate}
+ \item Each halo in the catalog hosts one galaxy. There are not empty
+halos, also none of halos has two or more galaxies.
+ \item The UV luminosity of each galaxy is function of one variable; the mass of
+the DMH in which is located. This function must be monotone, this guarantees that most massive halos will host the most luminous galaxies in the same volume.
+\end{enumerate}
+
+The simplest relation we can have is a power law, two parametric function:
+ \begin{equation}
+    L_{\textrm{UV}} (M) = L_0 M^k
+ \end{equation}
+but it does not reproduce the two slopes in the UVLF.
+
+A better model is a four parameter function. Each galaxy has a luminosity given
+by:
+  \begin{equation}
+  L_{\textrm{UV}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
+where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
+mass to light relation \citep{vandenbosch03} and the mean relation between
+stellar mas of a galaxy and the mass of its halo used by \citet{moster10}.
+
+
+Dust Extinction.
 
 
 MCMC, maximum likelihood.
 
-UV luminosity to SFR
+Python, Ipython Notebook, Scipy, Matplotlib, Numpy.
+
+The galaxy UV luminosity can be directly related with SFR according to \citet{madau98}
+This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$\citep{kennicutt98}.
+The relation between UV luminosity and Star Formation Rate \citep{madau98,kennicutt98} 
+is given by:
+\begin{equation}
+ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
+      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
+	\right)
+\end{equation}
