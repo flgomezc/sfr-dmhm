@@ -18,8 +18,8 @@ The MDPL run is a N-body dark matter only simulation based on the L-Gadget2
 code. The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ side length. 
 It has $3840^3$ dark matter particles of 
 $1.51\times 9 \textrm{M}_{\odot} \textrm{h}^{-1}$ mass each one.
-The 2013 Planck cosmology is defined by the following parameters: $\Sigma_M = 0.307$, 
-$\Sigma_B = 0.048$, $\Sigma_\Lambda = 0.730$, $\sigma_8 = 0.829$, $n_s = 0.96$ and 
+The 2013 Planck cosmology is defined by the following parameters: $\Omega_M = 0.307$, 
+$\Omega_B = 0.048$, $\Omega_\Lambda = 0.730$, $\sigma_8 = 0.829$, $n_s = 0.96$ and 
 $H_0 = 67.8$. The DMH Catalog at $z=6$ contains $\sim 10.9 \times 10^7$ 
 halos, to avoid incompleteness in the low mass end, halos with mass below 
 $10^{10.3} \textrm{M}_{\odot} \textrm{h}^{-1}$ are rejected. In order to study how 
@@ -35,19 +35,15 @@ Here we use the simplest case with few premises:
  \item Each halo in the catalog hosts one galaxy. There are not empty
 halos, also none of halos has two or more galaxies.
  \item The UV luminosity of each galaxy is function of one variable; the mass of
-the DMH in which is located. This function must be monotone, this guarantees that most massive halos will host the most luminous galaxies in the same volume.
+the DMH in which is located. This function must be monotone, this guarantees that most 
+massive halos will host the most luminous galaxies in the same volume.
 \end{enumerate}
 
-The simplest relation we can have is a power law, two parametric function:
- \begin{equation}
-    L_{\textrm{UV}} (M) = L_0 M^k
- \end{equation}
-but it does not reproduce the two slopes in the UVLF.
+\subsection{Fitting Model}
 
-A better model is a four parameter function. Each galaxy has a luminosity given
-by:
-  \begin{equation}
-  L_{\textrm{UV}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+The observed UV Luminosity Function has two slopes. To reproduce it we decide to use the four parameter model:
+  \begin{equation}\label{eqn:luminosity}
+  L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
 		   + \left( \frac{M}{M_0}\right)^{\gamma} 
                \right]^{-1}
   \end{equation}
@@ -58,14 +54,53 @@ mass to light relation \citep{vandenbosch03} and the mean relation between
 stellar mas of a galaxy and the mass of its halo used by \citet{moster10}.
 
 
-Dust Extinction.
+%Dust Extinction
+\subsection{MCMC}
+We used a Markov Chain Monte Carlo method to find the best parameters and its 
+uncertainties over each one of the boxes and each observational dataset.
+
+Observational data set to fit is selected.
+A halo catalog of a cubic box of length 250 Mpc h-1 is selected.
+Initial parameters are introduced.
+
+An UV luminosity is given to each halo as function of his mass according to equation
+ \ref{eqn:luminosity}.
+Luminosity is converted to magnitude using:
+  \[ M_{U} = 51.82 - 2.5 \log_{10}(L_{U}). \]
+
+The luminosity function is constructed as an histogram of the magnitudes normalized by 
+the volume of the catalog. Each observed luminosity function has a different bin range.
+
+Once having the LF, we compare our LF against observed LF. Our likelihood estimator is 
+the sum of the square difference over each bin, divided by the number of degrees of 
+freedom. We worked on the logarithmic space of luminosities to have a good fitting on
+six decades.
+
+\[ \chi^2  = \sum_{i=o}^{n}\left( x_{i,obs} - x_{i,fit} \right)^2 \]
 
 
-MCMC, maximum likelihood.
+\[ \mathcal{L} \propto \exp \left( \frac{\chi ^2}{n} \right) \]
 
-Python, Ipython Notebook, Scipy, Matplotlib, Numpy.
+Then we have a small variation on the parameters, it gives us a new LF and a new 
+likelihood estimator $\chi^2$. 
 
-The galaxy UV luminosity can be directly related with SFR according to \citet{madau98}
+We compare the new fitting versus the old fitting.
+
+
+
+Some restrictions where imposed over two parameters to guarantee convergence in the 
+MCMC method: $0 \leq \alpha \leq 1.8 $  and $\gamma \geq 0$.
+
+
+
+
+
+
+%MCMC, maximum likelihood.
+
+%Python, Ipython Notebook, Scipy, Matplotlib, Numpy. Astropy
+Finally, the UV luminosity for each galaxy can be directly related with SFR according 
+to \citet{madau98}.
 This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$\citep{kennicutt98}.
 The relation between UV luminosity and Star Formation Rate \citep{madau98,kennicutt98} 
 is given by:
