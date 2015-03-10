@@ -54,7 +54,32 @@ mass to light relation \citep{vandenbosch03} and the mean relation between
 stellar mas of a galaxy and the mass of its halo used by \citet{moster10}.
 
 
-%Dust Extinction
+\subsection{Dust Attenuation}
+ 
+Dust in galaxies absorbs part of the UV radiation and reemits on IR. The more massive is the galaxy
+then more dust contains and dust attenuation will be bigger.
+
+The UV Spectral Slope $\beta$ was introduced by \citet{meurer99} as a color index to 
+study dust attenuation in high redshift galaxies calibrating with local galaxies. 
+This index is becomes from a power law
+fitting, with the flux $f$ as function of the wavelength $\lambda$,
+\[ f \propto \lambda^\beta\],
+The relation they found is:
+\begin{equation}
+A = 4.43 + 1.99 \beta
+\end{equation}.
+
+\citet{bouwens12b} found a linear relation between $\beta$ and the UV magnitude.
+\begin{equation}
+\langle \beta \rangle = \frac{d \beta}{d M_{UV}} \left( M_{UV,AB}+19.5 \right) + \beta_{M_{UV}=-19.5}
+\end{equation}
+
+We use a similar dust attenuation model as the used by \cite{smit12} with 
+$ \beta_{M_{UV}=-19.5} = -2.20$ and $d \beta/d M_{UV} = -0.21$ at $z=5.9$ 
+according \citep(bouwens12b), imposing also the condition:
+\[ A \geq 0 \]
+
+
 \subsection{MCMC}
 We used a Markov Chain Monte Carlo method to find the best parameters and its 
 uncertainties over each one of the boxes and each observational dataset.
