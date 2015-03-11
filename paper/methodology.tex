@@ -41,7 +41,8 @@ massive halos will host the most luminous galaxies in the same volume.
 
 \subsection{Fitting Model}
 
-The observed UV Luminosity Function has two slopes. To reproduce it we decide to use the four parameter model:
+The observed UV Luminosity Function has two slopes. To reproduce it we decide to use the
+ four parameter model:
   \begin{equation}\label{eqn:luminosity}
   L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
 		   + \left( \frac{M}{M_0}\right)^{\gamma} 
@@ -56,28 +57,51 @@ stellar mas of a galaxy and the mass of its halo used by \citet{moster10}.
 
 \subsection{Dust Attenuation}
  
-Dust in galaxies absorbs part of the UV radiation and reemits on IR. The more massive is the galaxy
-then more dust contains and dust attenuation will be bigger.
+Dust in star forming galaxies absorbs part of the UV radiation and reemits on IR. The more 
+massive is the galaxy then more dust contains and dust attenuation will be greater. The 
+relation between dust attenuation and magnitude have been already studied, with this relation 
+we can infer the dust-free UV luminosity of a galaxy from observations, resulting in  a more 
+accurate inferred SFR.
 
-The UV Spectral Slope $\beta$ was introduced by \citet{meurer99} as a color index to 
-study dust attenuation in high redshift galaxies calibrating with local galaxies. 
-This index is becomes from a power law
-fitting, with the flux $f$ as function of the wavelength $\lambda$,
-\[ f \propto \lambda^\beta\],
-The relation they found is:
+The UV Spectral Slope $\beta$ was introduced by \citet{meurer99} as a UV color to 
+study dust attenuation in local starburst galaxies and extrapolating to high redshift galaxies. 
+This index appears when a power law fitting is performed over the spectral flux $f$ 
+as function of the wavelength $\lambda$;
+\[ f \propto \lambda^\beta.\]
+The relation for ultra-violet attenuation at $1600 \textrm{\AA}$ they found is:
 \begin{equation}
-A = 4.43 + 1.99 \beta
-\end{equation}.
-
-\citet{bouwens12b} found a linear relation between $\beta$ and the UV magnitude.
-\begin{equation}
-\langle \beta \rangle = \frac{d \beta}{d M_{UV}} \left( M_{UV,AB}+19.5 \right) + \beta_{M_{UV}=-19.5}
+A_{1600} = 4.43 + 1.99 \beta,
 \end{equation}
+with $A_{1600}$ in magnitude units. 
 
-We use a similar dust attenuation model as the used by \cite{smit12} with 
-$ \beta_{M_{UV}=-19.5} = -2.20$ and $d \beta/d M_{UV} = -0.21$ at $z=5.9$ 
-according \citep(bouwens12b), imposing also the condition:
-\[ A \geq 0 \]
+Due LBGs have more similar spectra properties to local starburst galaxies rather than AGNs 
+for example, we can assume that local calibration of $\beta-A_{1600}$ can be applied also 
+for LBGs,
+%%% From Meurer99
+``The main requirement is that the data include fluxes in two broad bands or coarse spectra 
+covering the rest-frame UV.''
+
+
+\citet{bouwens12b} uses the fluxes on different bands to estimate $\beta$ on each LBG 
+candidate found with $z \sim 4-7$. After in redshift groups they found a linear relation 
+between $\beta$ and the UV magnitude:
+\begin{equation}
+\langle \beta \rangle = \frac{d \beta}{d M_{UV}} \left( M_{UV,AB}+19.5 \right) 
+                                   + \beta_{M_{UV}=-19.5}
+\end{equation}
+with $ \beta_{M_{UV}=-19.5} = -2.20$ and $d \beta/d M_{UV} = -0.21$ at $z=5.9$.
+
+\citet{smit12} used the aforementioned relations to infer the corrected luminosity functions,
+i.e. dust-free luminosity functions, and the corrected SFR at $z=4$. 
+
+Here we use the inverse relation, starting from the intrinsic or dust-free galaxy magnitude, 
+obtaining the observed magnitude:
+\begin{equation}\label{eqn. dust attenuation}
+  M_{obs} = \begin{cases} 
+                         \frac{M_{int}-4.616}{1.259}, &\mbox{if } A>0 \\
+                         M_{int}, &\mbox{else}
+                   \end{cases}.
+\end{equation}
 
 
 \subsection{MCMC}
@@ -91,7 +115,9 @@ Initial parameters are introduced.
 An UV luminosity is given to each halo as function of his mass according to equation
  \ref{eqn:luminosity}.
 Luminosity is converted to magnitude using:
-  \[ M_{U} = 51.82 - 2.5 \log_{10}(L_{U}). \]
+  \[ M_{UV} = 51.82 - 2.5 \log_{10}(L_{UV}). \]
+If we consider the dust attenuation im the equation \ref{eqn. dust attenuation} we have
+a dust-corrected UV Luminosity Function.
 
 The luminosity function is constructed as an histogram of the magnitudes normalized by 
 the volume of the catalog. Each observed luminosity function has a different bin range.
