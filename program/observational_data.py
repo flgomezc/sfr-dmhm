@@ -1,5 +1,11 @@
-# Last modification: 2014-nov-26 - Bogota
-# New lists created
+# Last modification: 2015-mar-17 - West Lafayette
+# commented lines added with "OD# Name"
+
+# OD1 Willott
+# OD2 Bouwens
+# OD3 McLure
+# OD4 Finkelstein
+
 
 from numpy import *
 
