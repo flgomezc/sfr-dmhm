@@ -1,0 +1,51 @@
+peaks in the 10% area
+
+OD1 with dust
+L_0     29.6875
+M_0     53.125
+alpha   17.1875
+gamma   62.5
+
+OD1 without dust
+L_0 	  42.1875
+M_0 	  67.1875
+alpha   21.875
+gamma 	68.75
+
+
+OD2 with dust
+L_0 	  40.625
+M_0 	  35.9375
+alpha 	48.4375
+gamma 	46.875
+
+OD2 without dust
+L_0 	  56.25
+M_0 	  51.5625
+alpha 	67.1875
+gamma 	64.0625
+
+OD3 with dust
+L_0 	  60.9375
+M_0 	  64.0625
+alpha 	70.3125
+gamma 	65.625
+
+OD3 without dust
+L_0 	  54.6875
+M_0 	  53.125
+alpha 	64.0625
+gamma 	62.5
+
+
+OD4 with dust
+L_0 	  56.25
+M_0 	  62.5
+alpha 	40.625
+gamma 	84.375
+
+OD4 without dust
+L_0   	51.5625
+M_0 	  54.6875
+alpha 	28.125
+gamma 	62.5
