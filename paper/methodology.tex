@@ -106,15 +106,17 @@ obtaining the observed magnitude:
 
 \subsection{MCMC}
 We used a Markov Chain Monte Carlo method to find the best parameters and its 
-uncertainties over each one of the boxes and each observational dataset.
+uncertainties over each one of the boxes and each observational dataset. The code was written
+on Python using the Scipy, Numpy and Matplotlib libraries.
 
-Observational data set to fit is selected.
-A halo catalog of a cubic box of length 250 Mpc h-1 is selected.
-Initial parameters are introduced.
-
-An UV luminosity is given to each halo as function of his mass according to equation
- \ref{eqn:luminosity}.
-Luminosity is converted to magnitude using:
+First of all, one of the four observational data sets (Bouwens, Finkelstein, Willow and McLure) 
+is selected to be the model to fit.
+From the whole simulated halo catalog, a subsample with cubic box shape of 
+ $250\textrm{Mpc h}^{-1}$ length is selected. 
+ 
+With an initial set of parameters $(\alpha, \gamma, M_0,$ and $ L_0)$ the UV luminosity
+for the halo is calculated as function of his mass according to equation
+ \ref{eqn:luminosity}. Then Luminosity is converted to magnitude units using:
   \[ M_{UV} = 51.82 - 2.5 \log_{10}(L_{UV}). \]
 If we consider the dust attenuation im the equation \ref{eqn. dust attenuation} we have
 a dust-corrected UV Luminosity Function.
@@ -122,34 +124,41 @@ a dust-corrected UV Luminosity Function.
 The luminosity function is constructed as an histogram of the magnitudes normalized by 
 the volume of the catalog. Each observed luminosity function has a different bin range.
 
-Once having the LF, we compare our LF against observed LF. Our likelihood estimator is 
-the sum of the square difference over each bin, divided by the number of degrees of 
-freedom. We worked on the logarithmic space of luminosities to have a good fitting on
+Once having the LF, we compare our LF against observed LF. The error function we consider
+is the sum of the square difference over each bin, divided by the observational data uncertain.
+\[ \chi^2  = \sum_{i=o}^{n} \frac {\left( x_{i,obs} - x_{i,fit} \right)^2 }{2\sigma_i^2}\]
+We worked on the logarithmic space of luminosities to have a good fitting on
 six decades.
 
-\[ \chi^2  = \sum_{i=o}^{n}\left( x_{i,obs} - x_{i,fit} \right)^2 \]
+The likelihood will have this property:
+\[ \mathcal{L} \propto \exp \left(  -\frac{\chi ^2}{n} \right) \], where $n$ is the number of degrees
+of freedom. We have the maximum likelihood when the error is the minimum.
+
+Each MCMC step will have have a small variation of the parameters, the UV luminosity and magnitude are 
+calculated again for each halo, we have a new error $\chi_{new}^2$ and a new likelihood 
+$ \mathcal{L}_{new} $.
+
+Following the Metropolis method, we compare the new and the old likelihood:
+\[ R =\frac{ \mathcal{L}_{new}  }{ \mathcal{L}_{old} }  = 
+exp( \chi_{new}^2 - \chi_{old}^2 )
+\]
+
+If $  R \geq 1$, then we immediate accept the new set of parameters and start the next MCMC step.
+
+Else, we have a chance to keep the new set. When $ R < 1$, we compare with a uniformly 
+random number $p$ in the range $[0,1]$. if $ R>p$ we accept the new set of parameters and start
+the next MCMC step. 
+Else we reject the new set and start again with the old set.
+
+We performed 10.000 effective MCMC steps, plus 1.000 thermalization steps over each box.
+We repeated for the same box without consider dust attenuation.
+
+Then we perform the same method over the 64 boxes and the resting three data sets.
+
+The restrictions imposed over the parameters where $0 \leq \alpha \leq 2.0 $  and 
+$\gamma \geq 0$.
 
 
-\[ \mathcal{L} \propto \exp \left( \frac{\chi ^2}{n} \right) \]
-
-Then we have a small variation on the parameters, it gives us a new LF and a new 
-likelihood estimator $\chi^2$. 
-
-We compare the new fitting versus the old fitting.
-
-
-
-Some restrictions where imposed over two parameters to guarantee convergence in the 
-MCMC method: $0 \leq \alpha \leq 1.8 $  and $\gamma \geq 0$.
-
-
-
-
-
-
-%MCMC, maximum likelihood.
-
-%Python, Ipython Notebook, Scipy, Matplotlib, Numpy. Astropy
 Finally, the UV luminosity for each galaxy can be directly related with SFR according 
 to \citet{madau98}.
 This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$\citep{kennicutt98}.
