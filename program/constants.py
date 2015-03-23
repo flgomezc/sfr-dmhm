@@ -13,10 +13,10 @@ MS = 100000-2
 
 # Monte-Carlo tuning
 DeltaChi = 0.0001      #
-K0       = 0.01        # L_0
-K1       = 0.01        # M_0
-K2       = 0.002       # beta
-K3       = 0.002       # gamma
+K0       = 0.005        # L_0
+K1       = 0.005       # M_0
+K2       = 0.001       # beta
+K3       = 0.001       # gamma
 BlowUp  = 1.0e80       # In case that first or first and second bin is equal to zero
 
 # This part of the code breaks
