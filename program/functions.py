@@ -3,15 +3,37 @@ import pylab as P
 from random             import *
 from constants          import *
 from observational_data import *
-# 2014-nov-24: MCMC modification.
+# 2015-mar-22: Chi2 modification in MCMC
 
 def Luminosity(M,L_0,M_0,beta,gamma):
+    """Returns the luminosity of the halo with mass M.
+
+    Instead of use a two parametric function (a power law), we use a
+    four-parameter function to reproduce the two slopes in the LF.
+
+    Input parameters:
+    M     (double)
+    L_0   (double) ~10**17   (Lsun)
+    M_0   (double) ~10**11.4 (Msun)
+    beta  (double) >0
+    gamma (double) > 0"""
+
     return L_0*M*( (M/M_0)**(-beta) + (M/M_0)**gamma)**(-1)
 
 def StarFormationRate(M,L_0,M_0,beta,gamma):
+    """Returns SFR (in Msun yr-1) of a DM halo of mass M
+
+    Input parameters:
+    M     (double)
+    L_0   (double) ~10**17   (Lsun)
+    M_0   (double) ~10**11.4 (Msun)
+    beta  (double) >0
+    gamma (double) > 0"""
+
     return Luminosity(M,L_0,M_0,beta,gamma) * 1.4e-28
 
 def Dust_Extinction():
+    "Control. Prints if Dust Extinction in constants.py is ON/OFF"
     if ( Dust_Ext == 1):
         print "Dust Extinction ON"
     else:
@@ -19,20 +41,21 @@ def Dust_Extinction():
     #return 0
 
 def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSets):
+    """
+Markov Chain  Monte Carlo function.
 
-# Markov Chain  Monte Carlo function.
-#
-# This function writes MonteCarloSteps lines in the input file MCMC_reg.
-# The jump-size on the parameters space is controlled by the "constants.py" file
-#
-# Arguments:
-#     Box size (double)
-#     Monte-Carlo Steps (int)
-#     Mass (array)
-#     4 parameters(double)
-#     Output filename (string)
-#     DataSets (list) This list contains the names of the observational data to be fitted.
+This function writes MonteCarloSteps lines in the input file MCMC_reg.
+The jump-size on the parameters space is controlled by the "constants.py" file
 
+Arguments:
+        Box size (double)
+        Monte-Carlo Steps (int)
+        Mass (array)
+        4 parameters(double)
+        Output filename (string)
+        DataSets (list) This list contains the names of the observational data
+                 to be fitted.
+     """
     seed(None)
     L   = np.zeros(M.size)
     L_R = np.zeros(M.size)
@@ -58,23 +81,24 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
     NOB = 0
     chi_sqr = 0.0
     for i in range(len(HISTO)):
+        if (HISTO[i][0]==0):
+            HISTO[i][0]+= HISTO[i][1]/1000.0
+
         for j in range(HISTO[i].size):
             if( HISTO[i][j] != 0.0 ):
                 chi_sqr = chi_sqr + 0.5*( log10(HISTO[i][j]/DataSets[i][0][1][j]) / DataSets[i][2][j])**2
                 NOB = NOB + 1
-#        print "Cal ", HISTO[i]
-#        print "Obs ", DataSets[i][0][1]
-
-    chi_sqr /= NOB
-#    print "ChiSqr= ", chi_sqr, "Number of Bins= ", NOB
+            else:
+                NOB += DeltaChi
+    chi_sqr /= (NOB-4)
 
     MCMC_reg.write("# L_0 \t M_0 \t beta \t gamma \t chi_sqr \t Number of Bins\n")
     MCMC_reg.write(str(log10(L_0))+"\t"+
                    str(log10(M_0))+"\t"+
-                   str(beta)+"\t"+
-                   str(gamma)+"\t"+
-                   str(chi_sqr)+"\t"+
-                   str(NOB)+"\n")
+                   str(beta)      +"\t"+
+                   str(gamma)     +"\t"+
+                   str(chi_sqr)   +"\t"+
+                   str(NOB)       +"\n")
 
     ###################################
     # Markov Chain Monte Carlo Starts #
@@ -120,18 +144,24 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
         ### Calcule Chi Square using number of Degrees of Freedom
         NOB = 0
         chi_sqr_R = 0.0
-        FLAG = " "
+        FLAG = "   "
         for i in range(len(HISTO_R)):
+            if (HISTO_R[i][1]==0):
+                HISTO_R[i][1]+= HISTO_R[i][2]/BlowUp
+            if (HISTO_R[i][0]==0):
+                HISTO_R[i][0]+= HISTO_R[i][1]/BlowUp
+                FLAG ="+  "
+
             for j in range(HISTO_R[i].size):
                 if( HISTO_R[i][j] != 0.0 ):
                     chi_sqr_R = chi_sqr_R + 0.5*( log10(HISTO_R[i][j]/DataSets[i][0][1][j]) / DataSets[i][2][j])**2
-                    NOB = NOB + 1
+                    NOB = NOB + 1.0
                 else:
-                    chi_sqr_R = chi_sqr_R + DeltaChi
-#            print "Cal ", HISTO[i]
-#            print "Obs ", DataSets[i][0][1]
-#        print "ChiSqr= ", chi_sqr, "Number of Bins= ", NOB
-        chi_sqr_R /= NOB
+                    NOB += DeltaChi                                           ###  2015-03-22
+#                        chi_sqr_R = chi_sqr_R + DeltaChi                     ###  2015-03-22
+                    FLAG += " #"
+
+        chi_sqr_R /= (NOB-4.0) ### Number of Degrees of Freedom = Number Of Bins-4 parameters
 
         # If the new chi2 is better, then the new set of parameters is accepted
         Delta_chi = chi_sqr_R - chi_sqr
@@ -142,10 +172,8 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
             gamma  = gammaR
             HISTO  = HISTO_R
             chi_sqr= chi_sqr_R
-            #print chi_sqr, NOB , " ", COUNTER
         else:
             p = random.rand()
-            #print p, exp( -Delta_chi)
             if ( p > exp( -Delta_chi) ): ## CORRECT EXPRESSION ">" ########################## 2014-oct-2014
                 L_0    = L_0R
                 M_0    = M_0R
@@ -153,16 +181,16 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
                 gamma  = gammaR
                 HISTO  = HISTO_R
                 chi_sqr= chi_sqr_R
-                #print chi_sqr, NOB , "*", COUNTER
-                FLAG = "*"
+                FLAG += "*"
 
-        #   If chi_squ grows without limit, then return to the original parameters
-        if (chi_sqr > 20):
-            L_0    = L_0Panic
-            M_0    = M_0Panic
-            beta   = betaPanic
-            gamma  = gammaPanic
-
+############################################################################################## COMENTED 2015-03-22
+#        #   If chi_squ grows without limit, then return to the original parameters
+#        if (chi_sqr > 20):
+#            L_0    = L_0Panic
+#            M_0    = M_0Panic
+#            beta   = betaPanic
+#            gamma  = gammaPanic
+############################################################################################### COMENTED 2015-03-22
         # Storing all the good points.
         # L_0, M_0, beta, gamma, chi_sqr
         MCMC_reg.write(
@@ -176,8 +204,20 @@ def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSe
     # End of the loop
     MCMC_reg.close()
 
+def SingleHistogram( BoxLength, BOX, L_0, M_0, beta, gamma, *DataSets):
+    """
+Single Histogram Function.
 
-def SingleHistogram( BoxLength, BOX, L_0, M_0, beta, gamma):
+This function returns the histogram for a single box in the catalog.
+
+
+Arguments:
+    Box size       (double)
+    Mass           (array)
+    4 parameters   (double) L_0, M_0, beta, gamma
+    DataSets       (list) This list contains the names of the observational data
+                     to be fitted. E.j.
+    """
     histo1 = []
 
     STR = '../data/MD_3840_Planck1/BDM/Small_Cells/'+str(BOX)+'.dat'

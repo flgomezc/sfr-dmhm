@@ -33,7 +33,7 @@ for i in range(5):
 Obs_data1_log10yerror = [array(log10(Willott[:,1]/Willott[:,2])),array(log10(Willott[:,3]/Willott[:,1]))]
 sigma1 = (Obs_data1_log10yerror[:][0] +  Obs_data1_log10yerror[:][0])/2
 
-OD1 = [Obs_data1.transpose(), HIST1_bins,sigma1,"Willott"]
+OD1 = [Obs_data1.transpose(), HIST1_bins, sigma1,"Willott"]
 
 ###########################################################################
 
@@ -66,7 +66,7 @@ Obs_data2_log10yerror = [array(log10(Bouwens[:,1]/(Bouwens[:,1]-Bouwens[:,2]))),
 Obs_data2_log10yerror[0][0]=0.30103
 sigma2 = (Obs_data2_log10yerror[:][0] + Obs_data2_log10yerror[:][1] )/2
 
-OD2 = [Obs_data2.transpose(), HIST2_bins,sigma2,"Bouwens"]
+OD2 = [Obs_data2.transpose(), HIST2_bins, sigma2, "Bouwens"]
 
 ###########################################################################
 
@@ -98,7 +98,7 @@ Obs_data3_log10[:,3]=0.25
 Obs_data3_log10yerror = [array(log10(McLure[:,1]/McLure[:,2])),array(log10(McLure[:,3]/McLure[:,1]))]
 sigma3 = ( Obs_data3_log10yerror[:][0]+Obs_data3_log10yerror[:][1])/2
 
-OD3 = [Obs_data3.transpose(), HIST3_bins,sigma3,"McLure"]
+OD3 = [Obs_data3.transpose(), HIST3_bins, sigma3, "McLure"]
 
 ###########################################################################
 
@@ -135,4 +135,4 @@ Obs_data4_log10yerror = [array(log10(Finkelstein[:,1]/(Finkelstein[:,1]+Finkelst
                          array(log10((Finkelstein[:,1]+Finkelstein[:,2])/Finkelstein[:,1]))]
 sigma4 = (Obs_data4_log10yerror[:][0] + Obs_data4_log10yerror[:][1])/2
 
-OD4 = [Obs_data4.transpose(), HIST4_bins,sigma4,"Finkelstein"]
+OD4 = [Obs_data4.transpose(), HIST4_bins, sigma4, "Finkelstein"]
