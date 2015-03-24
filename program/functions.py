@@ -1,8 +1,10 @@
 import numpy as np
 import pylab as P
+import time
 from random             import *
 from constants          import *
 from observational_data import *
+
 # 2015-mar-22: Chi2 modification in MCMC
 
 def Luminosity(M,L_0,M_0,beta,gamma):
@@ -92,6 +94,11 @@ Arguments:
                 NOB += DeltaChi
     chi_sqr /= (NOB-4)
 
+    MCMC_reg.write('#'+str(time.strftime("%Y-%m-%d  %H:%M")) + '\n')
+    MCMC_reg.write('# k:\t'+str(k0)+'\t'+str(k1)+'\t'+str(k2)+'\t'+str(k3)+'\n')
+    MCMC_reg.write('# k Multiplier = '+str(MULT)+'\n')
+    MCMC_reg.write('# DataSets ='+str(Obs_Data[:][0][3])+'\n')
+
     MCMC_reg.write("# L_0 \t M_0 \t beta \t gamma \t chi_sqr \t Number of Bins\n")
     MCMC_reg.write(str(log10(L_0))+"\t"+
                    str(log10(M_0))+"\t"+
@@ -100,14 +107,38 @@ Arguments:
                    str(chi_sqr)   +"\t"+
                    str(NOB)       +"\n")
 
+    best_chi   = chi_sqr
+    best_L_0   = L_0
+    best_M_0   = M_0
+    best_beta  = beta
+    best_gamma = gamma
+
     ###################################
     # Markov Chain Monte Carlo Starts #
     ###################################
+
 
     # First of all, the histogram with the original parameters must be calculated,
     # included the Xi_square deviation
     for COUNTER in range(MonteCarloSteps):
         # Then the parameters are changed in order to calculate the new histogram
+        if(chi_sqr<1):     # Normal case, good fitting
+            K0 = k0
+            K1 = k1
+            K2 = k2
+            K3 = k3
+        else:
+            if(chi_sqr < chi_sqr_treshold):     # Normal case, good fitting
+                K0 = k0*5
+                K1 = k1*5
+                K2 = k2*10
+                K3 = k3*10
+            else:                # When it blows up. Try to return.
+                K0 = k0
+                K1 = k1
+                K2 = k2*MULT
+                K3 = k3*MULT
+
         L_0R   = L_0  *10**(gauss(0.0,K0))
         M_0R   = M_0  *10**(gauss(0.0,K1))
         betaR  = beta + gauss(0.0,K2)
@@ -120,7 +151,7 @@ Arguments:
             M_0R   = M_0  *10**(gauss(0.0,K1))
         while (betaR<0) or (betaR>2.0):
             betaR  = beta + gauss(0.0,K2)
-        while (gammaR<0) or (gammaR>0.9):
+        while (gammaR<0) or (gammaR>1.0):
             gammaR = gamma+ gauss(0.0,K3)
 
         #for i in range(M.size):
@@ -143,25 +174,40 @@ Arguments:
 
         ### Calcule Chi Square using number of Degrees of Freedom
         NOB = 0
+        nob = 0
         chi_sqr_R = 0.0
         FLAG = "   "
         for i in range(len(HISTO_R)):
+            if (HISTO_R[i][2]==0):
+                HISTO_R[i][2]+= HISTO_R[i][3]/BlowUp
+                FLAG +="+3 "
+                nob -= 1
             if (HISTO_R[i][1]==0):
                 HISTO_R[i][1]+= HISTO_R[i][2]/BlowUp
+                FLAG +="+2 "
+                nob -= 1
             if (HISTO_R[i][0]==0):
                 HISTO_R[i][0]+= HISTO_R[i][1]/BlowUp
-                FLAG ="+  "
+                FLAG +="+1 "
+                nob -= 1
+            if (HISTO_R[i][-1]<HISTO_R[i][-2]):
+                FLAG += 'Tail is going down!'
+                print   'Tail is going down!'
 
             for j in range(HISTO_R[i].size):
                 if( HISTO_R[i][j] != 0.0 ):
                     chi_sqr_R = chi_sqr_R + 0.5*( log10(HISTO_R[i][j]/DataSets[i][0][1][j]) / DataSets[i][2][j])**2
                     NOB = NOB + 1.0
+                    nob = nob + 1
                 else:
                     NOB += DeltaChi                                           ###  2015-03-22
 #                        chi_sqr_R = chi_sqr_R + DeltaChi                     ###  2015-03-22
                     FLAG += " #"
 
         chi_sqr_R /= (NOB-4.0) ### Number of Degrees of Freedom = Number Of Bins-4 parameters
+
+        if (chi_sqr<0):
+            print "### WARNING: Chi2 < 0 at step #",COUNTER
 
         # If the new chi2 is better, then the new set of parameters is accepted
         Delta_chi = chi_sqr_R - chi_sqr
@@ -184,12 +230,20 @@ Arguments:
                 FLAG += "*"
 
 ############################################################################################## COMENTED 2015-03-22
-#        #   If chi_squ grows without limit, then return to the original parameters
-#        if (chi_sqr > 20):
-#            L_0    = L_0Panic
-#            M_0    = M_0Panic
-#            beta   = betaPanic
-#            gamma  = gammaPanic
+        if (chi_sqr < best_chi) and (chi_sqr>0):
+            best_chi   = chi_sqr
+            best_L_0   = L_0
+            best_M_0   = M_0
+            best_beta  = beta
+            best_gamma = gamma
+#   If chi_squ grows without limit, then return to the best parameters
+        if (nob <= 3):
+            L_0    = best_L_0
+            M_0    = best_M_0
+            beta   = best_beta
+            gamma  = best_gamma
+            print '### MCMC blow up. Return to best chi2', best_chi
+            FLAG +="MCMC Blowup chi2="+str(best_chi)
 ############################################################################################### COMENTED 2015-03-22
         # Storing all the good points.
         # L_0, M_0, beta, gamma, chi_sqr
@@ -200,11 +254,12 @@ Arguments:
                             str(gamma)     +"\t"+
                             str(chi_sqr)   +"\t"+
                             str(NOB)       +"\t"+
+                            str(nob)       +"\t"+
                             str(FLAG)      +"\n")
     # End of the loop
     MCMC_reg.close()
 
-def SingleHistogram( BoxLength, BOX, L_0, M_0, beta, gamma, *DataSets):
+def SingleHistogram( BoxLength, BOX, L_0, M_0, beta, gamma, DataSets):
     """
 Single Histogram Function.
 
@@ -221,6 +276,8 @@ Arguments:
     histo1 = []
 
     STR = '../data/MD_3840_Planck1/BDM/Small_Cells/'+str(BOX)+'.dat'
+#    print "Data Loaded \n"
+
     M = np.loadtxt(STR,usecols=(3,), skiprows=0)
 ########## Halo mass must be divided by the Hubble Parameter
     M = (1.0*M)/hpl
@@ -236,26 +293,35 @@ Arguments:
         Mag[Mag< Mag0] = ( Mag[Mag< Mag0]-4.61455)/1.2587
         Magnitude_UV_galaxy_list = Mag
 
-    ### Create Histograms
+    ### Create Histogram list
     HISTO = []
 
-    for DS in DataSets:
-        aux = 1.0 * np.histogram(Magnitude_UV_galaxy_list, bins= DS[1] )[0]
+    for k in range(len(DataSets)):
+        ### Galaxy counting
+        aux = 1.0 * np.histogram(Magnitude_UV_galaxy_list, bins= DataSets[k][1] )[0]
+        ### Normalization
         for i in range(len(aux)):
-            aux[i] = aux[i]/( (DS[1][i+1] - DS[1][i] ) * BoxLength**3)
+            aux[i] = aux[i]/( (DataSets[k][1][i+1] - DataSets[k][1][i] ) * BoxLength**3)
         HISTO.append(aux)
+    print HISTO
 
     NOB = 0
     chi_sqr = 0.0
 
     for i in range(len(HISTO)):
+        if (HISTO[i][0]==0):
+            HISTO[i][0]+= HISTO[i][1]/1000.0
+
         for j in range(HISTO[i].size):
             if( HISTO[i][j] != 0.0 ):
-                chi_sqr = chi_sqr + 0.5*( log10(HISTO[i][j]/DataSets[i][0][1][j]) / DataSets[i][2][j])**2
+                chi_sqr = chi_sqr + 0.5*( log10( HISTO[i][j]/DataSets[i][0][1][j] ) / DataSets[i][2][j])**2
                 NOB = NOB + 1
-
-    chi_sqr /= abs(NOB-4)
+            else:
+                NOB += DeltaChi
+    chi_sqr /= (NOB-4)
+    print chi_sqr
     return HISTO
+
 
 def FullHistograms():
     histo0 = []
