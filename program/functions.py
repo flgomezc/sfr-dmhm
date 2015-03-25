@@ -144,6 +144,9 @@ Arguments:
         betaR  = beta + gauss(0.0,K2)
         gammaR = gamma+ gauss(0.0,K3)
 
+        p = random.rand()
+
+
         ### Some constraints over parameters
         while (L_0R <10**(16.75)) or (L_0R >10**(20.0)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
@@ -196,7 +199,7 @@ Arguments:
 
             for j in range(HISTO_R[i].size):
                 if( HISTO_R[i][j] != 0.0 ):
-                    chi_sqr_R = chi_sqr_R + 0.5*( log10(HISTO_R[i][j]/DataSets[i][0][1][j]) / DataSets[i][2][j])**2
+                    chi_sqr_R = chi_sqr_R + 0.5*( log10( HISTO_R[i][j]/DataSets[i][0][1][j] ) / DataSets[i][2][j] )**2
                     NOB = NOB + 1.0
                     nob = nob + 1
                 else:
@@ -219,8 +222,7 @@ Arguments:
             HISTO  = HISTO_R
             chi_sqr= chi_sqr_R
         else:
-            p = random.rand()
-            if ( p > exp( -Delta_chi) ): ## CORRECT EXPRESSION ">" ########################## 2014-oct-2014
+            if ( p < exp( -Delta_chi) ): ## 2015-mar-24
                 L_0    = L_0R
                 M_0    = M_0R
                 beta   = betaR
@@ -230,30 +232,29 @@ Arguments:
                 FLAG += "*"
 
 ############################################################################################## COMENTED 2015-03-22
-        if (chi_sqr < best_chi) and (chi_sqr>0):
-            best_chi   = chi_sqr
-            best_L_0   = L_0
-            best_M_0   = M_0
-            best_beta  = beta
-            best_gamma = gamma
+#        if (chi_sqr < best_chi) and (chi_sqr>0):
+#            best_chi   = chi_sqr
+#            best_L_0   = L_0
+#            best_M_0   = M_0
+#            best_beta  = beta
+#            best_gamma = gamma
 #   If chi_squ grows without limit, then return to the best parameters
-        if (nob <= 3):
-            L_0    = best_L_0
-            M_0    = best_M_0
-            beta   = best_beta
-            gamma  = best_gamma
-            print '### MCMC blow up. Return to best chi2', best_chi
-            FLAG +="MCMC Blowup chi2="+str(best_chi)
+#        if (nob <= 3):
+#            L_0    = best_L_0
+#            M_0    = best_M_0
+#            beta   = best_beta
+#            gamma  = best_gamma
+#            print '### MCMC blow up. Return to best chi2', best_chi
+#            FLAG +="MCMC Blowup chi2="+str(best_chi)
 ############################################################################################### COMENTED 2015-03-22
         # Storing all the good points.
-        # L_0, M_0, beta, gamma, chi_sqr
+        # L_0, M_0, beta, gamma, chi_sqr, numberofbins, flag
         MCMC_reg.write(
                             str(log10(L_0))+"\t"+
                             str(log10(M_0))+"\t"+
                             str(beta)      +"\t"+
                             str(gamma)     +"\t"+
                             str(chi_sqr)   +"\t"+
-                            str(NOB)       +"\t"+
                             str(nob)       +"\t"+
                             str(FLAG)      +"\n")
     # End of the loop
@@ -273,10 +274,7 @@ Arguments:
     DataSets       (list) This list contains the names of the observational data
                      to be fitted. E.j.
     """
-    histo1 = []
-
     STR = '../data/MD_3840_Planck1/BDM/Small_Cells/'+str(BOX)+'.dat'
-#    print "Data Loaded \n"
 
     M = np.loadtxt(STR,usecols=(3,), skiprows=0)
 ########## Halo mass must be divided by the Hubble Parameter
@@ -290,7 +288,7 @@ Arguments:
     ### Dust Extinction
     if (Dust_Ext == 1):
         Mag = Magnitude_UV_galaxy_list
-        Mag[Mag< Mag0] = ( Mag[Mag< Mag0]-4.61455)/1.2587
+        Mag[Mag< Mag0] = ( Mag[Mag< Mag0]-4.61455 )/1.2587
         Magnitude_UV_galaxy_list = Mag
 
     ### Create Histogram list
@@ -319,7 +317,7 @@ Arguments:
             else:
                 NOB += DeltaChi
     chi_sqr /= (NOB-4)
-    print chi_sqr
+    print 'Chi2 =', chi_sqr
     return HISTO
 
 
