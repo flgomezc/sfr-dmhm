@@ -122,22 +122,12 @@ Arguments:
     # included the Xi_square deviation
     for COUNTER in range(MonteCarloSteps):
         # Then the parameters are changed in order to calculate the new histogram
-        if(chi_sqr<1):     # Normal case, good fitting
-            K0 = k0
-            K1 = k1
-            K2 = k2
-            K3 = k3
-        else:
-            if(chi_sqr < chi_sqr_treshold):     # Normal case, good fitting
-                K0 = k0*5
-                K1 = k1*5
-                K2 = k2*10
-                K3 = k3*10
-            else:                # When it blows up. Try to return.
-                K0 = k0
-                K1 = k1
-                K2 = k2*MULT
-                K3 = k3*MULT
+
+        K0 = k0
+        K1 = k1
+        K2 = k2
+        K3 = k3
+
 
         L_0R   = L_0  *10**(gauss(0.0,K0))
         M_0R   = M_0  *10**(gauss(0.0,K1))
@@ -148,13 +138,14 @@ Arguments:
 
 
         ### Some constraints over parameters
-        while (L_0R <10**(16.75)) or (L_0R >10**(20.0)):
+        while (L_0R <10**(16.75)) or (L_0R >10**(18.8)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
-        while (M_0R < 10.80):
+        while (M_0R < 10.70):
             M_0R   = M_0  *10**(gauss(0.0,K1))
-        while (betaR<0) or (betaR>2.0):
+            print '# M_0R low limit'
+        while (betaR<0) or (betaR>1.5):
             betaR  = beta + gauss(0.0,K2)
-        while (gammaR<0) or (gammaR>1.0):
+        while (gammaR<0) or (gammaR>0.6):
             gammaR = gamma+ gauss(0.0,K3)
 
         #for i in range(M.size):

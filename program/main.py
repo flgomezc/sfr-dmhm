@@ -5,16 +5,16 @@ from functions import *
 import numpy as np
 
 # Number of boxes
-NB = range(5,6)
+NB = range(0,1)
 
 # Box Size in Mpc. Must be divided by the hubble parameter in
 # the 2013 Planck cosmology. (hpl defined in "constants.py")
 BoxLength = 250.0 / hpl
 
 if (Dust_Ext ==1):
-    MCMC_reg = [open( 'results_w_ext/%i.dat' %filenumber, 'w') for filenumber in NB]
+    MCMC_reg = [open( 'results_w_ext_/%i.dat' %filenumber, 'w') for filenumber in NB]
 else:
-    MCMC_reg = [open( 'results_wo_ext/%i.dat' %filenumber, 'w') for filenumber in NB]
+    MCMC_reg = [open( 'results_wo_ext_/%i.dat' %filenumber, 'w') for filenumber in NB]
 Dust_Extinction()
 
 i = 0
