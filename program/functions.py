@@ -138,11 +138,11 @@ Arguments:
 
 
         ### Some constraints over parameters
-        while (L_0R <10**(16.75)) or (L_0R >10**(18.8)):
+        while (L_0R <10**(16.75)) or (L_0R >10**(19.0)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
-        if (M_0R < 10.70):
-            while (M_0R < 10.70):
-                M_0R   = M_0  *10**(gauss(0.0,K1))
+        while (M_0R < 10.50):
+            M_0R   = M_0  *10**(gauss(0.0,K1))
+            print "new M_0R", M_0R
         while (betaR<0) or (betaR>1.5):
             betaR  = beta + gauss(0.0,K2)
         while (gammaR<0) or (gammaR>0.6):
@@ -200,44 +200,37 @@ Arguments:
 
         chi_sqr_R /= (NOB-4.0) ### Number of Degrees of Freedom = Number Of Bins-4 parameters
 
-        if (chi_sqr<0):
-            print "### WARNING: Chi2 < 0 at step #",COUNTER
+#   If chi_squ grows without limit, then return to the best parameters
 
+        if (chi_sqr >= 0):
         # If the new chi2 is better, then the new set of parameters is accepted
-        Delta_chi = chi_sqr_R - chi_sqr
-        if ( Delta_chi < 0):
-            L_0    = L_0R
-            M_0    = M_0R
-            beta   = betaR
-            gamma  = gammaR
-            HISTO  = HISTO_R
-            chi_sqr= chi_sqr_R
-        else:
-            if ( p < exp( -Delta_chi) ): ## 2015-mar-24
+            Delta_chi = chi_sqr_R - chi_sqr
+            if ( Delta_chi < 0):
                 L_0    = L_0R
                 M_0    = M_0R
                 beta   = betaR
                 gamma  = gammaR
                 HISTO  = HISTO_R
                 chi_sqr= chi_sqr_R
-                FLAG += "*"
+            else:
+                if ( p < exp( -Delta_chi) ): ## 2015-mar-24
+                    L_0    = L_0R
+                    M_0    = M_0R
+                    beta   = betaR
+                    gamma  = gammaR
+                    HISTO  = HISTO_R
+                    chi_sqr= chi_sqr_R
+                    FLAG += "*"
+        else:
+            print "# WARNING: Chi2 < 0 at step #",COUNTER
+            L_0   = L_0in
+            M_0   = M_0in
+            beta  = betain
+            gamma = gammain
+            chi_sqr_R = 10
+            FLAG += " Chi2 <0!!! Returning to initial parameters"
 
-############################################################################################## COMENTED 2015-03-22
-#        if (chi_sqr < best_chi) and (chi_sqr>0):
-#            best_chi   = chi_sqr
-#            best_L_0   = L_0
-#            best_M_0   = M_0
-#            best_beta  = beta
-#            best_gamma = gamma
-#   If chi_squ grows without limit, then return to the best parameters
-#        if (nob <= 3):
-#            L_0    = best_L_0
-#            M_0    = best_M_0
-#            beta   = best_beta
-#            gamma  = best_gamma
-#            print '### MCMC blow up. Return to best chi2', best_chi
-#            FLAG +="MCMC Blowup chi2="+str(best_chi)
-############################################################################################### COMENTED 2015-03-22
+
         # Storing all the good points.
         # L_0, M_0, beta, gamma, chi_sqr, numberofbins, flag
         MCMC_reg.write(
@@ -249,6 +242,7 @@ Arguments:
                             str(nob)       +"\t"+
                             str(FLAG)      +"\n")
     # End of the loop
+
     MCMC_reg.close()
 
 def SingleHistogram( BoxLength, BOX, L_0, M_0, beta, gamma, DataSets):
