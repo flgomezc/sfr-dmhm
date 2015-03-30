@@ -227,7 +227,7 @@ Arguments:
             M_0   = M_0in
             beta  = betain
             gamma = gammain
-            chi_sqr_R = 2 2 
+            chi_sqr_R = 2
             FLAG += " Chi2 <0!!! Returning to initial parameters"
 
 
