@@ -140,9 +140,9 @@ Arguments:
         ### Some constraints over parameters
         while (L_0R <10**(16.75)) or (L_0R >10**(18.8)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
-        while (M_0R < 10.70):
-            M_0R   = M_0  *10**(gauss(0.0,K1))
-            print '# M_0R low limit'
+        if (M_0R < 10.70):
+            while (M_0R < 10.70):
+                M_0R   = M_0  *10**(gauss(0.0,K1))
         while (betaR<0) or (betaR>1.5):
             betaR  = beta + gauss(0.0,K2)
         while (gammaR<0) or (gammaR>0.6):
