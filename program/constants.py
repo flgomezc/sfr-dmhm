@@ -27,6 +27,6 @@ chi_sqr_treshold = 30
 DeltaChi = 0.0001      #
 k0       = 0.02        # L_0
 k1       = 0.02        # M_0
-k2       = 1.0         # beta
+k2       = 0.05         # beta
 k3       = 0.05         # gamma
 BlowUp  = 1.0e20       # In case that first or first and second bin is equal to zero
