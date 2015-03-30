@@ -202,7 +202,7 @@ Arguments:
 
 #   If chi_squ grows without limit, then return to the best parameters
 
-        if (chi_sqr >= 0):
+        if (chi_sqr_R >= 0):
         # If the new chi2 is better, then the new set of parameters is accepted
             Delta_chi = chi_sqr_R - chi_sqr
             if ( Delta_chi < 0):
@@ -227,7 +227,7 @@ Arguments:
             M_0   = M_0in
             beta  = betain
             gamma = gammain
-            chi_sqr_R = 10
+            chi_sqr_R = 2 2 
             FLAG += " Chi2 <0!!! Returning to initial parameters"
 
 
