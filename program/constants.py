@@ -20,13 +20,13 @@ gammain =  0.18
 MULT    =  1
 
 # Number of Monte-Carlo Steps
-MS = 100000-1
+MS = 30000-1
 
 # Monte-Carlo tuning
 chi_sqr_treshold = 30
 DeltaChi = 0.0001      #
 k0       = 0.02        # L_0
 k1       = 0.02        # M_0
-k2       = 0.05         # beta
-k3       = 0.05         # gamma
+k2       = 0.02         # beta
+k3       = 0.02         # gamma
 BlowUp  = 1.0e20       # In case that first or first and second bin is equal to zero

@@ -140,8 +140,8 @@ Arguments:
         ### Some constraints over parameters
         while (L_0R <10**(16.75)) or (L_0R >10**(19.0)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
-        while (M_0R < 10.50):
-            M_0R   = M_0  *10**(gauss(0.0,K1))
+        while (M_0R < 10**10.50):
+            M_0R   = M_0  *10**(abs(gauss(0.0,K1)))
             print "new M_0R", M_0R
         while (betaR<0) or (betaR>1.5):
             betaR  = beta + gauss(0.0,K2)
