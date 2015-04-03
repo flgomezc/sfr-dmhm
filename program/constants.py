@@ -15,8 +15,8 @@ Obs_Data = [OD1]
 # Initial Conditions
 L_0in   = 10.0**(18.0)
 M_0in   = 10.0**(11.25)
-betain  =  0.0
-gammain =  0.18
+betain  =  0.75
+gammain =  0.4
 MULT    =  1
 
 # Number of Monte-Carlo Steps
@@ -26,7 +26,7 @@ MS = 30000-1
 chi_sqr_treshold = 30
 DeltaChi = 0.0001      #
 k0       = 0.02        # L_0
-k1       = 0.02        # M_0
+k1       = 0.015        # M_0
 k2       = 0.02         # beta
 k3       = 0.02         # gamma
-BlowUp  = 1.0e20       # In case that first or first and second bin is equal to zero
+BlowUp  = 1.0e3       # In case that first or first and second bin is equal to zero

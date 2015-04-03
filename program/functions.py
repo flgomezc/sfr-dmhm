@@ -140,11 +140,11 @@ Arguments:
         ### Some constraints over parameters
         while (L_0R <10**(16.75)) or (L_0R >10**(19.0)):
             L_0R   = L_0  *10**(gauss(0.0,K0))
-        while (M_0R < 10**10.50):
-            M_0R   = M_0  *10**(abs(gauss(0.0,K1)))
-        while (betaR<0) or (betaR>1.5):
+        while (M_0R < 10**10.50) or (M_0R > 10**12.00):
+            M_0R   = M_0  *10**(gauss(0.0,K1))
+        while (betaR<0) or (betaR>1.6):
             betaR  = beta + gauss(0.0,K2)
-        while (gammaR<0) or (gammaR>0.6):
+        while (gammaR<0) or (gammaR>0.9):
             gammaR = gamma+ gauss(0.0,K3)
 
         #for i in range(M.size):
@@ -291,8 +291,10 @@ Arguments:
     chi_sqr = 0.0
 
     for i in range(len(HISTO)):
+        if (HISTO[i][1]==0):
+            HISTO[i][1]+= HISTO[i][2]/BlowUp
         if (HISTO[i][0]==0):
-            HISTO[i][0]+= HISTO[i][1]/1000.0
+            HISTO[i][0]+= HISTO[i][1]/BlowUp
 
         for j in range(HISTO[i].size):
             if( HISTO[i][j] != 0.0 ):
