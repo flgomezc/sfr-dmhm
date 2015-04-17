@@ -148,10 +148,60 @@ terms of $10^{8}-10^{11}$ times the sun luminosity.
 \section{Observational Background}
 \label{sec:theo}
 
+\subsection{Star Formation Rate}
+
+The age of a star can be estimated by analyzing its spectrum. But when far
+galaxies are studied, individual stars can not be resolved. Is not 
+possible to make a detailed census of the galaxy popullation. Only is possible 
+to get information from the whole stellar population, an integrated spectrum.
+
+There is a  method\citep{madau98} in wich a linear relation between SFR
+and luminosity in specific wavelength ranges can be assumed. This model allows
+to estimate the young stars fraction and the mean SFR over periods of $10^8 -
+10^9 \textrm{yr}$\citep{kennicutt98}. The luminosity in the model, comes from
+the UV and the FIR broadband, also from speciffic recombination lines.
+
+
+
+In a typical galaxy spectrum the visible wavelengths are dominated by the main 
+sequence stars (A to early F) and G-K giants. In few wavelength ranges we have 
+a significative contribution from the young stars rather than the old stars. 
+The infrared and far infrared wavelengths emission is dominated by dust, this 
+dust is  heated by the whole stellar popullation, in particular by young, 
+UV-bright stars \citep{law11}.
+
+On active galaxies the UV broadband emission is dominated by late-O
+and early-B type stars, with temperature near to 40.000K. These hot and massive
+stars has a lifetime below $10^7\textrm{Gyr}$, they spend their nuclear fuel
+faster than smaller and cooler sunlike stars.
+
+The relation between UV luminosity and Star Formation Rate
+\citep{madau98,kennicutt98} 
+is given by:
+\begin{equation}
+ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
+      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
+	\right)
+\end{equation}
+
+
+  With Initial Mass Function (IMF) between $0.1 M_\odot$ 
+ and $100 M_\odot$, in the range of $1250-2500 \mathring{\textrm{A}} $
+
+The star forming rate will be:
+  \begin{equation}
+  SFR = k \times L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
+
+\subsection{Dust Absorption}
+
+
 This paper is based on four main observational data sets from the Hubble Space Telescope 
 and three ground-based telescopes. All $z\sim 6$ LBG candidates where discovered using using 
 the drop-out technique\citep{steidel03}. All magnitudes are in AB system.
-%%%%%%%%%%%%%%Steidel 1996, Bunker 2003
+
 
 The data from the Hubble Space Telescope Legacy (HSTL) \citep{bouwens14} is a compilation 
 of observations since the installation of the Advanced Camera for Surveys (ACS) in 2002, 
@@ -408,6 +458,41 @@ is given by:
 	\right)
 \end{equation}
 
+\subsection{The Luminosity Model}
+
+In this model we have made two assumptions:
+\begin{enumerate}
+ \item Each halo in the catalog hosts one galaxy. There are not empty
+halos, also none of halos has two or more galaxies.
+ \item The UV luminosity of each galaxy is function of one variable: the mass of
+the DMH in wich is located.
+\end{enumerate}
+
+The simplest relation we can have is a powerlaw:
+ \begin{equation}
+  L = L_0 M^\alpha
+ \end{equation}
+but has not well agreement with observed luminosity functions.
+
+A better model is a four parameter function. Each galaxy has a luminosity given
+by:
+  \begin{equation}
+  L = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
+where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
+mass to light relation \citep{vandenbosch03} and the mean relation between
+stellar mas of a galaxy and the mas of its halo used by \cite{moster10}.
+
+There are more complex models\citep{lee09} that includes a random behavior:
+galaxies has not synchronization on the beginning of star forming stage, also
+this stage may be time limited. This is called duty cycle. It is probable to
+have in the observations some invisible galaxies in the UV continuum due their
+duty cycle may has not started as well it may ended. Also may be present a
+normal distribution of the luminosity around the expected values.
 
 \section{Results}
 \label{sec:results}
@@ -466,7 +551,7 @@ without dust attenuation.}
 \caption{Star formation rate as function of the dark matter halo mass without dust attenuation. 
 Solid lines represents the mean SFR value over the small boxes within $50\%$  shaded region. 
 Comparison with the GALFORM semi-analitical model \citep{gonzalez14} and a implementation
-of abundance matching model \citep{behroozi13}. }
+of abundance matching model \citep{Behroozi13}. }
 \label{graph_SFR_DMHM_wo}
 \end{figure}
 
@@ -476,7 +561,7 @@ of abundance matching model \citep{behroozi13}. }
 \caption{Star formation rate as function of the dark matter halo mass with dust attenuation. 
 Solid lines represents the mean SFR value over the small boxes within $50\%$  shaded region.
 Comparison with the GALFORM semi-analitical model \citep{gonzalez14} and a implementation
-of abundance matching model \citep{behroozi13}. }
+of abundance matching model \citep{Behroozi13}. }
 \label{graph_SFR_DMHM_w}
 \end{figure}
 
@@ -493,7 +578,7 @@ of abundance matching model \citep{behroozi13}. }
 Acknowledgments...\\
 
 
-\bibliography{the_bibliography}
+\bibliography{references}
 
 \end{document}
 
