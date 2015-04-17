@@ -1,0 +1,499 @@
+\documentclass{emulateapj}
+\submitted{{\it Submitted for publication in ApJ}}
+\usepackage{multirow,color,wrapfig,ulem}
+\usepackage {graphicx}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage[dvips]{epsfig}
+\bibliographystyle{apj}
+\newcommand{\avg}[1]{\langle{#1}\rangle}  
+\newcommand{\nscatt}{\langle N_{\rm  scatt}\rangle}
+\newcommand{\ly}{{\ifmmode{{\rm Ly}\alpha~}\else{Ly$\alpha$~}\fi}}
+\newcommand{\hMpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc }\fi}}   
+\newcommand{\hGpc}{{\ifmmode{h^{-1}{\rm Gpc}}\else{$h^{-1}$Gpc }\fi}}   
+\newcommand{\hmpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc }\fi}}  
+\newcommand{\hkpc}{{\ifmmode{h^{-1}{\rm kpc}}\else{$h^{-1}$kpc }\fi}}  
+\newcommand{\hMsun}{{\ifmmode{h^{-1}{\rm
+        {M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$}\fi}}   
+\newcommand{\hmsun}{{\ifmmode{h^{-1}{\rm
+        {M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$}\fi}}   
+\newcommand{\Msun}{{\ifmmode{{\rm {M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}  
+\newcommand{\msun}{{\ifmmode{{\rm {M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}  
+\newcommand{\lya}{{Lyman $\alpha$~}}
+\newcommand{\clara}{{\texttt{CLARA}}~}
+\newcommand{\rand}{{\ifmmode{{\mathcal{R}}}\else{${\mathcal{R}}$ }\fi}}  
+\newcommand{\hs}{{\hspace{1mm}}}  
+\newcommand{\kms}{{\ifmmode{{\mathrm{\,km\ s}^{-1}}}\else{\,km~s$^{-1}$}\fi}}
+% definition to produce a "less than or similar to" symbol
+\def\lsim{~\rlap{$<$}{\lower 1.0ex\hbox{$\sim$}}}
+% definition to produce a "greater than or similar to" symbol
+\def\gsim{~\rlap{$>$}{\lower 1.0ex\hbox{$\sim$}}}
+%@arxiver{fig3.pdf,fig11a.pdf, fig11b.pdf} 
+\begin{document}
+
+
+
+\title{The connection between star formation rate and dark matter halo
+  mass in the epoch of reionization}  
+\shorttitle{SFR and DM halo mass during reionization}
+
+\shortauthors{Gomez, Forero-Romero}
+
+\author{Felipe Gomez, Jaime E. Forero-Romero}  
+\affil{Departamento de F\'{i}sica, Universidad de los Andes, Cra. 1
+No. 18A-10, Edificio Ip, Bogot\'a, Colombia}
+\email{fl.gomez10@uniandes.edu.co}
+\email{je.forero@uniandes.edu.co}
+
+\keywords{galaxies: high-redshift --- methods: numerical} 
+\begin{abstract}
+We procent updated constraints between the star formation rate and
+dark matter halo mass at redshift $z\sim 6$.
+The observational basis for our work is the luminosity function data
+obtained with  from CFHTLS, HST Legacy Survey and UKIDSS.
+The constrains are based on an abundance matching method using data
+from cosmological N-body simulations in order to take into account the impact
+of cosmic variance in our estimates.
+
+\end{abstract}
+
+
+\section{Introduction}
+\label{sec:intro}
+Cosmological simulations still playing an important role on astrophysics and
+cosmology. They have become the bridge between observations and theory, a
+laboratory where is possible to create universes with different parameters and
+new physics. 
+
+This is an important tool in the study of dark matter. Since its existence was
+purposed, DM has been not observed directly neither on telescopes or high energy
+particle colliders, there exists many other theories explaining the observed
+universe behavior modifying the gravity itself.
+
+The most successful and accepted cosmological model is the Lambda-CDM. 
+Dark matter is a significative component of the universe.
+\citep{trimble87}
+
+Hierarchy Structure Evolution: Early formation of small structures
+merging on major structures after.
+
+From simulations, Halo Mass Function as function of redshift (or time).
+
+
+In this paper is established a relation between dark matter and galaxy
+luminosity functions at high redshifrt. This relation is a direct
+connection between the Lambda-CDM model and the farthest galaxy observations
+made with space and grounded telescopes.
+
+
+Star formation rate as function of time. Peak at $z\sim 2$.
+
+
+
+
+
+
+Main Objetive: Reproduce the observed luminosity function at redshift $z=5.9$
+from a DMH catalog from simulations. 
+
+This paper is organized as follows: In section 2... in section 3...
+
+  \subsection{Halo Mass Function (HMF)}
+
+
+  
+%  The HMF is created using the DMH catalog from the Multidark Database 
+%\citep{riebe13}.
+  
+  
+  \subsection{Cosmic Variance}
+  
+
+\section{Linking Galaxy Luminosity Function (GLF) and
+  Dark Matter Halo (DMH) mass}
+
+\subsection{Magnitude to Luminosity}
+
+Luminosity Functions (LF) are usually expressed in terms of magnitude instead 
+luminosity. Luminosity is the energy emmited by a source in a given wavelengt range, 
+is a physical quantity. 
+
+
+Magnitude is a classification inherited from ancient Greeks, this
+quantifies the response of the first astrometric device: the human eye, this
+perception grows loarithmically with the retrieved radiation.
+
+Luminosity of any object can be compared with Sun Luminosity $(L_{\lambda
+\odot})$ at any wavelengt. With the Sun Magnitude as reference
+$(M_{\lambda \odot})$, the absolute magnitud of the objet  at an specific
+wavelengt is given by: 
+ \[ M_{\lambda} = M_{\lambda \odot} - 2.5 \log_{10}\left( 
+\frac{L_\lambda}{L_{\lambda \odot}} \right) \]
+  The solar absolute magnitude in the U filter is $M_{U\odot} = 5.61$,
+and the solar luminosity in the same filter is $L_{U\odot} = 10^{18.48} 
+\textrm{ergs s}^{-1}\textrm{Hz}^{-1}$ or $ L_{U\odot} = 3.02 \times 10^{18} 
+\textrm{ergs s}^{-1}\textrm{Hz}^{-1}$. The solar luminosity can be used as
+refference unit, in this fashion, the typical luminosity of a galaxy can be expresed in
+terms of $10^{8}-10^{11}$ times the sun luminosity.
+
+  The absolute magnitude of a galaxy equation in the U filter:
+  %\[ M_{U} = 5.61 - 2.5 \log_{10}(L_{U}) + 2.5\times18.48\]
+  %gives the magnitude in the U filter of an astrophysical source:
+  \[ M_{U} = 51.82 - 2.5 \log_{10}(L_{U}) \]
+
+ %\subsection{Best Fitting Parameters}
+
+
+
+\section{Observational Background}
+\label{sec:theo}
+
+This paper is based on four main observational data sets from the Hubble Space Telescope 
+and three ground-based telescopes. All $z\sim 6$ LBG candidates where discovered using using 
+the drop-out technique\citep{steidel03}. All magnitudes are in AB system.
+%%%%%%%%%%%%%%Steidel 1996, Bunker 2003
+
+The data from the Hubble Space Telescope Legacy (HSTL) \citep{bouwens14} is a compilation 
+of observations since the installation of the Advanced Camera for Surveys (ACS) in 2002, 
+through the near-infrared Wide Field Camera 3 (WFC3/IR) installed in 2009, up to 2012. 
+The HST fields of view are: XDF, HUDF09-1, HUDF09-2, CANDELS-S/Deep, 
+CANDELS-S/Wide, ERS, CANDELS-N/Deep, CANDELS-N/Wide, CANDELS-UDS, 
+CANDELS-COSMOS and CANDELS-EGS, with areas of 4.7, 4.7, 4.7, 64.5, 34.2, 
+40.5, 62.9, 60.9, 151.2, 151.9 and 150.7 arcmin$^2$ respectively. The total area 
+at redshift 6 corresponds 
+to 740.8 arcmin$^2$ over five different lines of sight, wit a total volume of 
+$1.8 \times 10^6 \textrm{Mpc}^3$.
+Two cameras performed the observations: ACS and WFC3/IR, using 
+$B_{435}$, $V_{606}$, $ i_{814}$, $ z_{850}$, $ I_{814}$, $Y_{098}$, $Y_{105}$, $J{125}$, 
+$JH_{140}$ and $H_{160}$ filters.
+The limit magnitude is between $\sim27.5$mag in CANDELS-EGS and$\sim30 $mag in the 
+deepest field (XDF). Total number of z=6 LBG candidates is 940, most of them in the faint 
+end of the LF, magnitudes in the rest frame are in the range $-22.52\leq M_{1600} \leq -16.77$
+\citet{bouwens14} calculated LF using a stepwise maximum-likelihood (SWML) based on \citet{efstathiou88}. 
+The Schechter parameters derived are: 
+$\phi^* =(0.33_{-0.10}^{+0.15}) \times 10 ^{-3}  \textrm{Mpc}^{-3} $, 
+$M^*_{1600} = -21.16\pm 0.20$ and $\alpha = -1.91 \pm 0.09$. 
+\citet{bouwens14} reported that using just few fields of view, UVLF has a slightly non-Schechter-like form. 
+
+\citet{finkelstein14} worked also with HST, using the HUDF, CANDELS and GOODS fields, 
+along with two of the Hubble Frontier Fields (HFF): deep parallel observations (unlensed 
+fields) near the Abell 2744 and MACS J0416.1-2403 clusters. The HFF uses the ACS and 
+the WFC3/IR with the same filters aforementioned but $z_{850}$. Total survey area is around 
+$\sim300\textrm{arcmin}^2$, with 706 photometric candidates at redshift 6 defined as the interval $5.5<z<6.5$. 
+Total volume of this study is around $ 8 \times 10^5 \textrm{Mpc}^3$. The Schechter function parameters they found are $\phi^* =(1.86_{-0.80}^{+0.94}) \times 10 ^{-4}  \textrm{Mpc}^{-3} $, 
+$M^*_{1600} = -21.1_{-0.31}^{+0.25}$ and $\alpha = -2.02_{-0.10}^{+0.10}$. 
+
+
+
+\citet{willott13} presented the sixth release of the Canada-France-Hawaii 
+Telescope Legacy Survey CFHTLS. The observations where performed over four 
+separated fields covering a total area $\sim 4 \deg^2$ (a large area), it gives this 
+survey great robustness. Optical observations used MegaCam  %%%%%%[CITE REQUIRED] 
+with $u^* g' r' i' z'$ filters. The main selection criteria: all the 
+objects must be brighter than magnitude $z' = 25.3$. The final 
+number of LBGs founded was 40. Moreover, they get spectroscopic confirmation 
+for 7 candidates using GMOS spectrograph on the Gemini Telescopes, which 
+has a $\ll 5.5$-square arcmin field of view, giving a volume $\sim 1.09 \times 10^7 \textrm{Mpc}^3$. 
+They show incompleteness in the sample due to 
+foreground contamination and the detection algorithm; there is no warranty to 
+have every object brighter than the limit magnitude on the faint limit. The full 
+galaxy LF at $z=6$ cannot be obtained as in other studies. Nevertheless, this survey 
+was focussed on the highly luminous LBGs. LF is calculated using the stepwise 
+maximum likelihood method of \citet{efstathiou88}, within 
+magnitudes 
+from $M_{1350} = -22.5$ up to $-20.5$. The luminosity function of $z=5.9$ shows 
+an exponential decline at the bright end, where feedback processes and inefficient 
+last cooling limites star forming in bright galaxies hosted in the most massive halos.
+
+\citet{mclure09} build the luminosity function for $z=5$ and $z=6$ using data from two ground-based
+ telescopes: the United Kingdom Infrared Telescope in the near-IR imaging and Subaru 
+ Telescope for the optical imaging. They use the first data release of the UKIRT Infrared 
+ DeepSky Survey Ultra Deep Survey (UDS), together with the Subaru XMM-Newton 
+ Survey (SXDS). Total observed area is $0.63 \deg^2$ uniformly covered by booth catalogues.
+The volume in this survey is $\sim 3 \times 10^6 \textrm{Mpc}^3$.
+The UKIRT was equipped with the WFCAM using $J K$ filters. The Subaru was equipped 
+with the Suprime-Cam with the $B V R i' z'$ filters. All candidates where brighter than 
+$z'=26$. The UV rest frame magnitude range is $-22.4\leq M_{1500} \leq-20.6$. The LF 
+was calculated using the maximum likelihood estimator of \citet{schmidt68}. 
+Their analysis gave a total number of 104 LBG candidates in the redshift range 
+$5.7\leq z \leq 6.3$. LF was parameterized according to the Schechter function with 
+$\phi^*  =(1.8 \pm 0.5) \times 10 ^{-3}  \textrm{Mpc}^{-3}$, $M^*_{1500} = -20.04\pm 0.12$ 
+and $\alpha = -1.71 \pm 0.11$. 
+
+The dataset was retrieved from \cite{mclure09} graph using
+GAVO-DEXTER\footnote{\url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}}.
+
+
+
+
+\begin{figure}
+\epsscale{1.00} 
+\plotone{fig/observational_data.pdf}
+\caption{Observational data from \cite{bouwens14,mclure09}and \cite{willott13}.}
+\label{graph_observational_data}
+\end{figure}
+
+
+\section{Abundance Matching Methodology}
+\label{sec:methodology}
+
+The key element to connect SFR with halo mass from simulations is the observed UVLF. 
+If there exist a function whom gives to each halo a UV luminosity then is posible to 
+reproduce UVLF from DMH catalogs. The fitting parameters can be explored using a 
+Markov Chain Monte-Carlo (MCMC) implementation. Once the parameters are found, 
+the SFR-Halo Mass relation have been found.
+
+We use the dark matter halo catalog from the Big MultiDark Plank 1 (MDPL) Simulation 
+\citep{klypin14} with 2013 Planck cosmology \citep{planck1}. MDPL is quite similar to the 
+Big Bolshoi ($1 \textrm{Gpc h}^{-1}$) \citep{prada12} and 
+its predecesor Bolshoi \citep{klypin11} ($250 \textrm{Mpc h}^{-1}$), booth of them with 
+WMAP5 cosmology, but MDPL has bigger mass resolution.  Those halo catalogs are 
+available at the MultiDark Database\footnote{\url{http://www.multidark.org}} 
+\citep{riebe13}.
+
+The MDPL run is a N-body dark matter only simulation based on the L-Gadget2 
+code. The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ side length. 
+It has $3840^3$ dark matter particles of 
+$1.51\times 9 \textrm{M}_{\odot} \textrm{h}^{-1}$ mass each one.
+The 2013 Planck cosmology is defined by the following parameters: $\Omega_M = 0.307$, 
+$\Omega_B = 0.048$, $\Omega_\Lambda = 0.730$, $\sigma_8 = 0.829$, $n_s = 0.96$ and 
+$H_0 = 67.8$. The DMH Catalog at $z=6$ contains $\sim 10.9 \times 10^7$ 
+halos, to avoid incompleteness in the low mass end, halos with mass below 
+$10^{10.3} \textrm{M}_{\odot} \textrm{h}^{-1}$ are rejected. In order to study how 
+cosmic variance can affect measurements, the original catalog is divided into 64 small 
+cubic boxes, with a similar volume to the observations.
+
+The following treatment is applied to every one small box.
+
+The halo abundance matching technique has been widely used \citep{colin99, kravtsov04}
+resulting in good reproduction of the observed galaxy clustering. \citep{conroy06, lee09}. 
+Here we use the simplest case with few premises: 
+\begin{enumerate}
+ \item Each halo in the catalog hosts one galaxy. There are not empty
+halos, also none of halos has two or more galaxies.
+ \item The UV luminosity of each galaxy is function of one variable; the mass of
+the DMH in which is located. This function must be monotone, this guarantees that most 
+massive halos will host the most luminous galaxies in the same volume.
+\end{enumerate}
+
+\subsection{Fitting Model}
+
+The observed UV Luminosity Function has two slopes. To reproduce it we decide to use the
+ four parameter model:
+  \begin{equation}\label{eqn:luminosity}
+  L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
+where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
+mass to light relation \citep{vandenbosch03} and the mean relation between
+stellar mas of a galaxy and the mass of its halo used by \citet{moster10}.
+
+
+\subsection{Dust Attenuation}
+ 
+Dust in star forming galaxies absorbs part of the UV radiation and reemits on IR. The more 
+massive is the galaxy then more dust contains and dust attenuation will be greater. The 
+relation between dust attenuation and magnitude have been already studied, with this relation 
+we can infer the dust-free UV luminosity of a galaxy from observations, resulting in  a more 
+accurate inferred SFR.
+
+The UV Spectral Slope $\beta$ was introduced by \citet{meurer99} as a UV color to 
+study dust attenuation in local starburst galaxies and extrapolating to high redshift galaxies. 
+This index appears when a power law fitting is performed over the spectral flux $f$ 
+as function of the wavelength $\lambda$;
+\[ f \propto \lambda^\beta.\]
+The relation for ultra-violet attenuation at $1600 \textrm{\AA}$ they found is:
+\begin{equation}
+A_{1600} = 4.43 + 1.99 \beta,
+\end{equation}
+with $A_{1600}$ in magnitude units. 
+
+Due LBGs have more similar spectra properties to local starburst galaxies rather than AGNs 
+for example, we can assume that local calibration of $\beta-A_{1600}$ can be applied also 
+for LBGs,
+%%% From Meurer99
+``The main requirement is that the data include fluxes in two broad bands or coarse spectra 
+covering the rest-frame UV.''
+
+
+\citet{bouwens12b} uses the fluxes on different bands to estimate $\beta$ on each LBG 
+candidate found with $z \sim 4-7$. After in redshift groups they found a linear relation 
+between $\beta$ and the UV magnitude:
+\begin{equation}
+\langle \beta \rangle = \frac{d \beta}{d M_{UV}} \left( M_{UV,AB}+19.5 \right) 
+                                   + \beta_{M_{UV}=-19.5}
+\end{equation}
+with $ \beta_{M_{UV}=-19.5} = -2.20$ and $d \beta/d M_{UV} = -0.21$ at $z=5.9$.
+
+\citet{smit12} used the aforementioned relations to infer the corrected luminosity functions,
+i.e. dust-free luminosity functions, and the corrected SFR at $z=4$. 
+
+Here we use the inverse relation, starting from the intrinsic or dust-free galaxy magnitude, 
+obtaining the observed magnitude:
+\begin{equation}
+  M_{obs} = \begin{cases} 
+                         \frac{M_{int}-4.616}{1.259}, &\mbox{if } A>0 \\
+                         M_{int}, &\mbox{else}
+                   \end{cases}.
+\label{eqn. dust attenuation}
+\end{equation}
+
+
+\subsection{MCMC}
+We used a Markov Chain Monte Carlo method to find the best parameters and its 
+uncertainties over each one of the boxes and each observational dataset. The code was written
+on Python using the Scipy, Numpy and Matplotlib libraries.
+
+First of all, one of the four observational data sets (Bouwens, Finkelstein, Willow and McLure) 
+is selected to be the model to fit.
+From the whole simulated halo catalog, a subsample with cubic box shape of 
+ $250\textrm{Mpc h}^{-1}$ length is selected. 
+ 
+With an initial set of parameters $(\alpha, \gamma, M_0,$ and $ L_0)$ the UV luminosity
+for the halo is calculated as function of his mass according to equation
+ \ref{eqn:luminosity}. Then Luminosity is converted to magnitude units using:
+  \[ M_{UV} = 51.82 - 2.5 \log_{10}(L_{UV}). \]
+If we consider the dust attenuation im the equation \ref{eqn. dust attenuation} we have
+a dust-corrected UV Luminosity Function.
+
+The luminosity function is constructed as an histogram of the magnitudes normalized by 
+the volume of the catalog. Each observed luminosity function has a different bin range.
+
+Once having the LF, we compare our LF against observed LF. The error function we consider
+is the sum of the square difference over each bin, divided by the observational data uncertain.
+\[ \chi^2  = \sum_{i=o}^{n} \frac {\left( x_{i,obs} - x_{i,fit} \right)^2 }{2\sigma_i^2}\]
+We worked on the logarithmic space of luminosities to have a good fitting on
+six decades.
+
+The likelihood will have this property:
+\[ \mathcal{L} \propto \exp \left(  -\frac{\chi ^2}{n} \right) \], where $n$ is the number of degrees
+of freedom. We have the maximum likelihood when the error is the minimum.
+
+Each MCMC step will have have a small variation of the parameters, the UV luminosity and magnitude are 
+calculated again for each halo, we have a new error $\chi_{new}^2$ and a new likelihood 
+$ \mathcal{L}_{new} $.
+
+Following the Metropolis method, we compare the new and the old likelihood:
+\[ R =\frac{ \mathcal{L}_{new}  }{ \mathcal{L}_{old} }  = 
+exp( \chi_{new}^2 - \chi_{old}^2 )
+\]
+
+If $  R \geq 1$, then we immediate accept the new set of parameters and start the next MCMC step.
+
+Else, we have a chance to keep the new set. When $ R < 1$, we compare with a uniformly 
+random number $p$ in the range $[0,1]$. if $ R>p$ we accept the new set of parameters and start
+the next MCMC step. 
+Else we reject the new set and start again with the old set.
+
+We performed 10.000 effective MCMC steps, plus 1.000 thermalization steps over each box.
+We repeated for the same box without consider dust attenuation.
+
+Then we perform the same method over the 64 boxes and the resting three data sets.
+
+The restrictions imposed over the parameters where $0 \leq \alpha \leq 2.0 $  and 
+$\gamma \geq 0$.
+
+
+Finally, the UV luminosity for each galaxy can be directly related with SFR according 
+to \citet{madau98}.
+This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$\citep{kennicutt98}.
+The relation between UV luminosity and Star Formation Rate \citep{madau98,kennicutt98} 
+is given by:
+\begin{equation}
+ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
+      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
+	\right)
+\end{equation}
+
+
+\section{Results}
+\label{sec:results}
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/OD3_w_15.pdf}
+\caption{Parameter dispersion: The 10.000 MCMC step parameters histogram for OD3 over the small boxe 15
+with dust attenuation.}
+\label{fig:ParamDispWithDust}
+\end{figure}
+
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/OD3_wo_15.pdf}
+\caption{Parameter dispersion: The 10.000 MCMC step parameters histogram for OD3 over the small boxe 15
+with dust attenuation.}
+\label{fig:ParamDispWithoutDust}
+\end{figure}
+
+$\gamma$ always has the best coincidence for the minimum at the 10\%.
+
+
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/bestpar_disp_w_OD3.pdf}
+\caption{Cosmic Variance: The best fit parameters histogram for OD3 over the 64 small boxes 
+with dust attenuation.}
+\label{fig:ParamScatteringWithDust}
+\end{figure}
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/bestpar_disp_w_OD3.pdf}
+\caption{Cosmic Variance: The best fit parameters histogram for OD3 over the 64 small boxes 
+without dust attenuation.}
+\label{fig:ParamScatteringWithoutDust}
+\end{figure}
+
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/scattering_plots.png}
+\caption{Covariance of parameters for one small box}
+\label{graph_scattering_plots}
+\end{figure}
+
+
+
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/SFR_DMHM_wo.pdf}
+\caption{Star formation rate as function of the dark matter halo mass without dust attenuation. 
+Solid lines represents the mean SFR value over the small boxes within $50\%$  shaded region. 
+Comparison with the GALFORM semi-analitical model \citep{gonzalez14} and a implementation
+of abundance matching model \citep{behroozi13}. }
+\label{graph_SFR_DMHM_wo}
+\end{figure}
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/SFR_DMHM_w.pdf}
+\caption{Star formation rate as function of the dark matter halo mass with dust attenuation. 
+Solid lines represents the mean SFR value over the small boxes within $50\%$  shaded region.
+Comparison with the GALFORM semi-analitical model \citep{gonzalez14} and a implementation
+of abundance matching model \citep{behroozi13}. }
+\label{graph_SFR_DMHM_w}
+\end{figure}
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+
+\section*{Acknowledgments}
+Acknowledgments...\\
+
+
+\bibliography{the_bibliography}
+
+\end{document}
+
