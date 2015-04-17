@@ -3,8 +3,8 @@ MAIN  = ms
 
 $(MAIN).pdf: 	$(MAIN).tex
 	$(LATEX) $(MAIN).tex 
-#	bibtex $(MAIN)
-#	$(LATEX) $(MAIN).tex 
+	bibtex $(MAIN)
+	$(LATEX) $(MAIN).tex 
 	$(LATEX) $(MAIN).tex 
 
 
