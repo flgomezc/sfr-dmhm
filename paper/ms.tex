@@ -37,9 +37,9 @@
   mass in the epoch of reionization}  
 \shorttitle{SFR and DM halo mass during reionization}
 
-\shortauthors{Gomez, Forero-Romero}
+\shortauthors{Gomez-Cortes, Forero-Romero}
 
-\author{Felipe Gomez, Jaime E. Forero-Romero}  
+\author{Felipe L. Gomez-Cortes, Jaime E. Forero-Romero}  
 \affil{Departamento de F\'{i}sica, Universidad de los Andes, Cra. 1
 No. 18A-10, Edificio Ip, Bogot\'a, Colombia}
 \email{fl.gomez10@uniandes.edu.co}
@@ -398,7 +398,7 @@ We used a Markov Chain Monte Carlo method to find the best parameters and its
 uncertainties over each one of the boxes and each observational dataset. The code was written
 on Python using the Scipy, Numpy and Matplotlib libraries.
 
-First of all, one of the four observational data sets (Bouwens, Finkelstein, Willow and McLure) 
+First of all, one of the four observational data sets (Bouwens, Finkelstein, Willott and McLure) 
 is selected to be the model to fit.
 From the whole simulated halo catalog, a subsample with cubic box shape of 
  $250\textrm{Mpc h}^{-1}$ length is selected. 
@@ -498,53 +498,125 @@ normal distribution of the luminosity around the expected values.
 \section{Results}
 \label{sec:results}
 
+
+Best fit parameters:
+
+
+
+
+
+Cosmic Variance Dust Attenuation model:
+
+$\log_{10}(L_0)$, mean value = 18.0668181805, 
+cosmic std dev=0.0288558407431, 
+mean sigma per box =0.115498563539
+
+$\log_{10}(M_0)$, mean value = 11.1894829902, 
+cosmic std dev=0.0718242117247, mean 
+sigma per box =0.72909362196
+
+$\beta$, mean value = 1.48014744519, 
+cosmic std dev=0.175026973523, 
+mean sigma per box =1.2988714515
+
+$\gamma$, mean value = 0.402845130968, 
+cosmic std dev=0.0575764062455, 
+mean sigma per box =0.314709555486
+
+
+\medskip
+
+
+
+
+Cosmic Variance No-Dust Attenuation model:
+
+$\log_{10}(L_0)$, mean value = 17.8076246968, 
+cosmic std dev=0.0198125186745, 
+mean sigma per box =0.150082796188
+
+$\log_{10}(M_0)$, mean value = 11.119460579, 
+smic std dev=0.0601358065131, 
+mean sigma per box =0.642532804052
+
+$\beta$, mean value = 1.43705896343, 
+cosmic std dev=0.178253100134, 
+mean sigma per box =1.37416358513
+
+$\gamma$, mean value = 0.518242492031, 
+cosmic std dev=0.0461244563387, 
+mean sigma per box =0.245817572122
+
+
+
+
+
 \begin{figure}
 \epsscale{1.00}
-\plotone{fig/OD3_w_15.pdf}
-\caption{Parameter dispersion: The 10.000 MCMC step parameters histogram for OD3 over the small boxe 15
-with dust attenuation.}
-\label{fig:ParamDispWithDust}
+\plotone{fig/OD1_chi2_comparison.pdf}
+\caption{Best fit to Willott comparison between the two models. Each point represent $\chi^2$ 
+calculated over each small-box. The solid line represents the ratio 1:1 }
+\label{fig:OD1_chi2_comparison}
+\end{figure}
+
+\begin{figure*}
+\epsscale{1.00}
+\plotone{fig/OD1_w_dust_box_0.png} % pdf available
+\caption{Parameter dispersion fitting the Willott with the Dust Attenuation model. 
+$1\sigma$ is defined by the likelihood ratio between 0.0 (red) and 0.5 (green)}
+\label{}
+\end{figure*}
+
+\begin{figure*}
+\epsscale{1.00}
+\plotone{fig/OD1_wo_dust_box_0.png} % pdf available
+\caption{Parameter dispersion fitting the Willott with the No-Dust Attenuation model. 
+$1\sigma$ is defined by the likelihood ratio between 0.0 (red) and 0.5 (green)}
+\label{}
+\end{figure*}
+
+
+
+
+
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/OD1_CosmicVar1_w_dust.pdf}
+\caption{Individual small-box parameter estimation with dust attenuation: Best fit values 
+to the Willott data set
+(solid line) and $1\sigma$ confidence interval using likelihood ratio $\mathcal{LR}= 0.5$. 
+The $x$ axis corresponds to the box number.}
+\label{}
 \end{figure}
 
 
 \begin{figure}
 \epsscale{1.00}
-\plotone{fig/OD3_wo_15.pdf}
-\caption{Parameter dispersion: The 10.000 MCMC step parameters histogram for OD3 over the small boxe 15
-with dust attenuation.}
-\label{fig:ParamDispWithoutDust}
-\end{figure}
-
-$\gamma$ always has the best coincidence for the minimum at the 10\%.
-
-
-
-\begin{figure}
-\epsscale{1.00}
-\plotone{fig/bestpar_disp_w_OD3.pdf}
-\caption{Cosmic Variance: The best fit parameters histogram for OD3 over the 64 small boxes 
-with dust attenuation.}
-\label{fig:ParamScatteringWithDust}
-\end{figure}
-
-\begin{figure}
-\epsscale{1.00}
-\plotone{fig/bestpar_disp_w_OD3.pdf}
-\caption{Cosmic Variance: The best fit parameters histogram for OD3 over the 64 small boxes 
-without dust attenuation.}
-\label{fig:ParamScatteringWithoutDust}
+\plotone{fig/OD1_CosmicVar1_wo_dust.pdf}
+\caption{Individual small-box parameter estimation with no-dust attenuation: Best fit values 
+to the Willott data set
+(solid line) and $1\sigma$ confidence interval using likelihood ratio $\mathcal{LR}= 0.5$. 
+The $x$ axis corresponds to the box number.}
+\label{}
 \end{figure}
 
 
 \begin{figure}
 \epsscale{1.00}
-\plotone{fig/scattering_plots.png}
-\caption{Covariance of parameters for one small box}
-\label{graph_scattering_plots}
+\plotone{fig/OD1_CosmicVar2_w_dust.pdf}
+\caption{Best fit parameter distribution due cosmic variance with Willott data in the dust
+ attenuation model.}
+\label{}
 \end{figure}
 
 
-
+\begin{figure}
+\epsscale{1.00}
+\plotone{fig/OD1_CosmicVar2_wo_dust.pdf}
+\caption{Best fit parameter distribution due cosmic variance with Willott data in the no-dust
+ attenuation model.}
+\label{}
+\end{figure}
 
 \begin{figure}
 \epsscale{1.00}
@@ -565,6 +637,7 @@ Comparison with the GALFORM semi-analitical model \citep{gonzalez14} and a imple
 of abundance matching model \citep{Behroozi13}. }
 \label{graph_SFR_DMHM_w}
 \end{figure}
+
 
 
 \section{Discussion}
