@@ -49,16 +49,16 @@ No. 18A-10, Edificio Ip, Bogot\'a, Colombia}
 \begin{abstract}
 We present updated constraints on the relationship between the star
 formation rate and dark matter halo mass at redshift $z\sim 6$.
-The observational basis for our work is the luminosity function data
-obtained with from CFHTLS, HST Legacy Survey and UKIDSS.
+The observational basis for our work is the restframe UV luminosity
+function data obtained with CFHTLS, HST Legacy Survey and UKIDSS.
 The constrains are based on an abundance matching methodology using data
 from cosmological N-body simulations in order to take into account the impact
 of cosmic variance in our estimates.
 We also measure the influence on the results of the dust extinction
 scaling derived from observations by Bouwens.
 We compare our results against the results of abundance matching
-methods, a semi-analytic model of galaxy formation (GALFORM) and a
-hydrodynamical simulation (Illustris).
+methods (to the stellar mass), a semi-analytic model of galaxy
+formation (GALFORM) and a hydrodynamical simulation (Illustris).
 \end{abstract}
 
 
@@ -68,55 +68,9 @@ hydrodynamical simulation (Illustris).
 
 
  
-\section{Observational Background}
+\section{Observational Constraints}
 \label{sec:theo}
 
-\subsection{Star Formation Rate}
-
-The age of a star can be estimated by analyzing its spectrum. But when far
-galaxies are studied, individual stars can not be resolved. Is not 
-possible to make a detailed census of the galaxy popullation. Only is possible 
-to get information from the whole stellar population, an integrated spectrum.
-
-There is a  method\citep{madau98} in wich a linear relation between SFR
-and luminosity in specific wavelength ranges can be assumed. This model allows
-to estimate the young stars fraction and the mean SFR over periods of $10^8 -
-10^9 \textrm{yr}$\citep{kennicutt98}. The luminosity in the model, comes from
-the UV and the FIR broadband, also from speciffic recombination lines.
-
-
-
-In a typical galaxy spectrum the visible wavelengths are dominated by the main 
-sequence stars (A to early F) and G-K giants. In few wavelength ranges we have 
-a significative contribution from the young stars rather than the old stars. 
-The infrared and far infrared wavelengths emission is dominated by dust, this 
-dust is  heated by the whole stellar popullation, in particular by young, 
-UV-bright stars \citep{law11}.
-
-On active galaxies the UV broadband emission is dominated by late-O
-and early-B type stars, with temperature near to 40.000K. These hot and massive
-stars has a lifetime below $10^7\textrm{Gyr}$, they spend their nuclear fuel
-faster than smaller and cooler sunlike stars.
-
-The relation between UV luminosity and Star Formation Rate
-\citep{madau98,kennicutt98} 
-is given by:
-\begin{equation}
- \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
-      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
-	\right)
-\end{equation}
-
-
-  With Initial Mass Function (IMF) between $0.1 M_\odot$ 
- and $100 M_\odot$, in the range of $1250-2500 \mathring{\textrm{A}} $
-
-The star forming rate will be:
-  \begin{equation}
-  SFR = k \times L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
-		   + \left( \frac{M}{M_0}\right)^{\gamma} 
-               \right]^{-1}
-  \end{equation}
 
 \subsection{Dust Absorption}
 
@@ -209,6 +163,26 @@ GAVO-DEXTER\footnote{\url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}}.
 
 \section{Abundance Matching Methodology}
 \label{sec:methodology}
+
+The relation between UV luminosity and Star Formation Rate
+\citep{madau98,kennicutt98} 
+is given by:
+\begin{equation}
+ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
+      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
+	\right)
+\end{equation}
+
+
+  With Initial Mass Function (IMF) between $0.1 M_\odot$ 
+ and $100 M_\odot$, in the range of $1250-2500 \mathring{\textrm{A}} $
+
+The star forming rate will be:
+  \begin{equation}
+  SFR = k \times L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1}
+  \end{equation}
 
 The key element to connect SFR with halo mass from simulations is the observed UVLF. 
 If there exist a function whom gives to each halo a UV luminosity then is posible to 
