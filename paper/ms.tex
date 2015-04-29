@@ -69,7 +69,7 @@ formation (GALFORM) and a hydrodynamical simulation (Illustris).
 
 
 All magnitudes are in AB system.
-\section{Observational Datasets}
+\section{Observational Constraints}
 \label{sec:theo}
 
 We use information compiled in four different publications. 
@@ -176,108 +176,13 @@ $M^*_{1500} = -20.04\pm 0.12$ and $\alpha = -1.71 \pm 0.11$.
 \label{graph_observational_data}
 \end{figure}
 
-
-\section{Theoretical and Numerical Framework}
-\label{sec:methodology}
-
-
-\subsection{The Abundance Matching Methodology}
-We use an abundance matching approach to find the relationship between
-dark matter halo mass and star formation rate. 
-This approach has been used to link stellar and dark matter masses. 
-Here we extend it to constraint star formation rate properties at high
-redshift. 
-
-The starting point for this medho is a population of dark matter halos.
-To each halo we assign a UV luminosity according to the following
-parameterization.
-  \begin{equation}\label{eqn:luminosity}
-  L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
-		   + \left( \frac{M}{M_0}\right)^{\gamma} 
-               \right]^{-1},
-  \end{equation}
-where $M$ is the DM mass, $L_{0}$ is a normalization constant, $M_0$
-is the critical mass where the luminosity function has a slope change, 
-$\beta$ and $\gamma$ are two slopes corresponding to the faint and
-bright end, respectively. 
-This equation has the same functional dependence as stellar to dark
-mass ratio used by \citet{Moster10}.
-
-
-
-
-The relation between UV luminosity and Star Formation Rate
-\citep{Madau98,Kennicutt98} 
-is given by:
-\begin{equation}
- \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
-      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
-	\right)
-\end{equation}
-
-
-  With Initial Mass Function (IMF) between $0.1 M_\odot$ 
- and $100 M_\odot$, in the range of $1250-2500 \mathring{\textrm{A}} $
-
-The star forming rate will be:
-  \begin{equation}
-  SFR = k \times L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
-		   + \left( \frac{M}{M_0}\right)^{\gamma} 
-               \right]^{-1}
-  \end{equation}
-
-The key element to connect SFR with halo mass from simulations is the observed 
-UVLF. If there exist a function whom gives to each halo a UV luminosity then is 
-posible to reproduce UVLF from DMH catalogs. The fitting parameters can be 
-explored using a Markov Chain Monte-Carlo (MCMC) implementation. Once the 
-parameters are found, the SFR-Halo Mass relation have been found.
-
-We use the dark matter halo catalog from the Big MultiDark Plank 1 (MDPL) 
-Simulation \citep{Klypin14} with 2013 Planck cosmology \citep{Planck1}. MDPL is 
-quite similar to the Big Bolshoi ($1 \textrm{Gpc h}^{-1}$) \citep{Prada12} and 
-its predecesor Bolshoi \citep{Klypin11} ($250 \textrm{Mpc h}^{-1}$), booth of 
-them with WMAP5 cosmology, but MDPL has bigger mass resolution.  Those halo 
-catalogs are available at the MultiDark 
-Database\footnote{\url{http://www.multidark.org}} \citep{Riebe13}.
-
-The MDPL run is a N-body dark matter only simulation based on the L-Gadget2 
-code. The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ side 
-length. It has $3840^3$ dark matter particles of  $1.51\times 9
-\textrm{M}_{\odot} \textrm{h}^{-1}$ mass each one. The 2013 Planck
-cosmology is defined by the following parameters: $\Omega_M = 0.307$,
-$\Omega_B = 0.048$, $\Omega_\Lambda = 0.730$, $\sigma_8 = 0.829$, $n_s
-= 0.96$ and  $H_0 = 67.8$. The DMH Catalog at $z=6$ contains $\sim
-10.9 \times 10^7$   halos, to avoid incompleteness in the low mass
-end, halos with mass below   $10^{10.3} \textrm{M}_{\odot}
-\textrm{h}^{-1}$ are rejected. In order to study how  
-cosmic variance can affect measurements, the original catalog is
-divided into 64 small   cubic boxes, with a similar volume to the
-observations. 
-
-The following treatment is applied to every one small box.
-
-The halo abundance matching technique has been widely used \citep{Colin99, 
-Kravtsov04} resulting in good reproduction of the observed galaxy clustering. 
-\citep{Conroy06, Lee09}. Here we use the simplest case with few premises: 
-\begin{enumerate}
- \item Each halo in the catalog hosts one galaxy. There are not empty
-halos, also none of halos has two or more galaxies.
- \item The UV luminosity of each galaxy is function of one variable; the mass of
-the DMH in which is located. This function must be monotone, this guarantees that most 
-massive halos will host the most luminous galaxies in the same volume.
-\end{enumerate}
-
-\subsection{Fitting Model}
-
-
-
 \subsection{Dust Attenuation}
- 
-Dust in star forming galaxies absorbs part of the UV radiation and reemits on IR. The more 
-massive is the galaxy then more dust contains and dust attenuation will be greater. The 
-relation between dust attenuation and magnitude have been already studied, with this relation 
-we can infer the dust-free UV luminosity of a galaxy from observations, resulting in  a more 
-accurate inferred SFR.
+
+Dust present in these high redshift star forming galaxies can
+attenuate the UV intrinsic luminosity.
+Although relatively uncertain compared to studies in the local
+universe, there are constraints on the extinction level in LBGs at
+$z=6$.
 
 The UV Spectral Slope $\beta$ was introduced by \citet{Meurer99} as a UV color to 
 study dust attenuation in local starburst galaxies and extrapolating to high redshift galaxies. 
@@ -319,6 +224,94 @@ obtaining the observed magnitude:
                    \end{cases}.
 \label{eqn. dust attenuation}
 \end{equation}
+
+
+
+\section{Theoretical and Numerical Framework}
+\label{sec:methodology}
+
+
+\subsection{The Abundance Matching Methodology}
+We use an abundance matching approach to find the relationship between
+dark matter halo mass and star formation rate. 
+This approach has been used to link stellar and dark matter masses. 
+Here we extend it to constraint star formation rate properties at high
+redshift. 
+
+The starting point for this method is a population of dark matter halos.
+To each halo we assign a UV luminosity according to the following
+parameterization.
+  \begin{equation}\label{eqn:luminosity}
+  L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1},
+  \end{equation}
+where $M$ is the DM mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are two slopes corresponding to the faint and
+bright end, respectively. 
+We now that this equation has the same functional dependence suggested
+ by \citet{Moster10} to link stellar and dark matter masses.
+
+Once each halo has a UV luminosity we also have the option to include
+an extinction correction in order to modify this intrinsic luminosity
+vale. 
+From these UV values we build the LF.
+The free parameters in Eq. (\ref{eqn:luminosity}) are determined by
+requiring that the abudance matching LF follows the observational
+constraints. 
+Then we use the following relationship between UV luminosity and Star Formation Rate
+\citep{Madau98,Kennicutt98} 
+\begin{equation}
+ \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
+      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
+	\right), 
+\end{equation}
+to finally link SFR with DM halo mass.
+
+
+
+\subsection{N-body Simulations and Halo Catalogs}
+
+Cosmological N-body simulations are the source of the dark matter halo
+populations.
+We use two different simulations to cover the wide dynamical range
+explored by the observations: Big MultiDark Planck (MDPL) and Planck
+Bolshoi (P-Bolshoi). 
+Both simulations use 2013 Planck cosmology  defined by the following
+parameters: $\Omega_M = 0.307$, $\Omega_B = 0.048$, $\Omega_\Lambda =
+0.730$, $\sigma_8 = 0.829$, $n_s = 0.96$ and  $H_0 = 67.8$.  
+
+The MDPL run is a N-body dark matter only simulation based on the L-Gadget2 
+code. 
+The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ on a side.
+It has $3840^3$ dark matter particles mass of $1.51\times 9
+\textrm{M}_{\odot} \textrm{h}^{-1}$.
+The DMH Catalog at $z=6$ contains $\sim 10.9 \times 10^7$   halos, to
+avoid incompleteness in the low mass end, halos with mass below
+$10^{10.3} \textrm{M}_{\odot} \textrm{h}^{-1}$ are rejected. 
+We split this large volume into 64 smaller cubic boxes of $250$\hMpc
+on a side (similar volume to the observations by \citet{Willott13}) to
+study the influence of cosmic variance. 
+
+The P-Bolshoi simulation...
+
+
+We obtained the data from the public
+database\footnote{\url{http://www.multidark.org}} \citep{Riebe13}. 
+
+
+
+\subsection{Fitting Model}
+
+
+
+The key element to connect SFR with halo mass from simulations is the observed 
+UVLF. If there exist a function whom gives to each halo a UV luminosity then is 
+posible to reproduce UVLF from DMH catalogs. The fitting parameters can be 
+explored using a Markov Chain Monte-Carlo (MCMC) implementation. Once the 
+parameters are found, the SFR-Halo Mass relation have been found.
+
 
 
 \subsection{MCMC}
