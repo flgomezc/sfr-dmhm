@@ -50,15 +50,19 @@ No. 18A-10, Edificio Ip, Bogot\'a, Colombia}
 We present updated constraints on the relationship between the star
 formation rate and dark matter halo mass at redshift $z\sim 6$.
 The observational basis for our work is the restframe UV luminosity
-function data obtained with CFHTLS, HST Legacy Survey and UKIDSS.
+function data obtained with HST, CFHTLS, Subary and UKIRT.
 The constraints are based on an abundance matching methodology to the
 observational data using cosmological N-body simulations.
+The relationship between halo mass and star formation rate follows a
+double power law.
 We also take into account the influence on the results of the dust extinction
-scaling derived from observations by Bouwens.
-We show dependence of our parameter uncertainties related to the
-comoving volume and magnitude range in observed surveys, taking advantage of the 
-wide mass resolution range of latest available dark matter halo catalogs.
-We compare our results against the results of abundance matching
+scaling derived from observations by Bouwens et al. (2012).
+Taking advantage of a wide dynamical range in observations and
+simulations we manage to constrain the free parameters of our model
+for halos in the mass range $10^{10}\Msun < M_{h}<10^{13}\Msun$. 
+We find that including dust extinction improves the the match with
+observations.
+Finally, we compare these results against the prediction of abundance matching
 methods (to the stellar mass), a semi-analytic model of galaxy
 formation (GALFORM) and a hydrodynamical simulation (Illustris).
 \end{abstract}
@@ -327,18 +331,16 @@ We impose the following priors over the parameters $0 \leq \alpha \leq
 
 \subsection{Willott}
 
-We performed MCMC runnings with 100.000 steps over the 64 small 
-cubic boxes (of $250$ \hMpc side length) fitting the LF to the 
-Willott observational data, comparing the two cases; with and 
-without dust attenuation. (figures \ref{fig:OD1_MCMC_best_steps_w} and 
-\ref{fig:OD1_MCMC_best_steps_wo}). 
-We used the Likelihood Ratio criterion ($\mathcal{LR}= 0.5$) to
+We use 64 cubic boxes of $250$\hMpc on a side to fit the
+LF data from \citet{Willott13}.
+We use the Likelihood Ratio criterion ($\mathcal{LR}= 0.5$) to
 define the $1\sigma$ confidence interval for our parameters.
 
-$M_0$ is quite similar in booth cases (they are compatible within 
+$M_0$ does not change with and without extinction.
+cases (they are compatible within 
 the error bars), the turnover point corresponds to the same mass.
 $\gamma$ and $L_0$ shown a significative difference in booth cases.
-$\beta$ is hard to constraint in booth cases. 
+$\beta$ is hard to constraint in booth cases.  
 The parameer was limited to vary in the range form 0.0 to 1.6. 
 $1\sigma$ region covers the whole range.
 
