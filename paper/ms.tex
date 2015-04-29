@@ -177,57 +177,48 @@ $M^*_{1500} = -20.04\pm 0.12$ and $\alpha = -1.71 \pm 0.11$.
 \end{figure}
 
 \subsection{Dust Attenuation}
-
-Dust present in these high redshift star forming galaxies can
-attenuate the UV intrinsic luminosity.
+\label{subsec:dust}
+Dust in star forming galaxies can attenuate the UV intrinsic luminosity.
 Although relatively uncertain compared to studies in the local
 universe, there are constraints on the extinction level in LBGs at
 $z=6$.
 
-The UV Spectral Slope $\beta$ was introduced by \citet{Meurer99} as a UV color to 
-study dust attenuation in local starburst galaxies and extrapolating to high redshift galaxies. 
-This index appears when a power law fitting is performed over the spectral flux $f$ 
-as function of the wavelength $\lambda$;
-\[ f \propto \lambda^\beta.\]
-The relation for ultra-violet attenuation at $1600 \textrm{\AA}$ they found is:
-\begin{equation}
-A_{1600} = 4.43 + 1.99 \beta,
-\end{equation}
-with $A_{1600}$ in magnitude units. 
-
-Due LBGs have more similar spectra properties to local starburst galaxies rather than AGNs 
-for example, we can assume that local calibration of $\beta-A_{1600}$ can be applied also 
-for LBGs,
-%%% From Meurer99
-``The main requirement is that the data include fluxes in two broad bands or coarse spectra 
-covering the rest-frame UV.''
-
+These studies are based on the UV Spectral slope $\beta$ correlation
+with extinction. 
+This index can be defined approximating by a power-law
+the shape  the spectral flux $f$ as function of the wavelength
+$\lambda f \propto \lambda^\beta$.  
+The relation for attenuation at $1600 \textrm{\AA}$ is $A_{1600} =
+4.43 + 1.99 \beta$, with $A_{1600}$ in magnitude units
+\citet{Meurer99}.  
 
 \citet{Bouwens12} uses the fluxes on different bands to estimate $\beta$ on each LBG 
-candidate found with $z \sim 4-7$. After in redshift groups they found a linear relation 
-between $\beta$ and the UV magnitude:
+candidate found with $z \sim 4-7$. 
+At $z=6$ they found a linear relation beteen between $\beta$ and
+$M_{\rm UV}$:
+
 \begin{equation}
 \langle \beta \rangle = \frac{d \beta}{d M_{UV}} \left( M_{UV,AB}+19.5 \right) 
-                                   + \beta_{M_{UV}=-19.5}
+                                   + \beta_{M_{UV}=-19.5},
 \end{equation}
-with $ \beta_{M_{UV}=-19.5} = -2.20$ and $d \beta/d M_{UV} = -0.21$ at $z=5.9$.
+with $ \beta_{M_{UV}=-19.5} = -2.20$ and $d \beta/d M_{UV} = -0.21$ at
+$z=5.9$. 
+We use these relationships to modify the instrinsic UV luminosity
+values.
 
-\citet{Smit12} used the aforementioned relations to infer the corrected luminosity functions,
-i.e. dust-free luminosity functions, and the corrected SFR at $z=4$. 
-
-Here we use the inverse relation, starting from the intrinsic or dust-free galaxy magnitude, 
-obtaining the observed magnitude:
-\begin{equation}
-  M_{obs} = \begin{cases} 
-                         \frac{M_{int}-4.616}{1.259}, &\mbox{if } A>0 \\
-                         M_{int}, &\mbox{else}
-                   \end{cases}.
-\label{eqn. dust attenuation}
-\end{equation}
+%Here we use the inverse relation, starting from the intrinsic or dust-free galaxy magnitude, 
+%obtaining the observed magnitude:
+%\begin{equation}
+%  M_{obs} = \begin{cases} 
+%                         \frac{M_{int}-4.616}{1.259}, &\mbox{if } A>0 \\
+%                         M_{int}, &\mbox{else}
+%                   \end{cases}.
+%label{eqn. dust attenuation}
+%end{equation}
 
 
 
-\section{Theoretical and Numerical Framework}
+\section{Theoretical, Numerical and Statistical Framework}
 \label{sec:methodology}
 
 
@@ -254,8 +245,8 @@ We now that this equation has the same functional dependence suggested
  by \citet{Moster10} to link stellar and dark matter masses.
 
 Once each halo has a UV luminosity we also have the option to include
-an extinction correction in order to modify this intrinsic luminosity
-vale. 
+an extinction correction (as described in \SS \ref{subsec:dust})in
+order to modify this intrinsic luminosity value. 
 From these UV values we build the LF.
 The free parameters in Eq. (\ref{eqn:luminosity}) are determined by
 requiring that the abudance matching LF follows the observational
@@ -302,120 +293,34 @@ database\footnote{\url{http://www.multidark.org}} \citep{Riebe13}.
 
 
 
-\subsection{Fitting Model}
+\subsection{Constraining the Free Parameters}
 
 
-
-The key element to connect SFR with halo mass from simulations is the observed 
-UVLF. If there exist a function whom gives to each halo a UV luminosity then is 
-posible to reproduce UVLF from DMH catalogs. The fitting parameters can be 
-explored using a Markov Chain Monte-Carlo (MCMC) implementation. Once the 
-parameters are found, the SFR-Halo Mass relation have been found.
-
-
-
-\subsection{MCMC}
-We used a Markov Chain Monte Carlo method to find the best parameters and its 
-uncertainties over each one of the boxes and each observational dataset. The 
-code was written on Python using the SciPy Library \citep{SciPy}
-the IPython environment \citep{IPython}.
-
-First of all, one of the four observational data sets (Bouwens, Finkelstein, 
-Willott and McLure) is selected to be the model to fit.
-From the whole simulated halo catalog, a subsample with cubic box shape of 
- $250\textrm{Mpc h}^{-1}$ length is selected. 
- 
-With an initial set of parameters $(\alpha, \gamma, M_0,$ and $ L_0)$ the UV 
-luminosity for the halo is calculated as function of his mass according to 
-equation
- \ref{eqn:luminosity}. Then Luminosity is converted to magnitude units using:
-  \[ M_{UV} = 51.82 - 2.5 \log_{10}(L_{UV}). \]
-If we consider the dust attenuation im the equation \ref{eqn. dust attenuation} 
-we have a dust-corrected UV Luminosity Function.
-
-The luminosity function is constructed as an histogram of the magnitudes 
-normalized by the volume of the catalog. Each observed luminosity function has a 
-different bin range.
-
-Once having the LF, we compare our LF against observed LF. The error function we 
-consider is the sum of the square difference over each bin, divided by the 
-observational data uncertain.
-\[ \chi^2  = \sum_{i=o}^{n} \frac {\left( x_{i,obs} - x_{i,fit} \right)^2 }{2\sigma_i^2}\]
-We worked on the logarithmic space of luminosities to have a good fitting on
-six decades.
-
-The likelihood will have this property:
-\[ \mathcal{L} \propto \exp \left(  -\frac{\chi ^2}{n} \right) \], where $n$ is 
-the number of degrees of freedom. We have the maximum likelihood when the error 
-is the minimum.
-
-Each MCMC step will have have a small variation of the parameters, the UV 
-luminosity and magnitude are calculated again for each halo, we have a new error 
-$\chi_{new}^2$ and a new likelihood $ \mathcal{L}_{new} $.
-
-Following the Metropolis method, we compare the new and the old likelihood:
-\[ R =\frac{ \mathcal{L}_{new}  }{ \mathcal{L}_{old} }  = 
-exp( \chi_{new}^2 - \chi_{old}^2 )
-\]
-
-If $  R \geq 1$, then we immediate accept the new set of parameters and start 
-the next MCMC step.
-
-Else, we have a chance to keep the new set. When $ R < 1$, we compare with a 
-uniformly random number $p$ in the range $[0,1]$. if $ R>p$ we accept the new 
-set of parameters and start the next MCMC step.  Else we reject the new set and 
-start again with the old set.
-
-We performed 100.000 effective MCMC steps, plus 10.000 thermalization steps over 
-each box. We repeated for the same box without consider dust attenuation.
-
-Then we perform the same method over the 64 boxes and the resting three data sets.
-
-The restrictions imposed over the parameters where $0 \leq \alpha \leq 2.0 $  and 
-$\gamma \geq 0$.
+We use a Markov Chain Monte Carlo (MCMC) methodology to constraint the 
+the free parameters in Eq. (\ref{eqn:luminosity}). 
+We use a Metropolis-Hastings algorithm to build the MC chains on the
+four parameters. 
+We performed $10^5$ MCMC steps with $10^4$ additional initial burn-out
+iterations.
 
 
-Finally, the UV luminosity for each galaxy can be directly related with SFR according 
-to \citet{Madau98}.
-This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$
-\citep{Kennicutt98}. The relation between UV luminosity and Star Formation Rate 
-is given by:
-\begin{equation}
- \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
-      = 1.4 \times 10^{-28} L_{\nu} \left( \textrm{erg s}^{-1}\textrm{Hz}^{-1} 
-	\right)
+To explore the likelihood ${\mathcal L}\propto \exp{(-\chi^2)}$we
+consider the following $\chi^2$. 
+\begin{equation} 
+\chi^2  = \sum_{i=o}^{n} \frac {\left( \log\Phi_{i,obs} - \log\Phi_{i,th} \right)^2
+}{2\sigma_i^2}, 
 \end{equation}
+defined over each LF magnitude bin.
 
-\subsection{The Luminosity Model}
-
-In this model we have made two assumptions:
-\begin{enumerate}
- \item Each halo in the catalog hosts one galaxy. There are not empty
-halos, also none of halos has two or more galaxies.
- \item The UV luminosity of each galaxy is function of one variable: the mass of
-the DMH in wich is located.
-\end{enumerate}
-Our model is a four parameter function. Each galaxy has a luminosity given
-by:
-  \begin{equation}
-  L = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
-		   + \left( \frac{M}{M_0}\right)^{\gamma} 
-               \right]^{-1}
-  \end{equation}
-where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
-is the critical mass where the luminosity function has a slope change, 
-$\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
-mass to light relation \citep{vandenBosch03} and the mean relation between
-stellar mas of a galaxy and the mass of its halo used by \cite{Moster10}.
-
-There exists more sophisticated models as \cite{Lee09} shown, with scattering in 
-the DM Mass-Stellar Mass, but also including some 
-randomization in star forming histories, starburst episodes (duty cycle); 
-galaxies have not synchronization on the beginning of star forming stage, also
-this stage may be time limited. It results in the existence of massive galaxies
-in the studied volume, but with no emmission in the UV continuum due their
-duty cycle may has not started as well it may ended. Also may be present a
-normal distribution of the luminosity around the expected values.
+We treat each dataset (Bouwens, Finkelstein, Willott and McLure)
+separately to join at the end the posteriors. 
+The size and halo resolution of the computational boxes is coarse for
+the case of Willott and fine for the other datasets.
+We perform two kinds of MCMC explorations with and without considering
+dust extinctions.
+We impose the following priors over the parameters $0 \leq \alpha \leq
+2.0 $  and  $\gamma \geq 0$. 
+ 
 
 \section{Results}
 \label{sec:results}
