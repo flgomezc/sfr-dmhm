@@ -55,6 +55,9 @@ The constraints are based on an abundance matching methodology to the
 observational data using cosmological N-body simulations.
 We also take into account the influence on the results of the dust extinction
 scaling derived from observations by Bouwens.
+We show dependence of our parameter uncertainties related to the
+comoving volume and magnitude range in observed surveys, taking advantage of the 
+wide mass resolution range of latest available dark matter halo catalogs.
 We compare our results against the results of abundance matching
 methods (to the stellar mass), a semi-analytic model of galaxy
 formation (GALFORM) and a hydrodynamical simulation (Illustris).
@@ -63,7 +66,6 @@ formation (GALFORM) and a hydrodynamical simulation (Illustris).
 
 \section{Introduction}
 \label{sec:intro}
-
 
 
 All magnitudes are in AB system.
@@ -91,61 +93,69 @@ at redshift 6 corresponds
 to 740.8 arcmin$^2$ over five different lines of sight, wit a total volume of 
 $1.8 \times 10^6 \textrm{Mpc}^3$.
 Two cameras performed the observations: ACS and WFC3/IR, using 
-$B_{435}$, $V_{606}$, $ i_{814}$, $ z_{850}$, $ I_{814}$, $Y_{098}$, $Y_{105}$, $J{125}$, 
-$JH_{140}$ and $H_{160}$ filters.
-The limit magnitude is between $\sim27.5$mag in CANDELS-EGS and$\sim30 $mag in the 
-deepest field (XDF). Total number of z=6 LBG candidates is 940, most of them in the faint 
-end of the LF, magnitudes in the rest frame are in the range $-22.52\leq M_{1600} \leq -16.77$
-\citet{Bouwens15} calculated LF using a stepwise maximum-likelihood (SWML) based on \citet{Efstathiou88}. 
+$B_{435}$, $V_{606}$, $ i_{814}$, $ z_{850}$, $ I_{814}$, $Y_{098}$, $Y_{105}$, 
+$J{125}$,  $JH_{140}$ and $H_{160}$ filters.
+The limit magnitude is between $\sim27.5$mag in CANDELS-EGS and$\sim30 $mag in 
+the  deepest field (XDF). Total number of z=6 LBG candidates is 940, most of 
+them in the faint end of the LF, magnitudes in the rest frame are in the range 
+$-22.52\leq M_{1600} \leq -16.77$ \citet{Bouwens15} calculated LF using a 
+stepwise maximum-likelihood (SWML) based on \citet{Efstathiou88}. 
 The Schechter parameters derived are: 
 $\phi^* =(0.33_{-0.10}^{+0.15}) \times 10 ^{-3}  \textrm{Mpc}^{-3} $, 
 $M^*_{1600} = -21.16\pm 0.20$ and $\alpha = -1.91 \pm 0.09$. 
-\citet{Bouwens15} reported that using just few fields of view, UVLF has a slightly non-Schechter-like form. 
+\citet{Bouwens15} reported that using just few fields of view, UVLF has a 
+slightly non-Schechter-like form. 
 
-\citet{Finkelstein14} worked also with HST, using the HUDF, CANDELS and GOODS fields, 
-along with two of the Hubble Frontier Fields (HFF): deep parallel observations (unlensed 
-fields) near the Abell 2744 and MACS J0416.1-2403 clusters. The HFF uses the ACS and 
-the WFC3/IR with the same filters aforementioned but $z_{850}$. Total survey area is around 
-$\sim300\textrm{arcmin}^2$, with 706 photometric candidates at redshift 6 defined as the interval $5.5<z<6.5$. 
-Total volume of this study is around $ 8 \times 10^5 \textrm{Mpc}^3$. The Schechter function parameters they found are $\phi^* =(1.86_{-0.80}^{+0.94}) \times 10 ^{-4}  \textrm{Mpc}^{-3} $, 
+\citet{Finkelstein14} worked also with HST, using the HUDF, CANDELS and GOODS 
+fields, along with two of the Hubble Frontier Fields (HFF): deep parallel 
+observations (unlensed fields) near the Abell 2744 and MACS J0416.1-2403 
+clusters. The HFF uses the ACS and the WFC3/IR with the same filters 
+aforementioned but $z_{850}$. Total survey area is around 
+$\sim300\textrm{arcmin}^2$, with 706 photometric candidates at redshift 6 
+defined as the interval $5.5<z<6.5$. Total volume of this study is around 
+$ 8 \times 10^5 \textrm{Mpc}^3$. The Schechter function parameters they found 
+are $\phi^* =(1.86_{-0.80}^{+0.94}) \times 10 ^{-4}  \textrm{Mpc}^{-3} $, 
 $M^*_{1600} = -21.1_{-0.31}^{+0.25}$ and $\alpha = -2.02_{-0.10}^{+0.10}$. 
 
 
 
 \citet{Willott13} presented the sixth release of the Canada-France-Hawaii 
 Telescope Legacy Survey CFHTLS. The observations where performed over four 
-separated fields covering a total area $\sim 4 \deg^2$ (a large area), it gives this 
-survey great robustness. Optical observations used MegaCam  %%%%%%[CITE REQUIRED] 
+separated fields covering a total area $\sim 4 \deg^2$ (a large area), it gives 
+this survey great robustness. Optical observations used MegaCam  %%%%%%[CITE REQUIRED] 
 with $u^* g' r' i' z'$ filters. The main selection criteria: all the 
 objects must be brighter than magnitude $z' = 25.3$. The final 
 number of LBGs founded was 40. Moreover, they get spectroscopic confirmation 
 for 7 candidates using GMOS spectrograph on the Gemini Telescopes, which 
-has a $\ll 5.5$-square arcmin field of view, giving a volume $\sim 1.09 \times 10^7 \textrm{Mpc}^3$. 
+has a $\ll 5.5$-square arcmin field of view, giving a volume 
+$\sim 1.09 \times 10^7 \textrm{Mpc}^3$. 
 They show incompleteness in the sample due to 
 foreground contamination and the detection algorithm; there is no warranty to 
 have every object brighter than the limit magnitude on the faint limit. The full 
-galaxy LF at $z=6$ cannot be obtained as in other studies. Nevertheless, this survey 
-was focussed on the highly luminous LBGs. LF is calculated using the stepwise 
-maximum likelihood method of \citet{Efstathiou88}, within 
-magnitudes 
+galaxy LF at $z=6$ cannot be obtained as in other studies. Nevertheless, this 
+survey was focussed on the highly luminous LBGs. LF is calculated using the 
+stepwise maximum likelihood method of \citet{Efstathiou88}, within magnitudes 
 from $M_{1350} = -22.5$ up to $-20.5$. The luminosity function of $z=5.9$ shows 
-an exponential decline at the bright end, where feedback processes and inefficient 
-last cooling limites star forming in bright galaxies hosted in the most massive halos.
+an exponential decline at the bright end, where feedback processes and 
+inefficient last cooling limites star forming in bright galaxies hosted in the 
+most massive halos.
 
-\citet{McLure09} build the luminosity function for $z=5$ and $z=6$ using data from two ground-based
- telescopes: the United Kingdom Infrared Telescope in the near-IR imaging and Subaru 
- Telescope for the optical imaging. They use the first data release of the UKIRT Infrared 
- DeepSky Survey Ultra Deep Survey (UDS), together with the Subaru XMM-Newton 
- Survey (SXDS). Total observed area is $0.63 \deg^2$ uniformly covered by booth catalogues.
+\citet{McLure09} build the luminosity function for $z=5$ and $z=6$ using data 
+from two ground-based telescopes: the United Kingdom Infrared Telescope in the 
+near-IR imaging and Subaru Telescope for the optical imaging. They use the first 
+data release of the UKIRT Infrared  DeepSky Survey Ultra Deep Survey (UDS), 
+together with the Subaru XMM-Newton  Survey (SXDS). Total observed area is 
+$0.63 \deg^2$ uniformly covered by booth catalogues.
 The volume in this survey is $\sim 3 \times 10^6 \textrm{Mpc}^3$.
-The UKIRT was equipped with the WFCAM using $J K$ filters. The Subaru was equipped 
-with the Suprime-Cam with the $B V R i' z'$ filters. All candidates where brighter than 
-$z'=26$. The UV rest frame magnitude range is $-22.4\leq M_{1500} \leq-20.6$. The LF 
-was calculated using the maximum likelihood estimator of \citet{Schmidt68}. 
-Their analysis gave a total number of 104 LBG candidates in the redshift range 
-$5.7\leq z \leq 6.3$. LF was parameterized according to the Schechter function with 
-$\phi^*  =(1.8 \pm 0.5) \times 10 ^{-3}  \textrm{Mpc}^{-3}$, $M^*_{1500} = -20.04\pm 0.12$ 
-and $\alpha = -1.71 \pm 0.11$. 
+The UKIRT was equipped with the WFCAM using $J K$ filters. The Subaru was 
+equipped with the Suprime-Cam with the $B V R i' z'$ filters. All candidates 
+where brighter than $z'=26$. The UV rest frame magnitude range is 
+$-22.4\leq M_{1500} \leq-20.6$. The LF was calculated using the maximum 
+likelihood estimator of \citet{Schmidt68}. Their analysis gave a total number of 
+104 LBG candidates in the redshift range $5.7\leq z \leq 6.3$. LF was 
+parameterized according to the Schechter function with 
+$\phi^* =(1.8\pm 0.5)\times 10 ^{-3} \textrm{Mpc}^{-3}$, 
+$M^*_{1500} = -20.04\pm 0.12$ and $\alpha = -1.71 \pm 0.11$. 
 
 The dataset was retrieved from \cite{McLure09} graph using
 GAVO-DEXTER\footnote{\url{http://dc.zah.uni-heidelberg.de/dexter/ui/ui/custom}}.
@@ -184,23 +194,23 @@ The star forming rate will be:
                \right]^{-1}
   \end{equation}
 
-The key element to connect SFR with halo mass from simulations is the observed UVLF. 
-If there exist a function whom gives to each halo a UV luminosity then is posible to 
-reproduce UVLF from DMH catalogs. The fitting parameters can be explored using a 
-Markov Chain Monte-Carlo (MCMC) implementation. Once the parameters are found, 
-the SFR-Halo Mass relation have been found.
+The key element to connect SFR with halo mass from simulations is the observed 
+UVLF. If there exist a function whom gives to each halo a UV luminosity then is 
+posible to reproduce UVLF from DMH catalogs. The fitting parameters can be 
+explored using a Markov Chain Monte-Carlo (MCMC) implementation. Once the 
+parameters are found, the SFR-Halo Mass relation have been found.
 
-We use the dark matter halo catalog from the Big MultiDark Plank 1 (MDPL) Simulation 
-\citep{Klypin14} with 2013 Planck cosmology \citep{Planck1}. MDPL is quite similar to the 
-Big Bolshoi ($1 \textrm{Gpc h}^{-1}$) \citep{Prada12} and 
-its predecesor Bolshoi \citep{Klypin11} ($250 \textrm{Mpc h}^{-1}$), booth of them with 
-WMAP5 cosmology, but MDPL has bigger mass resolution.  Those halo catalogs are 
-available at the MultiDark Database\footnote{\url{http://www.multidark.org}} 
-\citep{Riebe13}.
+We use the dark matter halo catalog from the Big MultiDark Plank 1 (MDPL) 
+Simulation \citep{Klypin14} with 2013 Planck cosmology \citep{Planck1}. MDPL is 
+quite similar to the Big Bolshoi ($1 \textrm{Gpc h}^{-1}$) \citep{Prada12} and 
+its predecesor Bolshoi \citep{Klypin11} ($250 \textrm{Mpc h}^{-1}$), booth of 
+them with WMAP5 cosmology, but MDPL has bigger mass resolution.  Those halo 
+catalogs are available at the MultiDark 
+Database\footnote{\url{http://www.multidark.org}} \citep{Riebe13}.
 
 The MDPL run is a N-body dark matter only simulation based on the L-Gadget2 
-code. The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ side length. 
-It has $3840^3$ dark matter particles of  $1.51\times 9
+code. The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ side 
+length. It has $3840^3$ dark matter particles of  $1.51\times 9
 \textrm{M}_{\odot} \textrm{h}^{-1}$ mass each one. The 2013 Planck
 cosmology is defined by the following parameters: $\Omega_M = 0.307$,
 $\Omega_B = 0.048$, $\Omega_\Lambda = 0.730$, $\sigma_8 = 0.829$, $n_s
@@ -214,9 +224,9 @@ observations.
 
 The following treatment is applied to every one small box.
 
-The halo abundance matching technique has been widely used \citep{Colin99, Kravtsov04}
-resulting in good reproduction of the observed galaxy clustering. \citep{Conroy06, Lee09}. 
-Here we use the simplest case with few premises: 
+The halo abundance matching technique has been widely used \citep{Colin99, 
+Kravtsov04} resulting in good reproduction of the observed galaxy clustering. 
+\citep{Conroy06, Lee09}. Here we use the simplest case with few premises: 
 \begin{enumerate}
  \item Each halo in the catalog hosts one galaxy. There are not empty
 halos, also none of halos has two or more galaxies.
@@ -293,52 +303,58 @@ obtaining the observed magnitude:
 
 \subsection{MCMC}
 We used a Markov Chain Monte Carlo method to find the best parameters and its 
-uncertainties over each one of the boxes and each observational dataset. The code was written
-on Python using the Scipy, Numpy and Matplotlib libraries.
+uncertainties over each one of the boxes and each observational dataset. The 
+code was written on Python using the SciPy Library \citep{SciPy}
+the IPython environment \citep{IPython}.
 
-First of all, one of the four observational data sets (Bouwens, Finkelstein, Willott and McLure) 
-is selected to be the model to fit.
+First of all, one of the four observational data sets (Bouwens, Finkelstein, 
+Willott and McLure) is selected to be the model to fit.
 From the whole simulated halo catalog, a subsample with cubic box shape of 
  $250\textrm{Mpc h}^{-1}$ length is selected. 
  
-With an initial set of parameters $(\alpha, \gamma, M_0,$ and $ L_0)$ the UV luminosity
-for the halo is calculated as function of his mass according to equation
+With an initial set of parameters $(\alpha, \gamma, M_0,$ and $ L_0)$ the UV 
+luminosity for the halo is calculated as function of his mass according to 
+equation
  \ref{eqn:luminosity}. Then Luminosity is converted to magnitude units using:
   \[ M_{UV} = 51.82 - 2.5 \log_{10}(L_{UV}). \]
-If we consider the dust attenuation im the equation \ref{eqn. dust attenuation} we have
-a dust-corrected UV Luminosity Function.
+If we consider the dust attenuation im the equation \ref{eqn. dust attenuation} 
+we have a dust-corrected UV Luminosity Function.
 
-The luminosity function is constructed as an histogram of the magnitudes normalized by 
-the volume of the catalog. Each observed luminosity function has a different bin range.
+The luminosity function is constructed as an histogram of the magnitudes 
+normalized by the volume of the catalog. Each observed luminosity function has a 
+different bin range.
 
-Once having the LF, we compare our LF against observed LF. The error function we consider
-is the sum of the square difference over each bin, divided by the observational data uncertain.
+Once having the LF, we compare our LF against observed LF. The error function we 
+consider is the sum of the square difference over each bin, divided by the 
+observational data uncertain.
 \[ \chi^2  = \sum_{i=o}^{n} \frac {\left( x_{i,obs} - x_{i,fit} \right)^2 }{2\sigma_i^2}\]
 We worked on the logarithmic space of luminosities to have a good fitting on
 six decades.
 
 The likelihood will have this property:
-\[ \mathcal{L} \propto \exp \left(  -\frac{\chi ^2}{n} \right) \], where $n$ is the number of degrees
-of freedom. We have the maximum likelihood when the error is the minimum.
+\[ \mathcal{L} \propto \exp \left(  -\frac{\chi ^2}{n} \right) \], where $n$ is 
+the number of degrees of freedom. We have the maximum likelihood when the error 
+is the minimum.
 
-Each MCMC step will have have a small variation of the parameters, the UV luminosity and magnitude are 
-calculated again for each halo, we have a new error $\chi_{new}^2$ and a new likelihood 
-$ \mathcal{L}_{new} $.
+Each MCMC step will have have a small variation of the parameters, the UV 
+luminosity and magnitude are calculated again for each halo, we have a new error 
+$\chi_{new}^2$ and a new likelihood $ \mathcal{L}_{new} $.
 
 Following the Metropolis method, we compare the new and the old likelihood:
 \[ R =\frac{ \mathcal{L}_{new}  }{ \mathcal{L}_{old} }  = 
 exp( \chi_{new}^2 - \chi_{old}^2 )
 \]
 
-If $  R \geq 1$, then we immediate accept the new set of parameters and start the next MCMC step.
+If $  R \geq 1$, then we immediate accept the new set of parameters and start 
+the next MCMC step.
 
-Else, we have a chance to keep the new set. When $ R < 1$, we compare with a uniformly 
-random number $p$ in the range $[0,1]$. if $ R>p$ we accept the new set of parameters and start
-the next MCMC step. 
-Else we reject the new set and start again with the old set.
+Else, we have a chance to keep the new set. When $ R < 1$, we compare with a 
+uniformly random number $p$ in the range $[0,1]$. if $ R>p$ we accept the new 
+set of parameters and start the next MCMC step.  Else we reject the new set and 
+start again with the old set.
 
-We performed 10.000 effective MCMC steps, plus 1.000 thermalization steps over each box.
-We repeated for the same box without consider dust attenuation.
+We performed 100.000 effective MCMC steps, plus 10.000 thermalization steps over 
+each box. We repeated for the same box without consider dust attenuation.
 
 Then we perform the same method over the 64 boxes and the resting three data sets.
 
@@ -348,8 +364,8 @@ $\gamma \geq 0$.
 
 Finally, the UV luminosity for each galaxy can be directly related with SFR according 
 to \citet{Madau98}.
-This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$\citep{Kennicutt98}.
-The relation between UV luminosity and Star Formation Rate \citep{Madau98} and \cite{Kennicutt98} 
+This model is accurate within the range of $10^8 - 10^9 \textrm{yr}$
+\citep{Kennicutt98}. The relation between UV luminosity and Star Formation Rate 
 is given by:
 \begin{equation}
  \textrm{SFR}\left(M_\odot \textrm{yr}^{-1}\right) 
@@ -366,14 +382,7 @@ halos, also none of halos has two or more galaxies.
  \item The UV luminosity of each galaxy is function of one variable: the mass of
 the DMH in wich is located.
 \end{enumerate}
-
-The simplest relation we can have is a powerlaw:
- \begin{equation}
-  L = L_0 M^\alpha
- \end{equation}
-but has not well agreement with observed luminosity functions.
-
-A better model is a four parameter function. Each galaxy has a luminosity given
+Our model is a four parameter function. Each galaxy has a luminosity given
 by:
   \begin{equation}
   L = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
@@ -386,10 +395,12 @@ $\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
 mass to light relation \citep{vandenBosch03} and the mean relation between
 stellar mas of a galaxy and the mass of its halo used by \cite{Moster10}.
 
-There are more complex models\citep{Lee09} that includes a random behavior:
-galaxies has not synchronization on the beginning of star forming stage, also
-this stage may be time limited. This is called duty cycle. It is probable to
-have in the observations some invisible galaxies in the UV continuum due their
+There exists more sophisticated models as \cite{Lee09} shown, with scattering in 
+the DM Mass-Stellar Mass, but also including some 
+randomization in star forming histories, starburst episodes (duty cycle); 
+galaxies have not synchronization on the beginning of star forming stage, also
+this stage may be time limited. It results in the existence of massive galaxies
+in the studied volume, but with no emmission in the UV continuum due their
 duty cycle may has not started as well it may ended. Also may be present a
 normal distribution of the luminosity around the expected values.
 
@@ -432,38 +443,25 @@ of each box and its likelihood value. We found that cosmic variance
 effects are less significative in best fit parameters than MCMC parameter
 estimation itself. 
 
-
-
 \begin{table}
 \begin{center}
-\begin{tabular}{ccccc}\hline\hline
-Parameter  & Mean value & Cosmic Variance & MCMC error\\\hline
-$\log_{10}(L_0)$   & 18.067   & 0.029   & 0.116 \\
-$\log_{10}(M_0)$  & 11.190   & 0.072   & 0.729 \\
-$\beta$                  & 1.4801  & 0.175   & 1.299 \\
-$\gamma$             & 0.40284 & 0.058  & 0.3147\\
+\begin{tabular}{cccccc}\hline\hline
+ & \multicolumn{2}{c}{Dust Att.} & \multicolumn{2}{c}{No-Dust Att.}\\
+Parameter                  & MCMC                  & C.Var. & MCMC                    & C.Var. \\\hline
+$\log_{10}(L_0/L_{\odot})$ & $18.07_{-0.06}^{+0.10}$ & 0.03 & $17.81_{-0.08}^{+0.12}$ & 0.02  \\
+$\log_{10}(M_0/M_{\odot})$ & $11.19_{-0.03}^{+0.67}$ & 0.07 & $11.12_{-0.24}^{+0.58}$ & 0.06  \\
+$\beta$                    & $1.480_{-1.28}^{+0.11}$ & 0.18 & $ 1.44_{-1.35}^{+0.16}$ & 0.18  \\
+$\gamma\times0.1$          & $4.028_{-0.82}^{+3.01}$ & 0.58 & $ 5.18_{-0.59}^{+2.36}$ & 0.46  \\
 \hline\hline
 \end{tabular}
-\caption{  Average Best fit parameters to the Willott data in the Dust Attenuation Model.} 
-\label{table:Willott_best_fit_parameters}
-\end{center}
-\end{table}
-
-\begin{table}
-\begin{center}
-\begin{tabular}{ccccc}\hline\hline
-Parameter  & Mean value & Cosmic Variance & MCMC error\\\hline
-$\log_{10}(L_0)$   & 17.807   & 0.020   & 0.150 \\
-$\log_{10}(M_0)$  & 11.119    & 0.060   & 0.642 \\
-$\beta$                  &  1.437    & 0.178   & 1.374 \\
-$\gamma$             &   0.518   & 0.046  & 0.246\\
-\hline\hline
-\end{tabular}
-\caption{  Average Best fit parameters to the Willott data in the No-Dust Attenuation Model.} 
+\caption{ Best fit parameters to the Willott data with and without 
+dust attenuation over 64 small boxes. Mean best value estimated 
+with MCMC, mean $1\sigma$ confidence interval and Cosmic Variance
+(C.Var.)
+} 
 \label{table:Willott_best_fit_parameters_no_dust}
 \end{center}
 \end{table}
-
 
 
 \begin{figure}
@@ -474,21 +472,21 @@ calculated over each small-box. The solid line represents the ratio 1:1 }
 \label{fig:OD1_chi2_comparison}
 \end{figure}
 
-\begin{figure*}
+\begin{figure}
 \epsscale{1.00}
 \plotone{fig/OD1_w_dust_box_0.png} % pdf available
 \caption{Parameter dispersion fitting the Willott with the Dust Attenuation model. 
 $1\sigma$ is defined by the likelihood ratio between 0.0 (red) and 0.5 (green)}
 \label{fig:OD1_MCMC_best_steps_w}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}
+\begin{figure}
 \epsscale{1.00}
 \plotone{fig/OD1_wo_dust_box_0.png} % pdf available
 \caption{Parameter dispersion fitting the Willott with the No-Dust Attenuation model. 
 $1\sigma$ is defined by the likelihood ratio between 0.0 (red) and 0.5 (green)}
 \label{fig:OD1_MCMC_best_steps_wo}
-\end{figure*}
+\end{figure}
 
 
 
@@ -540,7 +538,7 @@ The $x$ axis corresponds to the box number.}
 Solid lines represents the mean SFR value over the small boxes within $50\%$  shaded region. 
 Comparison with the GALFORM semi-analitical model \citep{Gonzalez14} and a implementation
 of abundance matching model \citep{Behroozi13}. }
-\label{graph_SFR_DMHM_wo}
+\label{fig:SFR_DMHM_wo}
 \end{figure}
 
 \begin{figure}
@@ -550,7 +548,7 @@ of abundance matching model \citep{Behroozi13}. }
 Solid lines represents the mean SFR value over the small boxes within $50\%$  shaded region.
 Comparison with the GALFORM semi-analitical model \citep{Gonzalez14} and a implementation
 of abundance matching model \citep{Behroozi13}. }
-\label{graph_SFR_DMHM_w}
+\label{fig:_SFR_DMHM_w}
 \end{figure}
 
 
@@ -570,4 +568,31 @@ Acknowledgments...\\
 \bibliography{references}
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+\begin{table*}
+\begin{center}
+\begin{tabular}{cccccc}\hline\hline
+ & \multicolumn{2}{c}{Dust Attenuation} & \multicolumn{2}{c}{No-Dust Attenuation}\\
+Parameter  & MCMC & Cosmic Variance & MCMC & Cosmic Variance \\\hline
+$\log_{10}(L_0)$   & $18.067_{-0.059}^{+0.096}$   & 0.029 & $17.807_{-0.083}^{+0.115}$   & 0.020  \\
+$\log_{10}(M_0)$   & $11.190_{-0.026}^{+0.674}$   & 0.072 & $11.119_{-0.237}^{+0.582}$   & 0.060  \\
+$\beta$            & $1.4801_{-1.276}^{+0.114}$   & 0.175 & $ 1.437_{-1.348}^{+0.157}$   & 0.178  \\
+$\gamma\times0.1$  & $4.0284_{-0.822}^{+3.010}$   & 0.576 & $ 5.182_{-0.588}^{+2.366}$  & 0.461  \\
+\hline\hline
+\end{tabular}
+\caption{  Average Best fit parameters to the Willott data with and without dust attenuation.} 
+\label{table:Willott_best_fit_parameters_no_dust}
+\end{center}
+\end{table*}
+
+
 
