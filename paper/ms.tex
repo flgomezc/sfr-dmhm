@@ -177,8 +177,34 @@ $M^*_{1500} = -20.04\pm 0.12$ and $\alpha = -1.71 \pm 0.11$.
 \end{figure}
 
 
-\section{Abundance Matching Methodology}
+\section{Theoretical and Numerical Framework}
 \label{sec:methodology}
+
+
+\subsection{The Abundance Matching Methodology}
+We use an abundance matching approach to find the relationship between
+dark matter halo mass and star formation rate. 
+This approach has been used to link stellar and dark matter masses. 
+Here we extend it to constraint star formation rate properties at high
+redshift. 
+
+The starting point for this medho is a population of dark matter halos.
+To each halo we assign a UV luminosity according to the following
+parameterization.
+  \begin{equation}\label{eqn:luminosity}
+  L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
+		   + \left( \frac{M}{M_0}\right)^{\gamma} 
+               \right]^{-1},
+  \end{equation}
+where $M$ is the DM mass, $L_{0}$ is a normalization constant, $M_0$
+is the critical mass where the luminosity function has a slope change, 
+$\beta$ and $\gamma$ are two slopes corresponding to the faint and
+bright end, respectively. 
+This equation has the same functional dependence as stellar to dark
+mass ratio used by \citet{Moster10}.
+
+
+
 
 The relation between UV luminosity and Star Formation Rate
 \citep{Madau98,Kennicutt98} 
@@ -243,18 +269,6 @@ massive halos will host the most luminous galaxies in the same volume.
 
 \subsection{Fitting Model}
 
-The observed UV Luminosity Function has two slopes. To reproduce it we decide to use the
- four parameter model:
-  \begin{equation}\label{eqn:luminosity}
-  L_{\textrm{\small{UV}}} (M) = L_{0} M \left[ \left( \frac{M}{M_0}\right)^{-\beta} 
-		   + \left( \frac{M}{M_0}\right)^{\gamma} 
-               \right]^{-1}
-  \end{equation}
-where $M$ is the hosting DMH mass, $L_{0}$ is a normalization constant, $M_0$
-is the critical mass where the luminosity function has a slope change, 
-$\beta$ and $\gamma$ are the slopes. This equation has a similar fashion to the
-mass to light relation \citep{vandenBosch03} and the mean relation between
-stellar mas of a galaxy and the mass of its halo used by \citet{Moster10}.
 
 
 \subsection{Dust Attenuation}
