@@ -37,33 +37,37 @@ OD1 = [Obs_data1.transpose(), HIST1_bins, sigma1,"Willott"]
 
 ###########################################################################
 
-HIST2_bins=[-22.70,-22.27,-21.77,-21.27,-20.77,-20.27,-19.77,-19.27]
+HIST2_bins=[-22.70,-22.27,-21.77,-21.27,-20.77,-20.27,-19.77,-19.27,-18.27,-17.27,-16.27]
 Bouwens = array(
 [# Mag,LumFunct, +/err #
-[-22.52,0.000002,0.000002],
-[-22.02,0.000011,0.000004],
-[-21.52,0.000029,0.000008],
-[-21.02,0.000060,0.000012],
-[-20.52,0.000146,0.000023],
-[-20.02,0.000296,0.000045],
-[-19.52,0.000611,0.000081]
+[-22.52,0.000004,0.000003],
+[-22.02,0.000022,0.000008],
+[-21.52,0.000058,0.000015],
+[-21.02,0.000120,0.000025],
+[-20.52,0.000293,0.000046],
+[-20.02,0.000593,0.000090],
+[-19.52,0.001222,0.000161],
+#NEW
+[-18.77,0.001720,0.000300],
+[-17.77,0.005840,0.001300],
+[-16.77,0.009420,0.002980]
 ])
-Obs_data2 = zeros([7,4])
-Obs_data2_log10 = zeros([7,4])
+Obs_data2 = zeros([10,4])
+Obs_data2_log10 = zeros([10,4])
 Obs_data2yerror = [array(Bouwens[:,2]),array(Bouwens[:,2])]
-Obs_data2xerror = [0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+Obs_data2xerror = [0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.50,0.50,0.50]
 Obs_data2[:,0]=Bouwens[:,0]
 Obs_data2[:,1]=Bouwens[:,1]
 Obs_data2[:,2]=0
-Obs_data2[:,3]=0.25
+Obs_data2[:,3]= Obs_data2xerror
 Obs_data2_log10[:,0]=Bouwens[:,0]
 Obs_data2_log10[:,1]=log10(Bouwens[:,1])
 Obs_data2_log10[:,2]=0
-Obs_data2_log10[:,3]=0.25
-Obs_data2yerror[0][0]=0.00000199
+Obs_data2_log10[:,3]= Obs_data2xerror
+#Obs_data2yerror[0][0]=0.00000199
 Obs_data2_log10yerror = [array(log10(Bouwens[:,1]/(Bouwens[:,1]-Bouwens[:,2]))),
                          array(log10((Bouwens[:,1]+Bouwens[:,2])/Bouwens[:,1]))]
-Obs_data2_log10yerror[0][0]=0.30103
+#Obs_data2_log10yerror[0][0]=0.30103
 sigma2 = (Obs_data2_log10yerror[:][0] + Obs_data2_log10yerror[:][1] )/2
 
 OD2 = [Obs_data2.transpose(), HIST2_bins, sigma2, "Bouwens"]

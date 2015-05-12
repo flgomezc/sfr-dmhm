@@ -10,7 +10,7 @@ Mag0 = -4.61455/0.2587
 Dust_Ext = 1
 
 # Set of parameters to fit
-Obs_Data = [OD1]
+Obs_Data = [OD2]
 
 # Initial Conditions
 L_0in   = 10.0**(18.0)
