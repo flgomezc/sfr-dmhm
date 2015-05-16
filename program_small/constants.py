@@ -20,7 +20,7 @@ gammain =  0.4
 MULT    =  1
 
 # Number of Monte-Carlo Steps
-MS = 1000
+MS = 100000
 
 # Monte-Carlo tuning
 chi_sqr_treshold = 30
