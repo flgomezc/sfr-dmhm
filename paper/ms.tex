@@ -34,7 +34,7 @@
 
 
 \title{The connection between star formation rate and dark matter halo
-  mass in the epoch of reionization}  
+  mass during reionization}
 \shorttitle{SFR and DM halo mass during reionization}
 
 \shortauthors{Gomez-Cortes, Forero-Romero}
@@ -52,17 +52,15 @@ formation rate and dark matter halo mass at redshift $z\sim 6$.
 The observational basis for our work is the restframe UV luminosity
 function data obtained with HST, CFHTLS, Subary and UKIRT.
 The constraints are based on an abundance matching methodology to the
-observational data using cosmological N-body simulations.
-The relationship between halo mass and star formation rate follows a
-double power law.
-We also take into account the influence on the results of the dust extinction
+observational data using cosmological N-body simulations assuming a
+doible power law relationship between halo mass and star formation
+rate follows
+We take into account the influence on the results of the dust extinction
 scaling derived from observations by Bouwens et al. (2012).
 Taking advantage of a wide dynamical range in observations and
 simulations we manage to constrain the free parameters of our model
 for halos in the mass range $10^{10}\Msun < M_{h}<10^{13}\Msun$. 
-We find that including dust extinction improves the the match with
-observations.
-Finally, we compare these results against the prediction of abundance matching
+We compare our results against the constraints of abundance matching
 methods (to the stellar mass), a semi-analytic model of galaxy
 formation (GALFORM) and a hydrodynamical simulation (Illustris).
 \end{abstract}
@@ -76,9 +74,9 @@ All magnitudes are in AB system.
 \section{Observational Constraints}
 \label{sec:theo}
 
-We use information compiled in four different publications. 
-All of them select galaxy candidates at $z\sim 6$ using the drop-out
-technique \citep{Steidel96}.  
+We use information compiled in four different publications that select
+galaxy candidates at $z\sim 6$ using the drop-out  technique
+\citep{Steidel96}.   
 In what follows we describe the relevant details of each reference.
 
 
@@ -90,9 +88,6 @@ The survey inclues the following fields of view. XDF,
 HUDF09-1, HUDF09-2, CANDELS-S/Deep,  CANDELS-S/Wide, ERS,
 CANDELS-N/Deep, CANDELS-N/Wide, CANDELS-UDS,  CANDELS-COSMOS and
 CANDELS-EGS.
-%The information in that study comes from the ACS and WFC3/IR using the
-%filter $B_{435}$, $V_{606}$, $ i_{814}$, $ z_{850}$, $ I_{814}$, $Y_{098}$, $Y_{105}$,
-%$J{125}$,  $JH_{140}$ and $H_{160}$.
 
 %with areas of 4.7, 4.7, 4.7, 64.5, 34.2,  40.5, 62.9,
 %60.9, 151.2, 151.9 and 150.7 arcmin$^2$ respectively.  
@@ -108,8 +103,6 @@ $-22.52\leq M_{1600} \leq -16.77$.
 The estimated Schechter parameters:
 $\phi^* =(0.33_{-0.10}^{+0.15}) \times 10 ^{-3}  \textrm{Mpc}^{-3} $, 
 $M^*_{1600} = -21.16\pm 0.20$ and $\alpha = -1.91 \pm 0.09$. 
-%\citet{Bouwens15} notes that only using few fields of view can yield a
-%LF with a deviations from the Schechter shape.
 
 
 \subsection{Finkelstein et al. 2014}
@@ -245,8 +238,12 @@ where $M$ is the DM mass, $L_{0}$ is a normalization constant, $M_0$
 is the critical mass where the luminosity function has a slope change, 
 $\beta$ and $\gamma$ are two slopes corresponding to the faint and
 bright end, respectively. 
-We now that this equation has the same functional dependence suggested
+We note that this equation has the same functional dependence suggested
  by \citet{Moster10} to link stellar and dark matter masses.
+
+
+We also include a fixed intrinsic scatter in the mass to SFR
+relationship... %http://arxiv.org/pdf/1507.00999.pdf
 
 Once each halo has a UV luminosity we also have the option to include
 an extinction correction (as described in \SS \ref{subsec:dust})in
@@ -271,29 +268,35 @@ to finally link SFR with DM halo mass.
 Cosmological N-body simulations are the source of the dark matter halo
 populations.
 We use two different simulations to cover the wide dynamical range
-explored by the observations: Big MultiDark Planck (MDPL) and Planck
-Bolshoi (P-Bolshoi). 
-Both simulations use 2013 Planck cosmology  defined by the following
-parameters: $\Omega_M = 0.307$, $\Omega_B = 0.048$, $\Omega_\Lambda =
+explored by the observations: the Big MultiDark Planck (MDPL) and
+Planck-Bolshoi (P-Bolshoi).  
+Both simulations use cosmological parameters consistent with 2013
+Planck results: $\Omega_M = 0.307$, $\Omega_B = 0.048$, $\Omega_\Lambda =
 0.730$, $\sigma_8 = 0.829$, $n_s = 0.96$ and  $H_0 = 67.8$.  
 
-The MDPL run is a N-body dark matter only simulation based on the L-Gadget2 
-code. 
-The simulated volume is a cubic box of $1 \textrm{Gpc h}^{-1}$ on a side.
-It has $3840^3$ dark matter particles mass of $1.51\times 9
-\textrm{M}_{\odot} \textrm{h}^{-1}$.
-The DMH Catalog at $z=6$ contains $\sim 10.9 \times 10^7$   halos, to
-avoid incompleteness in the low mass end, halos with mass below
-$10^{10.3} \textrm{M}_{\odot} \textrm{h}^{-1}$ are rejected. 
-We split this large volume into 64 smaller cubic boxes of $250$\hMpc
-on a side (similar volume to the observations by \citet{Willott13}) to
-study the influence of cosmic variance. 
+The MDPL is a N-body dark matter only simulation ran unsing the
+L-Gadget2 code.
+The simulated volume is a cubic box of $1000$ \hMpc on a side.
+It has $3840^3$ dark matter particles mass of $1.51\times 10^{9}$ \hMsun.
+The halo catalog at $z=6$ is built using the Bound Density Maxima algorithm.
+We split the simulation volume into 64 smaller cubic boxes of
+$250$\hMpc to study the influence of cosmic variance in matching the
+observations  by \citet{Willott13} 
 
-The P-Bolshoi simulation...
+The P-Bolshoi simulation follows the non-linear evolution of $2048^3$
+particles in a cubic box of $250$ \hMpc on a side.
+This translates into a mass resolution of $1.35\times 10^{8}$ \hMsun
+per particle. We split this simulation into $8$ smaller cubic boxes of
+$125$ \hMpc on a side to study cosmic variance in matching the
+observations by \citet{McLure09, Finkelstein14, Bouwens15}
+
+To avoid incompleteness in the low mass end we exclude halos with
+masses lower than $10^{10.3}$\hMsun.
 
 
-We obtained the data from the public
-database\footnote{\url{http://www.multidark.org}} \citep{Riebe13}. 
+
+We obtain the halo catalogs from the public \texttt{cosmosim}
+database \footnote{\url{http://www.cosmosim.org}} \citep{Riebe13}.   
 
 
 
