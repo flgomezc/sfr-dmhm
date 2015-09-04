@@ -374,7 +374,7 @@ Parameter                  & MCMC                  & C.Var. & MCMC              
 $\log_{10}(L_0/L_{\odot})$ & $18.07_{-0.06}^{+0.10}$ & 0.03 & $17.81_{-0.08}^{+0.12}$ & 0.02  \\
 $\log_{10}(M_0/M_{\odot})$ & $11.19_{-0.03}^{+0.67}$ & 0.07 & $11.12_{-0.24}^{+0.58}$ & 0.06  \\
 $\beta$                    & $1.480_{-1.28}^{+0.11}$ & 0.18 & $ 1.44_{-1.35}^{+0.16}$ & 0.18  \\
-$\gamma\times0.1$          & $4.028_{-0.82}^{+3.01}$ & 0.58 & $ 5.18_{-0.59}^{+2.36}$ & 0.58  \\
+$\gamma\times10$           & $4.028_{-0.82}^{+3.01}$ & 0.58 & $ 5.18_{-0.59}^{+2.36}$ & 0.58  \\
 \hline\hline
 \end{tabular}
 \caption{ Best fit parameters to the Willott data with and without 
@@ -387,17 +387,15 @@ with MCMC, mean $1\sigma$ confidence interval and Cosmic Variance
 \end{table}
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan elementum leo at ornare. Curabitur at ligula ac purus ultrices suscipit in non leo. Aliquam erat volutpat. Curabitur sit amet lectus ligula. Sed tincidunt urna ac felis sodales, non accumsan lorem porta. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur risus dolor, sollicitudin sit amet fringilla volutpat, convallis eu nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vulputate elit sit amet risus interdum, nec efficitur velit aliquam. Mauris nec scelerisque nisi, sed accumsan nunc. Pellentesque elementum pulvinar magna. Donec eleifend luctus libero vitae fermentum. Proin eu viverra est. Duis eget congue libero, nec iaculis libero.
-
 \begin{table}
 \begin{center}
 \begin{tabular}{cccccc}\hline\hline
  & \multicolumn{2}{c}{Dust Att.} & \multicolumn{2}{c}{No-Dust Att.}\\
 Parameter                  & MCMC                  & C.Var. & MCMC                    & C.Var. \\\hline
-$\log_{10}(L_0/L_{\odot})$ & $18.27_{-0.22}^{+0.33}$ & 0.03 & $17.81_{-0.16}^{+0.22}$ & 0.06  \\
-$\log_{10}(M_0/M_{\odot})$ & $11.43_{-0.49}^{+0.57}$ & 0.07 & $11.82_{-0.32}^{+1.02}$ & 0.13  \\
-$\beta$                    & $ 0.88_{-0.27}^{+0.39}$ & 0.18 & $ 0.91_{-0.48}^{+0.63}$ & 0.04  \\
-$\gamma\times0.1$          & $ 1.41_{-1.41}^{+7.58}$ & 0.58 & $ 1.34_{-1.34}^{+6.77}$ & 0.13  \\
+$\log_{10}(L_0/L_{\odot})$ & $18.27_{-0.22}^{+0.33}$ & 0.06 & $17.81_{-0.16}^{+0.22}$ & 0.07  \\
+$\log_{10}(M_0/M_{\odot})$ & $11.43_{-0.49}^{+0.57}$ & 0.13 & $11.82_{-0.32}^{+1.02}$ & 0.18  \\
+$\beta$                    & $ 0.88_{-0.27}^{+0.39}$ & 0.04 & $ 0.91_{-0.48}^{+0.63}$ & 0.11  \\
+$\gamma\times10$           & $ 1.41_{-1.41}^{+7.58}$ & 1.34 & $ 1.34_{-1.34}^{+6.77}$ & 1.03  \\
 \hline\hline
 \end{tabular}
 \caption{ Best fit parameters to the Bouwens data with and without 
@@ -406,6 +404,48 @@ with MCMC, mean $1\sigma$ confidence interval and Cosmic Variance
 (C.Var.)
 } 
 \label{table:Bouwens_best_fit_parameters_no_dust}
+\end{center}
+\end{table}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{cccccc}\hline\hline
+ & \multicolumn{2}{c}{Dust Att.} & \multicolumn{2}{c}{No-Dust Att.}\\
+Parameter                  & MCMC                  & C.Var. & MCMC                    & C.Var. \\\hline
+$\log_{10}(L_0/L_{\odot})$ & $18.03_{-0.20}^{+0.08}$ & 0.05 & $17.78_{-0.12}^{+0.15}$ & 0.07  \\
+$\log_{10}(M_0/M_{\odot})$ & $11.41_{-0.83}^{+0.57}$ & 0.27 & $11.01_{-0.43}^{+0.83}$ & 0.40  \\
+$\beta$                    & $ 0.49_{-0.44}^{+1.07}$ & 0.60 & $ 0.67_{-0.65}^{+0.90}$ & 0.64  \\
+$\gamma\times10$           & $ 1.95_{-1.39}^{+2.93}$ & 2.43 & $ 3.36_{-1.06}^{+2.91}$ & 0.78  \\
+\hline\hline
+\end{tabular}
+\caption{ Best fit parameters to the McLure data with and without 
+dust attenuation over 8 tiny boxes. Mean best value estimated 
+with MCMC, mean $1\sigma$ confidence interval and Cosmic Variance
+(C.Var.)
+} 
+\label{table:McLure_best_fit_parameters_no_dust}
+\end{center}
+\end{table}
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{cccccc}\hline\hline
+ & \multicolumn{2}{c}{Dust Att.} & \multicolumn{2}{c}{No-Dust Att.}\\
+Parameter                  & MCMC                  & C.Var. & MCMC                    & C.Var. \\\hline
+$\log_{10}(L_0/L_{\odot})$ & $17.98_{-0.07}^{+0.23}$ & 0.04 & $17.63_{-0.06}^{+0.17}$ & 0.01  \\
+$\log_{10}(M_0/M_{\odot})$ & $11.17_{-0.10}^{+0.51}$ & 0.05 & $10.88_{-0.11}^{+0.44}$ & 0.05  \\
+$\beta$                    & $ 1.36_{-0.48}^{+0.22}$ & 0.08 & $ 1.56_{-0.75}^{+0.03}$ & 0.04  \\
+$\gamma\times10$           & $ 0.24_{-0.23}^{+5.03}$ & 0.20 & $ 0.93_{-0.83}^{+3.03}$ & 0.42  \\
+\hline\hline
+\end{tabular}
+\caption{ Best fit parameters to the Finkelstein data with and without 
+dust attenuation over 8 tiny boxes. Mean best value estimated 
+with MCMC, mean $1\sigma$ confidence interval and Cosmic Variance
+(C.Var.)
+} 
+\label{table:Finkelstein_best_fit_parameters_no_dust}
 \end{center}
 \end{table}
 
