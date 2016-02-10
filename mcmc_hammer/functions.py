@@ -44,7 +44,7 @@ def Dust_Extinction():
 
 def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSets):
     """
-Markov Chain  Monte Carlo function.
+Markov Chain Monte Carlo function.
 
 This function writes MonteCarloSteps lines in the input file MCMC_reg.
 The jump-size on the parameters space is controlled by the "constants.py" file
