@@ -3,7 +3,7 @@ import pylab as P
 import time
 from random             import *
 from constants          import *
-from observational_data import *
+from obs_dat import *
 
 # 2015-mar-22: Chi2 modification in MCMC
 
@@ -19,7 +19,8 @@ def Luminosity(M,L_0,M_0,beta,gamma):
     M_0   (double) ~10**11.4 (Msun)
     beta  (double) >0
     gamma (double) > 0"""
-    return L_0 * M / ( (M/M_0)**(-beta) + (M/M_0)**gamma )
+
+    return L_0*M*( (M/M_0)**(-beta) + (M/M_0)**gamma)**(-1)
 
 def StarFormationRate(M,L_0,M_0,beta,gamma):
     """Returns SFR (in Msun yr-1) of a DM halo of mass M

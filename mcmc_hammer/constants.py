@@ -1,26 +1,24 @@
 import numpy as np
-import pylab as P
-from observational_data import *
+from obs_dat import *
 
 hpl = 0.6777
 Mag0 = -4.61455/0.2587
 
 # Dust Attenuation/Extinction
 # only if Dust_Ext == 1
-Dust_Ext = 0
+Dust_Ext = 1
 
 # Set of parameters to fit
-Obs_Data = [OD2]
+Obs_Data = [OD1]
 
 # Initial Conditions
-L_0in   = 10.0**(18.666666)
+L_0in   = 10.0**(18.0)
 M_0in   = 10.0**(11.25)
-betain  =  1.2 
-gammain =  0.2
-MULT    =  1
+betain  =  0.75
+gammain =  0.4
 
 # Number of Monte-Carlo Steps
-MS = 100000
+MS = 30000-1
 
 # Monte-Carlo tuning
 chi_sqr_treshold = 30
