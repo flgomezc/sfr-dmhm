@@ -15,12 +15,12 @@ OBS2 = dataset("Willott","Willott_2013.dat", PathToObs)
 
 ######################################################################
 # Catalog and Attenuation options
+# Box Size in Mpc/ hpl; the Hubble parameter using the 2013 Planck cosmology.
 ######################################################################
-Dust_Ext = 0             # Dust Attenuation/Extinction ON(1) / OFF(0)
-NB = 0                   # Number of the catalog to work
-BoxLength = 250.0 /hpl   # Box Size in Mpc. Must be divided by the
-                         # Hubble parameter in the 2013 Planck cosmology.
-Obs_Data = [OBS1]         # Set of parameters to fit
+Obs_Data = [OBS1]        # Set of parameters to fit
+Dust_Ext = 1             # Dust Attenuation model ON(1) / OFF(0)
+Catalog = "Planck"       # Options: Bolshoi or Planck
+BN = 0                   # Box Number
 
 ######################################################################
 # MCMC options
@@ -45,10 +45,26 @@ BlowUp  = 1.0e3        # In case that first and/or second bin are equal to zero
 # Create multiple output files
 ######################################################################
 if (Dust_Ext ==1):
-    filename = 'mcmc_steps/dust_on/'+str(NB)+'.dat'
+    filename = 'mcmc_steps/dust_on/'+str(BN)+'.dat'
 #    MCMC_reg = open( filename, 'w')
 else:
-    filename = 'mcmc_steps/dust_off/'+str(NB)+'.dat'
+    filename = 'mcmc_steps/dust_off/'+str(BN)+'.dat'
 MCMC_reg = open( filename, 'w')
 # MCMC_reg = [open( 'results_wo_ext_/%i.dat' %filenumber, 'w')
 # for filenumber in NB]
+
+
+if Catalog == "Bolshoi":
+  BoxLength = 250.0 / hpl
+  PathToCat = "../data/theory/BolshoiP_2048_z6_Mhalo/L_125_Mpc_cells/"
+  if BN >= 64:
+    exit("settings.py error:\n\tWrong Box Number\n\t0<=BN<8 for Bolshoi sim.")
+elif Catalog == "Planck":
+  BoxLength = 250.0 /hpl
+  PathToCat = "../data/theory/MD_3840_Plank1_z6_Mhalo/L_250_Mpc_cells/"
+  if BN >= 64:
+    exit("settings.py error:\n\tWrong Box Number\n\t0<=BN<64 for Planck sim.")
+else:
+  err_msg = str("settings.py error: \n\tmissmatching catalog name\n\t Please"+
+  "choose one properly between \"Bolshoi\" and \"Planck\"\n" )
+  exit(err_msg)
