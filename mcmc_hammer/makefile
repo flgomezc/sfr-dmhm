@@ -11,3 +11,4 @@ results :
 
 clean :
 					rm -Rf *.pyc *~
+					clear
