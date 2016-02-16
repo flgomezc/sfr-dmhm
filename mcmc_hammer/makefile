@@ -1,10 +1,13 @@
-all :
+all :     mcmc_steps results
 					python main.py
 
-results_w_ext_ :
-					mkdir results_w_ext_
-results_wo_ext_ :
-					mkdir results_wo_ext_
+mcmc_steps :
+					mkdir mcmc_steps
+					mkdir mcmc_steps/dust_on
+					mkdir mcmc_steps/dust_off
+
+results :
+					mkdir results
 
 clean :
 					rm -Rf *.pyc *~

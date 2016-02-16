@@ -16,8 +16,8 @@ OBS2 = dataset("Willott","Willott_2013.dat", PathToObs)
 ######################################################################
 # Catalog and Attenuation options
 ######################################################################
-Dust_Ext = 1             # Dust Attenuation/Extinction ON(1) / OFF(0)
-NB = range(0,1)          # Range with the number of catalogs to work
+Dust_Ext = 0             # Dust Attenuation/Extinction ON(1) / OFF(0)
+NB = 0                   # Number of the catalog to work
 BoxLength = 250.0 /hpl   # Box Size in Mpc. Must be divided by the
                          # Hubble parameter in the 2013 Planck cosmology.
 Obs_Data = [OBS1]         # Set of parameters to fit
@@ -42,10 +42,13 @@ BlowUp  = 1.0e3        # In case that first and/or second bin are equal to zero
 
 ######################################################################
 # Output files
+# Create multiple output files
 ######################################################################
 if (Dust_Ext ==1):
-    MCMC_reg = [open( 'results_w_ext_/%i.dat' %filenumber, 'w')
-    for filenumber in NB]
+    filename = 'mcmc_steps/dust_on/'+str(NB)+'.dat'
+#    MCMC_reg = open( filename, 'w')
 else:
-    MCMC_reg = [open( 'results_wo_ext_/%i.dat' %filenumber, 'w')
-    for filenumber in NB]
+    filename = 'mcmc_steps/dust_off/'+str(NB)+'.dat'
+MCMC_reg = open( filename, 'w')
+# MCMC_reg = [open( 'results_wo_ext_/%i.dat' %filenumber, 'w')
+# for filenumber in NB]
