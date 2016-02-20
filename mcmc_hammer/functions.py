@@ -68,10 +68,9 @@ def initial_positions(nwalkers):
         while (gammaR<0) or (gammaR>0.9):
             gammaR = gammain+ gauss(0.0,K3)
 
-        p.append(array([L_0R, M_0R, betaR, gammaR]))
+        p.append(np.array([L_0R, M_0R, betaR, gammaR]))
+    p = np.array(p)
     return p
-
-
 
 def lnprob( X, Mass, DataSets ):   #X = [M, L_0, M_0, beta, gamma]
     """ Likelihood function.
@@ -97,7 +96,16 @@ def lnprob( X, Mass, DataSets ):   #X = [M, L_0, M_0, beta, gamma]
     if (M_0<0):
         return -numpy.inf
 
+    ### Create Luminosity Catalog from Halo Mass Catalog and parameters
+    L   =   np.zeros(Mass.size)
+    L[:]= Luminosity(Mass[:], L_0, M_0, beta, gamma)
 
+    ### Create the Magnitude Catalog with/without dust attenuation
+    Mag = 51.82 - 2.5 * np.log10(L)
+    if (Dust_Ext == 1):
+        Mag[Mag < Mag0] = ( Mag[Mag< Mag0]-4.61455)/1.2587
+
+    ### Create histograms & Normalize the histograms
 
 
 
