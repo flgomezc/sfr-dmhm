@@ -16,15 +16,18 @@ print len(M)
 ### MCMC settings
 DataSets=[OBS1]
 ndim     = 4
-nwalkers = 8*2*2
-nstepsburn=100
-nstepsrun = 100
+nwalkers = 8*2
+nstepsburn=10
+nstepsrun = 10
 #Initial set of positions for the walkers
 p0 = functions.initial_positions(nwalkers) #(initial guess)
 
 # Initialize the sampler with the chosen specs.
-sampler = emcee.EnsembleSampler(nwalkers, ndim, functions.lnprob,
-                                args=[M, DataSets],threads=8)
-                                # threads==processors
+# threads==number of processors
+sampler = emcee.EnsembleSampler(nwalkers, ndim, functions.ln_likelihood,
+                                args=[M, DataSets],threads=4)
 
 pos, prob, state = sampler.run_mcmc(p0, nstepsburn)
+print pos
+print prob
+print state
