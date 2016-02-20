@@ -41,6 +41,66 @@ def Dust_Extinction():
         print "Dust Extinction OFF"
     #return 0
 
+def initial_positions(nwalkers):
+    """Initial position of Random Walkers
+
+    Uses four gaussians to generate random inital parameters."""
+    mult= 1.
+    p = []
+    K0 = k0*mult
+    K1 = k1*mult
+    K2 = k2*mult
+    K3 = k3*mult
+
+    for i in range(nwalkers):
+        L_0R   = L_0in  *10**(gauss(0.0,K0))
+        M_0R   = M_0in  *10**(gauss(0.0,K1))
+        betaR  = betain + gauss(0.0,K2)
+        gammaR = gammain+ gauss(0.0,K3)
+
+    ### Some constraints over parameters
+        while (L_0R <10**(16.75)) or (L_0R >10**(19.0)):
+            L_0R   = L_0in  *10**(gauss(0.0,K0))
+        while (M_0R < 10**10.50) or (M_0R > 10**12.00):
+            M_0R   = M_0in  *10**(gauss(0.0,K1))
+        while (betaR<0) or (betaR>1.6):
+            betaR  = betain + gauss(0.0,K2)
+        while (gammaR<0) or (gammaR>0.9):
+            gammaR = gammain+ gauss(0.0,K3)
+
+        p.append(array([L_0R, M_0R, betaR, gammaR]))
+    return p
+
+
+
+def lnprob( X, Mass, DataSets ):   #X = [M, L_0, M_0, beta, gamma]
+    """ Likelihood function.
+
+    Inputs:
+        X = [L_0, M_0, beta, gamma]
+        M : Mass Catalog
+        DataSets: The set of observations to fit. Example [OD1,OD3]
+    """
+    L_0   = X[0]
+    M_0   = X[1]
+    beta  = X[2]
+    gamma = X[3]
+
+    #print "beta= ", beta, ", gamma= ", gamma
+    ### Restriction over parameters
+    if (gamma<0)|(gamma>1.0):
+        return -numpy.inf
+    if (beta<0)|(beta>1.0):
+        return -numpy.inf
+    if (L_0<0):
+        return -numpy.inf
+    if (M_0<0):
+        return -numpy.inf
+
+
+
+
+
 def MCMC( BoxLength, MonteCarloSteps, M, L_0, M_0, beta, gamma,MCMC_reg, *DataSets):
     """
 Markov Chain Monte Carlo function.
