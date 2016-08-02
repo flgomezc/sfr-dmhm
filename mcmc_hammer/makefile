@@ -1,14 +1,15 @@
-all :     mcmc_steps results
-					python main.py
+#Variables
+x = foo bar
 
-mcmc_steps :
-					mkdir mcmc_steps
-					mkdir mcmc_steps/dust_on
-					mkdir mcmc_steps/dust_off
+all:	dir $(x)
+	python main.py $(x)
 
-results :
-					mkdir results
+dir:
+	mkdir dir
 
-clean :
-					rm -Rf *.pyc *~
-					clear
+$(x):
+	mkdir $(x)
+
+clean:
+	rm -r dir
+
